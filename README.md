@@ -1,1 +1,0 @@
-# jjdavidson.github.io
