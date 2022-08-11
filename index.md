@@ -1,37 +1,11 @@
-## Welcome to GitHub Pages
+# A Rant About High School Math
 
-You can use the [editor on GitHub](https://github.com/jjdavidson/jjdavidson.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Working as a math tutor for over a decade, I am often asked about my math background. Parents often ask this question right before I begin tutoring their child. I usually reply that I was a math major at some prestigious university in order to quell thier fears. The parents will then chat about their experience with math in high school. Some parents talk about the their trauma from high school mathematics. Others complain about math being easy until Calculus. A few even boast about how they never took a math class again after high school. (Please do not say these things right before I help your child not fail their math class.)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+>I was really good at math until high school. Then,
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/jjdavidson/jjdavidson.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+What is the difference between Algebra 2 and Pre-Calculus
+Why are calculus students bad at algebra?
+Why do we do proofs only in geometry?
