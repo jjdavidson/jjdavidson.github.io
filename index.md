@@ -1,8 +1,8 @@
-# A Rant About High School Math
+## About Me
+I am a graduate student at California State University Los Angeles (CSULA) pursuing a Master's Degree in mathematics. I serve as the Math Gym Coordinator at CSULA which supports the Precalculus and Calculus Class sequences. I have also taught the Precalculus classes, Math 1081 and Math 1085, at CSULA. Previously, I completed my undergraduate degree in Mathematics at Stanford University in 2020.
 
-Working as a math tutor for over a decade, I am often asked about my math background. Parents often ask this question right before I begin tutoring their child. I usually reply that I was a math major at some prestigious university in order to quell their fears. The parents will then chat about their experience with math in high school. Some parents talk about the their trauma from high school mathematics. Others reminisce about how good they were at math until their sophomore or junior years. Why is the high school math experiences
+## Research
+My research interests are in combinatorics. In particular, I like to study hypergraphs, extremal combinatorics, and algebraic combinatorics. Recently, I have been focusing on the Erdős Box Problem, Odd Covers of Hypergraphs, and the Union-Closed Sets Conjecture under the tutelage of Jason O'neill at CSULA.
 
-
-- What is the difference between Algebra 2 and Pre-Calculus?
-- Why are calculus students bad at algebra?
-- Why do we do proofs only in geometry?
+## Contact
+**Email:** jdavids6@calstatela.edu
