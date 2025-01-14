@@ -1,7 +1,3 @@
-layout: page
-title: "Curriculum Vitae"
-permalink: /curriculum-vitae
-
 # Jonathan Davidson
 
 *Email:* jdavids6@calstatela.edu
