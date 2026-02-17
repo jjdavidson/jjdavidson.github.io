@@ -2,6 +2,8 @@
 Title: The Monotone Class Theorem and the Pi-Lambda Theorem
 ---
 
+{% include breadcrumbs.html series="measure-theory" label="Measure Theory" %}
+
 # Section 2: The Monotone Class Theorem and the $\pi$-$\lambda$ Theorem
 
 ## Monotone Sequences of Sets
