@@ -1,5 +1,5 @@
 ---
-Title: Sigma Algebras and Set Systems
+title: Sigma Algebras and Set Systems
 layout: default
 ---
 
