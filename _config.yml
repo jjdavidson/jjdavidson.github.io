@@ -1,6 +1,12 @@
 title: Jonathan Davidson
 description: Personal Website for Jonathan Davidson
-theme: minima
+remote_theme: just-the-docs/just-the-docs
+plugins:
+  - jekyll-remote-theme
+
+search_enabled: true
+color_scheme: light
+
 markdown: kramdown
 
 collections:
