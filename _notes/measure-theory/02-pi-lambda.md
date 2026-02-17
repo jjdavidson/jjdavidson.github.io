@@ -1,6 +1,6 @@
 ---
 title: The Monotone Class Theorem and the Pi-Lambda Theorem
-layout: default
+parent: Measure Theory
 ---
 
 {% include breadcrumbs.html series="measure-theory" label="Measure Theory" %}
