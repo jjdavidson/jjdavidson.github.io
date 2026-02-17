@@ -1,0 +1,15 @@
+title: Jonathan Davidson
+description: Personal Website for Jonathan Davidson
+theme: minima
+markdown: kramdown
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:path/
+  teaching:
+    output: true
+    permalink: /teaching/:path/
+  research:
+    output: true
+    permalink: /research/:path/
