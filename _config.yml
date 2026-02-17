@@ -19,3 +19,15 @@ collections:
   research:
     output: true
     permalink: /research/:path/
+
+just_the_docs:
+  collections:
+    notes:
+      name: Math Notes
+      nav_fold: true
+    teaching:
+      name: Teaching
+      nav_fold: true
+    research:
+      name: Research
+      nav_fold: true
