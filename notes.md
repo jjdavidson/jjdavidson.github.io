@@ -1,14 +1,9 @@
 ---
 layout: default
-title: Math Notes
+title: Notes
 permalink: /notes/
 ---
 
-# Math Notes
+# Notes
 
-## Measure Theory
-
-{% assign measure = site.notes | where_exp: "p", "p.path contains 'measure-theory'" %}
-{% for p in measure %}
-- [{{ p.title }}]({{ p.url }})
-{% endfor %}
+- [Measure Theory](/notes/measure-theory/)
