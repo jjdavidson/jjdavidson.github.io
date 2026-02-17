@@ -1,0 +1,57 @@
+{% comment %}
+Usage:
+  {% include series-nav.html series="measure-theory" label="Measure Theory" %}
+
+Assumptions:
+- Notes are in _notes/<series>/...
+- Filenames begin with sortable prefixes like 01-, 02-, ...
+{% endcomment %}
+
+{% assign series = include.series %}
+{% assign label  = include.label | default: series %}
+
+{% assign items = site.notes
+  | where_exp: "p", "p.path contains series"
+  | sort: "path" %}
+
+{% assign urls = "" | split: "" %}
+{% for p in items %}
+  {% assign urls = urls | push: p.url %}
+{% endfor %}
+
+{% assign idx = nil %}
+{% for u in urls %}
+  {% if u == page.url %}
+    {% assign idx = forloop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% if idx != nil %}
+  {% assign prev_i = idx | minus: 1 %}
+  {% assign next_i = idx | plus: 1 %}
+
+  <hr>
+  <div style="display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; align-items:center;">
+    <div>
+      {% if prev_i >= 0 %}
+        {% assign prev_url = urls[prev_i] %}
+        {% assign prev_page = items[prev_i] %}
+        <a href="{{ prev_url }}">&larr; Previous: {{ prev_page.title }}</a>
+      {% endif %}
+    </div>
+
+    <div style="flex:1; text-align:center;">
+      <a href="/notes/">&#8679; Notes</a>
+      &nbsp;·&nbsp;
+      <a href="/notes/{{ series }}/">{{ label }}</a>
+    </div>
+
+    <div style="text-align:right;">
+      {% if next_i < urls.size %}
+        {% assign next_url = urls[next_i] %}
+        {% assign next_page = items[next_i] %}
+        <a href="{{ next_url }}">Next: {{ next_page.title }} &rarr;</a>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
