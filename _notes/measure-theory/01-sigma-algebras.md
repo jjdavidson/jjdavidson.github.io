@@ -1,5 +1,6 @@
 ---
 Title: Sigma Algebras and Set Systems
+layout: default
 ---
 
 {% include breadcrumbs.html series="measure-theory" label="Measure Theory" %}
