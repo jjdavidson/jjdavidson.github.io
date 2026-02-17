@@ -82,7 +82,7 @@ $$A \coloneqq \prod_{i \in N} (0,1], \quad B \coloneqq \prod_{i\in \N}(0,0.5]$$
 
 Then $B \subset A$ and 
 
-$$A \setminus B = \big\{(x_n) \in (0,1]^{\N}: \exist n,\ x_n > 0.5 \big\}$$
+$$A \setminus B = \big\{(x_n) \in (0,1]^{\N}: \exists n,\ x_n > 0.5 \big\}$$
 
 For the sake of contradiction, suppose there exists $S_1,\dots,S_m \in \mathcal{S}^{\N}$ such that
 $$A \setminus B = \bigcup_{k=1}^m S_k, \quad S_k = \prod_{n \in \N} I_{k,n}$$
