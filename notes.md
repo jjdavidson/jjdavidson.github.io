@@ -1,7 +1,8 @@
 ---
 layout: default
-title: Notes
+title: Math Notes
 permalink: /notes/
+nav_order: 3
 ---
 
 # Notes
