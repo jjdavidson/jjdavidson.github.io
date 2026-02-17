@@ -369,3 +369,5 @@ This recursive structure allows for each level to be assigned some countable ord
 
 The Borel hierarchy illustrates a recurring theme: complicated sets are built from simpler ones by iterating limits.
 Much of modern analysis can be viewed as understanding which constructions preserve measurability and how convergence interacts with this hierarchy.
+
+{% include series-nav.html series="measure-theory" label="Measure Theory" %}
