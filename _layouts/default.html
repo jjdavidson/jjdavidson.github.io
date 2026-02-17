@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.title }}</title>
+
+    {% include mathjax.html %}
+  </head>
+
+  <body style="max-width: 900px; margin: 2rem auto; padding: 0 1rem; font-family: system-ui;">
+
+    <nav style="margin-bottom: 1.5rem;">
+      <a href="/">Home</a> ·
+      <a href="/cv/">CV</a> ·
+      <a href="/math/">Math</a> ·
+      <a href="/class/">Class</a> ·
+      <a href="/research/">Research</a>
+    </nav>
+
+    {{ content }}
+
+  </body>
+</html>
