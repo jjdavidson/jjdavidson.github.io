@@ -1,7 +1,7 @@
 ---
-layout: default
 title: Measure Theory
-permalink: /notes/measure-theory/
+parent: Math Notes
+nav_order: 1
 ---
 
 # Measure Theory
