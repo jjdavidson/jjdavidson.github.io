@@ -11,9 +11,9 @@ I am a mathematician interested in **analysis and combinatorics**. My research c
 
 ## Background
 
-I completed my undergraduate studies at Stanford University, where I worked on problems related to **minimal and capillary surfaces**, studying how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
+I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces, studying how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
 
-I completed my master’s degree at **California State University, Los Angeles**, where I conducted research in **combinatorics**, including work on:
+I completed my master’s degree at California State University, Los Angeles, where I conducted research in combinatorics, including work on:
 
 - The chromatic number of Abelian Cayley graphs  
 - The multicolored Erdős box problem  
@@ -41,6 +41,3 @@ My goal is to understand these results structurally and to clarify how they supp
 
 Email: jonathan.j.davidson@gmail.com  
 
----
-
-You can find my CV and notes through the navigation links above.
