@@ -137,23 +137,15 @@ So in probability theory, the basic “atomic” events are not single sequences
 Fix a family of spaces $\{\Omega_i\}_{i\in\Gamma}$. For each $i\in\Gamma$, let $\mathcal{S}_i$ be a family of subsets of $\Omega_i$.
 Let $F\subset\Gamma$ be finite, and choose $A_i\in\mathcal{S}_i$ for each $i\in F$.
 The corresponding **cylinder set** is
-$$
-C\left(F;\,(A_i)_{i\in F}\right) \coloneqq
-\left\{\omega=(\omega_i)_{i\in\Gamma}\in\prod_{i\in\Gamma}\Omega_i \;:\;
-\omega_i\in A_i \text{ for all } i\in F \right\}.
-$$
+$$ C\left(F;\,(A_i)_{i\in F}\right) \coloneqq \left\{\omega=(\omega_i)_{i\in\Gamma}\in\prod_{i\in\Gamma}\Omega_i \;:\; \omega_i\in A_i \text{ for all } i\in F \right\} $$
 
 Equivalently,
-$$
-C\left(F;\,(A_i)_{i\in F}\right) =
-\left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\in \Gamma\setminus F}\Omega_i\right).
-$$
+$$ C\left(F;\,(A_i)_{i\in F}\right) = \left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\in \Gamma\setminus F}\Omega_i\right)$$
 
-We write $\mathrm{Cyl}(\{\mathcal{S}_i\})$ for the collection of all cylinder sets in $\prod_{i\in\Gamma}\Omega_i$
-constructed from the families $\mathcal{S}_i$.
+We write $\operatorname{Cyl}(\{\mathcal{S}_i\})$ for the collection of all cylinder sets in $\prod_{i\in\Gamma}\Omega_i$ constructed from the families $\mathcal{S}_i$.
 
 ## Proposition 1.2: Cylinder Sets form a Semi-ring
-Assume that each $\mathcal{S}_i$ is a semi-ring on $\Omega_i$. Then $\mathrm{Cyl}(\{\mathcal{S}_i\})$ is a semi-ring on $\Omega=\prod_{i\in\Gamma}\Omega_i$
+Assume that each $\mathcal{S}_i$ is a semi-ring on $\Omega_i$. Then $\operatorname{Cyl}(\{\mathcal{S}_i\})$ is a semi-ring on $\Omega=\prod_{i\in\Gamma}\Omega_i$
 
 ### Proof.
 1. Choose some $i_0\in\Gamma$ and take $F=\{i_0\}$ with $A_{i_0}=\varnothing\in\mathcal{S}_{i_0}$. Then
