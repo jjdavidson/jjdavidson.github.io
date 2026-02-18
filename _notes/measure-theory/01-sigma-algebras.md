@@ -6,6 +6,8 @@ nav_order: 1
 
 # Section 1: $\sigma$-Algebras
 
+---
+
 ## Set Notation Conventions
 In measure theory and probability, the **sample space**, or simply space will be denoted by $\Omega$.
 The **empty set** will be denoted by $\varnothing$.
@@ -27,16 +29,10 @@ Given sets $A$ and $B$, their **Cartesian product** is
 $$
 A \times B = \{(a,b) : a\in A,\ b\in B\}.
 $$
-More generally, for a family of sets $\{A_i\}_{i\in I}$ indexed by a set $I$, we write
-$$
-\prod_{i\in I} A_i
-$$
-for the collection of all functions $x:I\to\bigcup_{i\in I}A_i$ such that
-$x(i)\in A_i$ for each $i\in I$.
-
+More generally, for a multiset of sets $\mathcal{S}$ indexed by a set $I$, we write $\prod_{i\in I} S_i$ for the set of all infinite cartesian products whose elements are of the form $(x_i)_{i \in I}$ where $x_i \in S_i$ for all $i \in I$. 
+If $S_i = S_J = S$ for all $i,j \in I$, we simplify the notation to $S^{I}$.
 
 ## Set Identities
-
 We will assume that the reader is familiar with the usual properties of set operations. We will list useful set identities used throughout the notes without proof.
 
 ### DeMorgan's Laws
@@ -69,6 +65,8 @@ $$
 Many of these identities also hold for arbitrary unions and arbitrary intersections.  
 For proofs of these results, see Halmos, *Naive Set Theory*, Chapters I–II.
 
+---
+
 ## Semi-rings of Sets
 Historically, measure theory did not begin with abstract collections of sets.
 It began with concrete geometric problems: measuring lengths of intervals,
@@ -83,7 +81,7 @@ geometrically or probabilistically clear.
 The purpose of a semi-ring is to axiomatize the minimal structure needed for
 such elementary families.
 
-**Definition (Semi-ring).**  
+## Definition: Semi-ring of sets 
 A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
 
 1. $\varnothing\in\mathcal{S}$,
@@ -95,10 +93,7 @@ A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
 Informally, semi-rings are closed under intersection, and differences can be
 broken into finitely many simple pieces.
 
----
-
 ### Example: Half-open intervals
-
 Consider the set family of half-open intervals on $\R$.
 $$
 \mathcal{S}=\{(a,b]:a<b,\ a,b\in\R\}\cup\{\varnothing\}
@@ -108,37 +103,27 @@ Half-open intervals serve as the quintessential example of an elementary family 
 Higher-dimensional analogues are obtained by taking Cartesian products,
 yielding half-open rectangles in $\R^d$.
 
----
-
 ### Example: Finite products
-
 If $\mathcal{S}_1,\dots,\mathcal{S}_d$ are semi-rings, then the family
-
 $$
 \mathcal{S}_1\times\cdots\times\mathcal{S}_d
 =
 \{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
 $$
-
 is again a semi-ring.
 
 This explains why rectangles built from half-open intervals serve as the
 elementary sets for Euclidean space.
 
----
-
 ### Why infinite products require new ideas
-
 In probability theory and statistical physics, one frequently studies systems
 with infinitely many degrees of freedom: infinite sequences of coin flips,
 time-indexed stochastic processes, or random fields.
 
 These situations naturally lead to product spaces of the form
-
 $$
 \Omega=\prod_{i\in\Gamma}\Omega_i,
 $$
-
 where $\Gamma$ may be countable or uncountable.
 
 A crucial observation is that most events of practical interest do not depend
@@ -150,26 +135,19 @@ infinite sequence.
 
 This observation motivates the following class of sets.
 
----
-
 ### Example: Cylinder sets
-
-Let $F\subset\Gamma$ be finite, and let $A_i\subset\Omega_i$ for $i\in F$.
+Let $F\subset\Gamma$ be finite, and let $S_i\subset\Omega_i$ for $i\in F$.
 Define
 
 $$
-C(F,(A_i)_{i\in F})
-=
-\{x\in\Omega : x_i\in A_i \text{ for all } i\in F\}.
+C(F,(S_i)_{i\in F}) = \{x\in\Omega : x_i\in A_i \text{ for all } i\in F\}.
 $$
 
 Such a set is called a **cylinder set**.
-
 Cylinder sets describe events that depend only on finitely many coordinates.
-They form the natural starting point for constructing measures on infinite product spaces.
-
-If each $\mathcal{S}_i$ is a semi-ring on $\Omega_i$, we write
-$\mathrm{Cyl}(\{\mathcal{S}_i\})$ for the **family of all cylinder sets**.
-Moreover, $\mathrm{Cyl}(\{\mathcal{S}_i\})$ is a semi-ring on $\prod_{i\in\Gamma}\Omega_i$. The proof of this fact is relegated to the exercises.
+They form the natural starting point for constructing measures on infinite product spaces. 
+The **family of all cylinder sets** where $S_i \in \mathcal{S}_i$ and $\mathcal{S}_i$ is a semi-ring is also a semi-ring. The proof of this fact is relegated to the exercises.
 
 Cylinder sets will later play a central role in the study of product measures, stochastic processes, and modern limit theories for large combinatorial and geometric objects.
+
+---
