@@ -10,7 +10,8 @@ color_scheme: light
 
 markdown: kramdown
 
-footer_content: "© 2026 Jonathan Davidson. All rights reserved."
+footer_content: "© {{ site.time | date: '%Y' }} Jonathan Davidson. All rights reserved."
+nav_footer_content: "© {{ site.time | date: '%Y' }} Jonathan Davidson"
 
 collections:
   notes:
