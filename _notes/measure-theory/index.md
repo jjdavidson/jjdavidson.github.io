@@ -1,6 +1,6 @@
 ---
 title: Measure Theory
-parent: Notes
+parent: Math Notes
 has_children: true
 nav_order: 1
 ---
