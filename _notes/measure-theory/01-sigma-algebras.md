@@ -135,18 +135,18 @@ So in probability theory, the basic “atomic” events are not single sequences
 
 ## Example: Cylinder Sets
 Fix a family of spaces $\{\Omega_i\}_{i\in\Gamma}$. For each $i\in\Gamma$, let $\mathcal{S}_i$ be a family of subsets of $\Omega_i$.
-Let $F\subset\Gamma$ be a finite set, and let $A_i\in\mathcal{S}_i$ for each $i\in F$.
+Let $F\subset\Gamma$ be finite, and choose $A_i\in\mathcal{S}_i$ for each $i\in F$.
 The corresponding **cylinder set** is
 $$
-C(F;(A_i)_{i\in F})
-\;\coloneqq\;
-\left\{\omega=(\omega_i)_{i\in\Gamma}\in\prod_{i\in\Gamma}\Omega_i \;:\; \omega_i\in A_i\ \text{for all } i\in F\right\}.
+C\left(F;\,(A_i)_{i\in F}\right) \coloneqq
+\left\{\omega=(\omega_i)_{i\in\Gamma}\in\prod_{i\in\Gamma}\Omega_i \;:\;
+\omega_i\in A_i \text{ for all } i\in F \right\}.
 $$
+
 Equivalently,
 $$
-C(F;(A_i)_{i\in F})
-=
-\left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\notin F}\Omega_i\right).
+C\left(F;\,(A_i)_{i\in F}\right) =
+\left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\in \Gamma\setminus F}\Omega_i\right).
 $$
 
 We write $\mathrm{Cyl}(\{\mathcal{S}_i\})$ for the collection of all cylinder sets in $\prod_{i\in\Gamma}\Omega_i$
