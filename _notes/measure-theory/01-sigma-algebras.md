@@ -42,8 +42,13 @@ We will assume that the reader is familiar with the usual properties of set oper
 
 ### Decomposition
 - $A = (A \setminus B) \sqcup (A \cap B)$
-- For any sequence of sets $(A_n)$, $A_n = \bigcup_{k=1}^n\left(A_k \setminus A_{k-1}\right)$ where $A_0 = \varnothing$
-- For any sequence of sets $(A_n)$, $\bigcup_{n=1}^{\infty} A_n = \bigsqcup_{n=1}^{\infty} \left(A_n \setminus \bigcup_{k<n} A_k\right)$ 
+- For any sequence of sets $(A_n)$, 
+$$
+A_n = A_1 \cup \bigcup_{k=2}^n\left(A_k \setminus A_{k-1}\right)
+$$ 
+- For any sequence of sets $(A_n)$,  
+$$\bigcup_{n=1}^{\infty} A_n = \bigsqcup_{n=1}^{\infty} \left(A_n \setminus \bigcup_{k<n} A_k\right)
+$$ 
 
 Many of these identities also hold for arbitrary unions and arbitrary intersections.  
 For proofs of these results, see Halmos, *Naive Set Theory*, Chapters I–II.
