@@ -87,7 +87,9 @@ A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
 1. $\varnothing\in\mathcal{S}$,
 2. $A,B\in\mathcal{S}$ implies $A\cap B\in\mathcal{S}$,
 3. $A,B\in\mathcal{S}$ implies  
-   $$A\setminus B = \bigsqcup_{k=1}^n C_k$$
+   $$
+   A\setminus B = \bigsqcup_{k=1}^n C_k
+   $$
    for some $C_1,\dots,C_n\in\mathcal{S}$.
 
 Informally, semi-rings are closed under intersection, and differences can be
@@ -119,7 +121,6 @@ elementary sets for Euclidean space.
 In probability theory and statistical physics, one frequently studies systems
 with infinitely many degrees of freedom: infinite sequences of coin flips,
 time-indexed stochastic processes, or random fields.
-
 These situations naturally lead to product spaces of the form
 $$
 \Omega=\prod_{i\in\Gamma}\Omega_i,
