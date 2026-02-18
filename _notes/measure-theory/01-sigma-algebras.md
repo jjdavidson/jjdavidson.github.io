@@ -23,6 +23,18 @@ If $A \cap B = \varnothing$, we say that $A$ and $B$ are disjoint.
 Moreover, we will write $A \sqcup B$ instead of $A \cup B$ whenever $A$ and $B$ are disjoint. 
 We say that a family of sets $\mathcal{S}$ is **pairwise disjoint** if $S$ and $T$ are disjoint for all pairs $S,T \in \mathcal{S}$ with $S \neq T$.
 
+Given sets $A$ and $B$, their **Cartesian product** is
+$$
+A \times B = \{(a,b) : a\in A,\ b\in B\}.
+$$
+More generally, for a family of sets $\{A_i\}_{i\in I}$ indexed by a set $I$, we write
+$$
+\prod_{i\in I} A_i
+$$
+for the collection of all functions $x:I\to\bigcup_{i\in I}A_i$ such that
+$x(i)\in A_i$ for each $i\in I$.
+
+
 ## Set Identities
 
 We will assume that the reader is familiar with the usual properties of set operations. We will list useful set identities used throughout the notes without proof.
@@ -50,5 +62,114 @@ $$
 $$\bigcup_{n=1}^{\infty} A_n = \bigsqcup_{n=1}^{\infty} \left(A_n \setminus \bigcup_{k<n} A_k\right)
 $$ 
 
+### Product Set Identities
+- $(A \times B) \cap (C \times D) = (A \cap C) \times (B \cap D)$
+- $(A \times B) \setminus (C \times D) = ((A \setminus C) \times B)\sqcup ((A \cap C) \times (B \setminus D))$
+
 Many of these identities also hold for arbitrary unions and arbitrary intersections.  
 For proofs of these results, see Halmos, *Naive Set Theory*, Chapters I–II.
+
+## Semi-rings of Sets
+Historically, measure theory did not begin with abstract collections of sets.
+It began with concrete geometric problems: measuring lengths of intervals,
+areas of planar regions, and volumes of solids.
+In each case, one first understands how to assign size to very simple sets,
+and only later extends this assignment to more complicated ones.
+
+This philosophy persists in modern measure theory.
+Rather than attempting to define a measure on all subsets of a space at once,
+we begin with a small family of elementary sets on which the notion of size is
+geometrically or probabilistically clear.
+The purpose of a semi-ring is to axiomatize the minimal structure needed for
+such elementary families.
+
+**Definition (Semi-ring).**  
+A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
+
+1. $\varnothing\in\mathcal{S}$,
+2. $A,B\in\mathcal{S}$ implies $A\cap B\in\mathcal{S}$,
+3. $A,B\in\mathcal{S}$ implies  
+   $$A\setminus B = \bigsqcup_{k=1}^n C_k$$
+   for some $C_1,\dots,C_n\in\mathcal{S}$.
+
+Informally, semi-rings are closed under intersection, and differences can be
+broken into finitely many simple pieces.
+
+---
+
+### Example: Half-open intervals
+
+Consider the set family of half-open intervals on $\R$.
+$$
+\mathcal{S}=\{(a,b]:a<b,\ a,b\in\R\}\cup\{\varnothing\}
+$$
+This family forms a semi-ring.
+Half-open intervals serve as the quintessential example of an elementary family of sets that can be assigned a measure. 
+Higher-dimensional analogues are obtained by taking Cartesian products,
+yielding half-open rectangles in $\R^d$.
+
+---
+
+### Example: Finite products
+
+If $\mathcal{S}_1,\dots,\mathcal{S}_d$ are semi-rings, then the family
+
+$$
+\mathcal{S}_1\times\cdots\times\mathcal{S}_d
+=
+\{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
+$$
+
+is again a semi-ring.
+
+This explains why rectangles built from half-open intervals serve as the
+elementary sets for Euclidean space.
+
+---
+
+### Why infinite products require new ideas
+
+In probability theory and statistical physics, one frequently studies systems
+with infinitely many degrees of freedom: infinite sequences of coin flips,
+time-indexed stochastic processes, or random fields.
+
+These situations naturally lead to product spaces of the form
+
+$$
+\Omega=\prod_{i\in\Gamma}\Omega_i,
+$$
+
+where $\Gamma$ may be countable or uncountable.
+
+A crucial observation is that most events of practical interest do not depend
+on all coordinates at once.
+Instead, they constrain only finitely many coordinates.
+For example, in a sequence of coin flips, one can ask for the first ten flips
+to follow a specified pattern, but not realistically prescribe the entire
+infinite sequence.
+
+This observation motivates the following class of sets.
+
+---
+
+### Example: Cylinder sets
+
+Let $F\subset\Gamma$ be finite, and let $A_i\subset\Omega_i$ for $i\in F$.
+Define
+
+$$
+C(F,(A_i)_{i\in F})
+=
+\{x\in\Omega : x_i\in A_i \text{ for all } i\in F\}.
+$$
+
+Such a set is called a **cylinder set**.
+
+Cylinder sets describe events that depend only on finitely many coordinates.
+They form the natural starting point for constructing measures on infinite product spaces.
+
+If each $\mathcal{S}_i$ is a semi-ring on $\Omega_i$, we write
+$\mathrm{Cyl}(\{\mathcal{S}_i\})$ for the **family of all cylinder sets**.
+Moreover, $\mathrm{Cyl}(\{\mathcal{S}_i\})$ is a semi-ring on $\prod_{i\in\Gamma}\Omega_i$. The proof of this fact is relegated to the exercises.
+
+Cylinder sets will later play a central role in the study of product measures, stochastic processes, and modern limit theories for large combinatorial and geometric objects.
