@@ -133,16 +133,31 @@ $$\lim_{n\to\infty}2^{-n}=0$$
 
 So in probability theory, the basic “atomic” events are not single sequences, but rather events that constrain only finitely many coordinates.
 
-## Example: Cylinder Sets
-Fix a family of spaces $\{\Omega_i\}_{i\in\Gamma}$. For each $i\in\Gamma$, let $\mathcal{S}_i$ be a family of subsets of $\Omega_i$.
-Let $F\subset\Gamma$ be finite, and choose $A_i\in\mathcal{S}_i$ for each $i\in F$.
-The corresponding **cylinder set** is
-$$ C\left(F;\,(A_i)_{i\in F}\right) \coloneqq \left\{\omega=(\omega_i)_{i\in\Gamma}\in\prod_{i\in\Gamma}\Omega_i \;:\; \omega_i\in A_i \text{ for all } i\in F \right\} $$
+### Definition (Cylinder sets)
+
+Let $I$ be an index set and let $\{\Omega_i\}_{i\in I}$ be a (possibly uncountbale) family of sets. Set
+
+$$
+\Omega = \prod_{i\in I} X_i.
+$$
+
+For a finite set $F \subset I$ and sets $A_i \subset \Omega_i$ for $i\in F$, define
+
+$$
+C(F,(A_i)_{i\in F})
+\coloneqq
+\{x\in \Omega : x_i \in A_i \text{ for all } i\in F\}.
+$$
+
+Such a set is called a **cylinder set**.
 
 Equivalently,
-$$ C\left(F;\,(A_i)_{i\in F}\right) = \left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\in \Gamma\setminus F}\Omega_i\right)$$
 
-We write $\operatorname{Cyl}(\{\mathcal{S}_i\})$ for the collection of all cylinder sets in $\prod_{i\in\Gamma}\Omega_i$ constructed from the families $\mathcal{S}_i$.
+$$ 
+C\left(F;\,(A_i)_{i\in F}\right) = \left(\prod_{i\in F}A_i\right)\times\left(\prod_{i\in \Gamma\setminus F}\Omega_i\right)
+$$
+
+We write $\operatorname{Cyl}(\{\mathcal{S}_i\})$ for the collection of all cylinder sets in $\prod_{i\in\Gamma} \Omega_i$ constructed from the families $\mathcal{S}_i$.
 
 ## Proposition 1.2: Cylinder Sets form a Semi-ring
 Assume that each $\mathcal{S}_i$ is a semi-ring on $\Omega_i$. Then $\operatorname{Cyl}(\{\mathcal{S}_i\})$ is a semi-ring on $\Omega=\prod_{i\in\Gamma}\Omega_i$
