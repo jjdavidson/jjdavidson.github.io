@@ -1,5 +1,5 @@
 ---
-title: The Monotone Class Theorem and the Pi-Lambda Theorem
+title: π-λ Theorem
 parent: Measure Theory
 nav_order: 3
 ---
