@@ -4,8 +4,6 @@ parent: Measure Theory
 nav_order: 2
 ---
 
-{% include breadcrumbs.html series="measure-theory" label="Measure Theory" %}
-
 # Section 2: The Monotone Class Theorem and the $\pi$-$\lambda$ Theorem
 
 ## Monotone Sequences of Sets
@@ -360,5 +358,3 @@ $\blacksquare$
 The $\pi$–$\lambda$ theorem is one of the main engines behind uniqueness: if two measures agree on a generating $\pi$-system, they agree everywhere.
 In the next section, we turn to the complementary problem: existence—how to construct measures from simple geometric data. 
 Caratheodory’s construction provides the existence mechanism, and $\pi$–$\lambda$ provides the uniqueness mechanism.
-
-{% include series-nav.html series="measure-theory" label="Measure Theory" %}
