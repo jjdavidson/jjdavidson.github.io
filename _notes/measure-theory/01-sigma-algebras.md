@@ -1,5 +1,5 @@
 ---
-title: Sigma Algebras and Set Systems
+title: Sigma Algebras
 parent: Measure Theory
 nav_order: 1
 ---
