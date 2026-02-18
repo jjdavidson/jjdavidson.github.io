@@ -108,9 +108,7 @@ yielding half-open rectangles in $\R^d$.
 ### Example: Finite products
 If $\mathcal{S}_1,\dots,\mathcal{S}_d$ are semi-rings, then the family
 $$
-\mathcal{S}_1\times\cdots\times\mathcal{S}_d
-=
-\{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
+\mathcal{S}_1\times\cdots\times\mathcal{S}_d = \{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
 $$
 is again a semi-ring.
 
