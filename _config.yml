@@ -23,7 +23,7 @@ collections:
 just_the_docs:
   collections:
     notes:
-      name: Math Notes
+      name: Notes
       nav_fold: true
     teaching:
       name: Teaching
