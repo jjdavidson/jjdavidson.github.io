@@ -1,10 +1,10 @@
 ---
-title: Sigma Algebras
+title: σ-Algebras
 parent: Measure Theory
 nav_order: 1
 ---
 
-# Section 1: $\sigma$-Algebras
+# Section 1: Semi-Rings, Algebras, and $\sigma$-Algebras
 
 ## Set Notation Conventions
 In measure theory and probability, the **sample space**, or simply space will be denoted by $\Omega$.
