@@ -109,7 +109,9 @@ yielding half-open rectangles in $\R^d$.
 If $\mathcal{S}_1,\dots,\mathcal{S}_d$ are semi-rings, then the family
 
 $$
-\mathcal{S}_1\times\cdots\times\mathcal{S}_d = \{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
+\mathcal{S}_1\times\cdots\times\mathcal{S}_d
+=
+\{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
 $$
 
 is again a semi-ring.
@@ -152,5 +154,23 @@ They form the natural starting point for constructing measures on infinite produ
 The **family of all cylinder sets** where $S_i \in \mathcal{S}_i$ and $\mathcal{S}_i$ is a semi-ring is also a semi-ring. The proof of this fact is relegated to the exercises.
 
 Cylinder sets will later play a central role in the study of product measures, stochastic processes, and modern limit theories for large combinatorial and geometric objects.
+
+### Exercises
+
+1. Show that the set of half-open intervals forms a semi-ring.
+
+2. Show that the set of open intervals does not form a semi-ring.
+
+3. Prove that the product of two semi-rings is a semi-ring. 
+Use this fact to show that half-open boxes in $\R^d$ form a semi-ring for any $d\ge1$.
+
+4. Let $\mathcal{S}$ be the semi-ring of half-open intervals. 
+Show that the set of pure infinite products $\prod_{i\in\N} A_i$ with $A_i\in\mathcal{S}$ need not form a semi-ring.
+
+5. Let $\Omega=\prod_{i\in\Gamma}\Omega_i$. 
+Show that any cylinder set can be written as a finite intersection of sets of the form $\pi_i^{-1}(A)$.
+
+6. Show that if $\mathcal{S}$ is a semi-ring and $f:X\to Y$ is a function, then the family $\{f^{-1}(A):A\in\mathcal{S}\}$ is a semi-ring on $X$. 
+Use this fact to conclude that cylinder sets built from semi-rings form a semi-ring in $\prod_{i\in\Gamma}\Omega_i$.
 
 ---
