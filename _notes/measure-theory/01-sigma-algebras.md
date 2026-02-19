@@ -26,9 +26,11 @@ Moreover, we will write $A \sqcup B$ instead of $A \cup B$ whenever $A$ and $B$ 
 We say that a family of sets $\mathcal{S}$ is **pairwise disjoint** if $S$ and $T$ are disjoint for all pairs $S,T \in \mathcal{S}$ with $S \neq T$.
 
 Given sets $A$ and $B$, their **Cartesian product** is
+
 $$
 A \times B = \{(a,b) : a\in A,\ b\in B\}.
 $$
+
 More generally, for a multiset of sets $\mathcal{S}$ indexed by a set $I$, we write $\prod_{i\in I} S_i$ for the set of all infinite cartesian products whose elements are of the form $(x_i)_{i \in I}$ where $x_i \in S_i$ for all $i \in I$. 
 If $S_i = S_J = S$ for all $i,j \in I$, we simplify the notation to $S^{I}$.
 
@@ -86,20 +88,18 @@ A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
 
 1. $\varnothing\in\mathcal{S}$,
 2. $A,B\in\mathcal{S}$ implies $A\cap B\in\mathcal{S}$,
-3. $A,B\in\mathcal{S}$ implies  
-   $$
-   A\setminus B = \bigsqcup_{k=1}^n C_k
-   $$
-   for some $C_1,\dots,C_n\in\mathcal{S}$.
+3. $A,B\in\mathcal{S}$ implies $A\setminus B = \bigsqcup_{k=1}^n C_k$ for some $C_1,\dots,C_n\in\mathcal{S}$.
 
 Informally, semi-rings are closed under intersection, and differences can be
 broken into finitely many simple pieces.
 
 ### Example: Half-open intervals
 Consider the set family of half-open intervals on $\R$.
+
 $$
 \mathcal{S}=\{(a,b]:a<b,\ a,b\in\R\}\cup\{\varnothing\}
 $$
+
 This family forms a semi-ring.
 Half-open intervals serve as the quintessential example of an elementary family of sets that can be assigned a measure. 
 Higher-dimensional analogues are obtained by taking Cartesian products,
@@ -107,9 +107,11 @@ yielding half-open rectangles in $\R^d$.
 
 ### Example: Finite products
 If $\mathcal{S}_1,\dots,\mathcal{S}_d$ are semi-rings, then the family
+
 $$
 \mathcal{S}_1\times\cdots\times\mathcal{S}_d = \{A_1\times\cdots\times A_d : A_i\in\mathcal{S}_i\}
 $$
+
 is again a semi-ring.
 
 This explains why rectangles built from half-open intervals serve as the
@@ -120,9 +122,11 @@ In probability theory and statistical physics, one frequently studies systems
 with infinitely many degrees of freedom: infinite sequences of coin flips,
 time-indexed stochastic processes, or random fields.
 These situations naturally lead to product spaces of the form
+
 $$
 \Omega=\prod_{i\in\Gamma}\Omega_i,
 $$
+
 where $\Gamma$ may be countable or uncountable.
 
 A crucial observation is that most events of practical interest do not depend
