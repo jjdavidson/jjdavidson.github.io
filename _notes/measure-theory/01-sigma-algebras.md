@@ -6,8 +6,6 @@ nav_order: 1
 
 # Section 1: $\sigma$-Algebras
 
----
-
 ## Set Notation Conventions
 In measure theory and probability, the **sample space**, or simply space will be denoted by $\Omega$.
 The **empty set** will be denoted by $\varnothing$.
@@ -172,5 +170,35 @@ Show that any cylinder set can be written as a finite intersection of sets of th
 
 6. Show that if $\mathcal{S}$ is a semi-ring and $f:X\to Y$ is a function, then the family $\{f^{-1}(A):A\in\mathcal{S}\}$ is a semi-ring on $X$. 
 Use this fact to conclude that cylinder sets built from semi-rings form a semi-ring in $\prod_{i\in\Gamma}\Omega_i$.
+
+---
+
+## From Semi-rings to Algebras
+Semi-rings model elementary building blocks: simple sets whose geometry we understand and on which size can be assigned directly. However, most sets of interest are formed by combining such building blocks.
+
+To support these constructions, we would like a family of sets that is stable under all usual finite set operations: unions, intersections, differences, and complements. This leads to the notion of an algebra of sets.
+
+In the literature, families closed under unions and differences are often called rings of sets, and families additionally containing the whole space and closed under complements are called algebras or fields of sets. This terminology reflects the algebraic interpretation of set familys as boolean rings
+
+## Algebras of Sets
+
+An **algebra (field) of sets** $\mathcal{A}$ is a collection of subsets of $\Omega$ such that
+
+- $\Omega \in \mathcal{A}$,
+- $\mathcal{A}$ is closed under complements,
+- $A,B\in\mathcal{A}$ implies $A\cup B\in\mathcal{A}$.
+
+Using the identities
+$$
+A\cap B = (A^c\cup B^c)^c,
+\qquad
+A\setminus B = A\cap B^c,
+$$
+we see that algebras are closed under all finite set operations: unions, intersections, differences, and complements.
+
+Every algebra is a semi-ring, but not every semi-ring is an algebra. 
+For example, the family of half-open intervals is a semi-ring but not an algebra, since it is not closed under complements.
+
+Algebras are sufficient for defining finitely additive set functions. However, to support limits, infinite sums, and convergence arguments, we must work with set families that are closed under **countable** operations. This leads to the central notion of a $\sigma$-algebra.
 
 ---
