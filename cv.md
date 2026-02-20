@@ -20,9 +20,9 @@ _Last updated: Feb 2026_
 
 ## Education
 
-**Mathematics, M.S.** | Cal State LA | Dec 2025  
+**Mathematics, M.S.** \| Cal State LA \| Dec 2025  
 
-**Mathematics, B.S.** | Stanford University | Jun 2020  
+**Mathematics, B.S.** \| Stanford University \| Jun 2020  
 
 ---
 
