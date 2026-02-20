@@ -401,9 +401,10 @@ $\blacksquare$
 
 4. A **partition** of $\Omega$ is a family of pairwise disjoint sets $(A_i)_{i\in I}$ such that
 $$
-\bigsqcup_{i\in I}A_i=\Omega$
+\bigsqcup_{i\in I}A_i=\Omega
 $$
-Show that the following family is a $\sigma$-algebra:
+Show that family
 $$
 \mathcal{F}=\left\{\bigcup_{i\in J}A_i: J \subset I\right\}
 $$
+is a $\sigma$-algebra.
