@@ -1,7 +1,5 @@
 ---
 title: π-λ Theorem
-parent: Measure Theory
-nav_order: 3
 ---
 
 # Section 3: The $\pi$-$\lambda$ Theorem
