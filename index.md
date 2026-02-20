@@ -5,13 +5,15 @@ nav_order: 1
 
 # Jonathan Davidson
 
-I am a mathematician interested in **analysis and combinatorics**. My research centers on transforming discrete objects into continuous objects in order to study combinatorial optimization problems, with graph limits serving as a guiding example. I am particularly drawn to problems in which analytic structure emerges naturally from combinatorial data.
+I am a mathematician interested in **analysis** and **combinatorics**, with a focus on problems where discrete structure gives rise to analytic phenomena. I am particularly motivated by questions of convergence: when do large finite objects admit meaningful continuum limits, and what analytic tools are required to understand them?
+
+I am currently studying the theory of **large networks** and **graph limits** as a toy model for this transition. Ultimately, I aim to solve discrete optimization problems via analytic methods applied to the corresponding limiting combinatorial objects.
 
 ---
 
 ## Background
 
-I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces, studying how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
+I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces. I studied how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
 
 I completed my master’s degree at California State University, Los Angeles, where I conducted research in combinatorics, including work on:
 
@@ -20,20 +22,6 @@ I completed my master’s degree at California State University, Los Angeles, wh
 - Extremal theory of product graphs  
 
 These experiences shaped my current interest in the interaction between combinatorics and analysis.
-
----
-
-## Current Work
-
-I am studying the foundational results on convergence of probability measures in order to better understand graph limits and, more broadly, how discrete structures converge to continuous objects.
-
-To support this, I am developing a self-contained set of notes on measure theory, intended as a conceptual and technical precursor to Billingsley’s *Probability and Measure*. The emphasis is on the analytic tools underlying convergence:
-
-- Extension and uniqueness principles  
-- Convergence of measures  
-- Weak convergence and tightness  
-
-My goal is to understand these results structurally and to clarify how they support continuum limits of discrete systems and optimization problems.
 
 ---
 
