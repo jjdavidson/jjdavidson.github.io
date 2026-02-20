@@ -3,7 +3,7 @@ title: About
 nav_order: 1
 ---
 
-# Jonathan Davidson
+# Welcome
 
 I am a mathematician interested in **analysis** and **combinatorics**, with a focus on problems where discrete structure gives rise to analytic phenomena. I am particularly motivated by questions of convergence: when do large finite objects admit meaningful continuum limits, and what analytic tools are required to understand them?
 
@@ -15,17 +15,17 @@ I am currently studying the theory of **large networks** and **graph limits** as
 
 I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces. I studied how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
 
-I completed my master’s degree at California State University, Los Angeles, where I conducted research in combinatorics, including work on:
+I completed my master’s degree at Cal State LA, where I conducted research in combinatorics, including work on:
 
 - The chromatic number of Abelian Cayley graphs  
 - The multicolored Erdős box problem  
 - Extremal theory of product graphs  
 
-These experiences shaped my current interest in the interaction between combinatorics and analysis.
+My Master's thesis explored topics in the extremal theory of product graphs. In my study of extremal graph theory, I encountered the ideas of flag algebras and graph limits, and I decided to start exploring more analytical approaches to extremal combinatorics. 
 
 ---
 
 ## Contact
 
-Email: jonathan.j.davidson@gmail.com  
+**Email**: jonathan.j.davidson@gmail.com
 
