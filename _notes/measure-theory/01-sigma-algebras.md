@@ -403,7 +403,7 @@ $\blacksquare$
 $$
 \bigsqcup_{i\in I}A_i=\Omega
 $$
-Show that family
+Show that
 $$
 \mathcal{F}=\left\{\bigcup_{i\in J}A_i: J \subset I\right\}
 $$
