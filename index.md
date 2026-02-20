@@ -17,9 +17,9 @@ I completed my undergraduate studies at Stanford University, where I worked on p
 
 I completed my master’s degree at Cal State LA, where I conducted research in combinatorics, including work on:
 
-- The chromatic number of Abelian Cayley graphs  
+- The chromatic number of abelian Cayley graphs  
 - The multicolored Erdős box problem  
-- Extremal theory of product graphs  
+- Extremal graph theory  
 
 My Master's thesis explored topics in the extremal theory of product graphs. In my study of extremal graph theory, I encountered the ideas of flag algebras and graph limits, and I decided to start exploring more analytical approaches to extremal combinatorics. 
 
