@@ -1,10 +1,8 @@
 ---
 title: Monotone Class Theorem
-parent: Measure Theory
-nav_order: 2
 ---
 
-# Section 2: The Monotone Class Theorem
+# The Monotone Class Theorem
 
 ## Monotone Sequences of Sets
 A sequence $(A_n)$ is said to be **(monotone) increasing** if 
