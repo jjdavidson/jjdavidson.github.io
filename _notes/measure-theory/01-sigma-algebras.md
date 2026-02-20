@@ -61,12 +61,16 @@ We will assume that the reader is familiar with the usual properties of set oper
 
 ### Decomposition
 - $A = (A \setminus B) \sqcup (A \cap B)$
-- For any sequence of sets $(A_n)$, 
+- For any sequence of sets $(A_n)$,
+
 $$
 A_n = A_1 \cup \bigcup_{k=2}^n\left(A_k \setminus A_{k-1}\right)
-$$ 
-- For any sequence of sets $(A_n)$,  
-$$\bigcup_{n=1}^{\infty} A_n = \bigsqcup_{n=1}^{\infty} \left(A_n \setminus \bigcup_{k<n} A_k\right)
+$$
+
+- For any sequence of sets $(A_n)$,
+
+$$
+\bigcup_{n=1}^{\infty} A_n = \bigsqcup_{n=1}^{\infty} \left(A_n \setminus \bigcup_{k<n} A_k\right)
 $$ 
 
 ### Product Set Identities
@@ -104,8 +108,7 @@ A family of sets $\mathcal{S}\subset 2^\Omega$ is called a **semi-ring** if
 
 - $\varnothing\in\mathcal{S}$,
 - $A,B\in\mathcal{S}$ implies $A\cap B\in\mathcal{S}$,
-- $A,B\in\mathcal{S}$ implies $A\setminus B = \bigsqcup_{k=1}^n C_k$$
-   for some $C_1,\dots,C_n\in\mathcal{S}$.
+- $A,B\in\mathcal{S}$ implies $A\setminus B = \bigsqcup_{k=1}^n C_k$ for some $C_1,\dots,C_n\in\mathcal{S}$.
 
 Informally, semi-rings are closed under intersection, and differences can be
 broken into finitely many simple pieces.
@@ -283,9 +286,9 @@ Many constructions in measure theory follow the same pattern: given a collection
 
 Let $I$ be an arbitrary indexing set.
 
-- If each $\mathcal{S}_i$ is a semi-ring on $\Omega$, then $\bigcap_{i\in I}\mathcal{S}_i$ is a semi-ring on $\Omega$.  
-- If each $\mathcal{A}_i$ is an algebra on $\Omega$, then $\bigcap_{i\in I}\mathcal{A}_i$ is an algebra on $\Omega$.  
-- If each $\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$, then $\bigcap_{i\in I}\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$.  
+- If each $\mathcal{S}_i$ is a semi-ring on $\Omega$, then $\bigcap_{i\in I}\mathcal{S}_i$ is a semi-ring on $\Omega$.
+- If each $\mathcal{A}_i$ is an algebra on $\Omega$, then $\bigcap_{i\in I} \mathcal{A}_i$ is an algebra on $\Omega$.
+- If each $\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$, then $\bigcap_{i\in I}\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$.
 
 Proofs are routine and omitted. Stability under intersection guarantees that the following definitions of generated set families are well-founded.
 
@@ -396,9 +399,14 @@ $\blacksquare$
 
 10. Give an example of a countable family of sets $\mathcal{S}$ such that $\sigma(\mathcal{S})$ is uncountable.
 
-11. A **partition** of $\Omega$ is a family of pairwise disjoint sets $(A_i)_{i\in I}$ such that $\bigsqcup_{i\in I}A_i=\Omega$.  
+11. A **partition** of $\Omega$ is a family of pairwise disjoint sets $(A_i)_{i\in I}$ such that
+
+$$
+\bigsqcup_{i\in I}A_i=\Omega$
+$$
+
 Show that the following family is a $\sigma$-algebra:
 
 $$
-\mathcal{F}=\left\{\bigcup_{i\in J}A_i:J\subset I\right\}
+\mathcal{F}=\left\{\bigcup_{i\in J}A_i: J \subset I\right\}
 $$
