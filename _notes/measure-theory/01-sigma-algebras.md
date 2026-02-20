@@ -286,9 +286,9 @@ Many constructions in measure theory follow the same pattern: given a collection
 
 Let $I$ be an arbitrary indexing set.
 
-- If each $\mathcal{S}_i$ is a semi-ring on $\Omega$, then $\bigcap_{i\in I}\mathcal{S}_i$ is a semi-ring on $\Omega$.
-- If each $\mathcal{A}_i$ is an algebra on $\Omega$, then $\bigcap_{i\in I} \mathcal{A}_i$ is an algebra on $\Omega$.
-- If each $\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$, then $\bigcap_{i\in I}\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$.
+- If each $\mathcal{S}_i$ is a semi-ring on $\Omega$, then $$\bigcap_{i\in I}\mathcal{S}_i$$ is a semi-ring on $\Omega$.
+- If each $\mathcal{A}_i$ is an algebra on $\Omega$, then $$\bigcap_{i\in I} \mathcal{A}_i$$ is an algebra on $\Omega$.
+- If each $\mathcal{F}_i$ is a $\sigma$-algebra on $\Omega$, then $$\bigcap_{i\in I}\mathcal{F}_i$$ is a $\sigma$-algebra on $\Omega$.
 
 Proofs are routine and omitted. Stability under intersection guarantees that the following definitions of generated set families are well-founded.
 
@@ -393,20 +393,17 @@ where the last inclusion follows from the definition of $\mathcal{A}$. Since we 
 $\blacksquare$
 
 ## Exercises
-8. Let $f:X\to\Omega$ be a function and let $\mathcal{F}$ be a $\sigma$-algebra on $\Omega$. Prove that $f^{-1}(\mathcal{F})$ is a $\sigma$-algebra on $X$.
+1. Let $f:X\to\Omega$ be a function and let $\mathcal{F}$ be a $\sigma$-algebra on $\Omega$. Prove that $f^{-1}(\mathcal{F})$ is a $\sigma$-algebra on $X$.
 
-9. Show that the intersection of an arbitrary family of $\sigma$-algebras on $\Omega$ is again a $\sigma$-algebra.
+2. Show that the intersection of an arbitrary family of $\sigma$-algebras on $\Omega$ is again a $\sigma$-algebra.
 
-10. Give an example of a countable family of sets $\mathcal{S}$ such that $\sigma(\mathcal{S})$ is uncountable.
+3. Give an example of a countable family of sets $\mathcal{S}$ such that $\sigma(\mathcal{S})$ is uncountable.
 
-11. A **partition** of $\Omega$ is a family of pairwise disjoint sets $(A_i)_{i\in I}$ such that
-
+4. A **partition** of $\Omega$ is a family of pairwise disjoint sets $(A_i)_{i\in I}$ such that
 $$
 \bigsqcup_{i\in I}A_i=\Omega$
 $$
-
 Show that the following family is a $\sigma$-algebra:
-
 $$
 \mathcal{F}=\left\{\bigcup_{i\in J}A_i: J \subset I\right\}
 $$
