@@ -12,23 +12,23 @@ _Last updated: Feb 2026_
 
 ## Jonathan Davidson
  
-**Email**: jonathan.j.davidson@gmail.com  
+| **Email**: jonathan.j.davidson@gmail.com |
 
-**Website**: jjdavidson.github.io 
+| **Website**: jjdavidson.github.io |
 
 ---
 
 ## Education
 
-**Mathematics, M.S.** \| Cal State LA \| Dec 2025  
+| **Mathematics, M.S.** \| Cal State LA \| Dec 2025 |
 
-**Mathematics, B.S.** \| Stanford University \| Jun 2020  
+| **Mathematics, B.S.** \| Stanford University \| Jun 2020 |
 
 ---
 
 ## Research Interests
 
-Extremal and algebraic combinatorics; continuum limits of combinatorial objects and large networks; applications of analytic methods to combinatorial optimization.
+Continuum limits of combinatorial objects and large networks; applications of analytic methods to combinatorial optimization.
 
 ---
 
