@@ -96,6 +96,6 @@ Ahmed, F.; Asraf, D.; Bonds, D.; Davidson, J.; Jang, Y.; Krebs, M.; Prakash, A.;
 
 | **NSS Outstanding Graduate Student Award** \| Cal State LA \| Nov 2025 |
 
-| **Outstanding Presentation in Physical and Mathematical Sciences** \| Student Symposium, Cal State LA \| Feb 2025 |
+| **Outstanding Presentation in Physical and Mathematical Sciences** \| Cal State LA \| Feb 2025 |
 
 | **Phi Kappa Phi Honor Society** \| Jul 2025 |
