@@ -86,9 +86,11 @@ Ahmed, F.; Asraf, D.; Bonds, D.; Davidson, J.; Jang, Y.; Krebs, M.; Prakash, A.;
 
 ## Outreach & Expository Talks
 
-| **Probability Games and π** \| PCC STEM Saturday, Pasadena Community College \| Apr 27, 2024 |
+| **PCC π Day** \| Pasadena Community College \| Mar 2024, 2025, 2026 |
 
-| **Dice Games and the Central Limit Theorem** \| AVID STEM Outreach, Cal State LA \| Mar 4, 2024 |
+| **Probability Games and π** \| PCC STEM Saturday \| Pasadena Community College \| Apr 27, 2024 |
+
+| **Dice Games and the Central Limit Theorem** \| AVID STEM Outreach \| Cal State LA \| Mar 4, 2024 |
 
 ---
 
