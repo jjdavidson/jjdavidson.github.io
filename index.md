@@ -3,9 +3,9 @@ title: About
 nav_order: 1
 ---
 
-![Jonathan Davidson](/assets/images/headshot.jpg){: width="200px" }
-
 # Welcome
+
+<img src="/assets/images/headshot.jpg" width="200" style="float: right; margin-left: 20px; margin-bottom: 10px;">
 
 I am a mathematician interested in **analysis** and **combinatorics**, with a focus on problems where discrete structure gives rise to analytic phenomena. I am particularly motivated by questions of convergence: when do large finite objects admit meaningful continuum limits, and what analytic tools are required to understand them?
 
