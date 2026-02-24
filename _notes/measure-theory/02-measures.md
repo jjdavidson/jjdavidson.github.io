@@ -138,118 +138,122 @@ $$
 
 This measure coincides with a **uniform probability measure** on a finite discrete set. We will now record some important properties of measures.
 
-## Proposition (Monotonicity)
+## Proposition (Basic Properties of Measures)
 
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. If $A,B\in\mathcal{F}$ and $A\subset B$, then $\mu(A)\le\mu(B)$.
+Let $(\Omega,\mathcal{F},\mu)$ be a measure space.
 
-### Proof
+1. (Monotonicity) If $A,B\in\mathcal{F}$ and $A\subset B$, then $\mu(A)\le\mu(B)$.
 
-Since $A\subset B$, we may write $B=A\cup(B\setminus A)$ as a disjoint union. By countable additivity,
-
-$$
-\mu(B)=\mu(A)+\mu(B\setminus A)
-$$
-
-Since $\mu(B\setminus A)\ge0$, it follows that $\mu(A)\le\mu(B)$. $\blacksquare$
-
-## Proposition (Countable Subadditivity)
-
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. For any sequence $(A_n)_{n=1}^\infty$ in $\mathcal{F}$,
+2. (Countable Subadditivity) For any sequence $(A_n)$ in $\mathcal{F}$,
 
 $$
 \mu\left(\bigcup_{n=1}^\infty A_n\right)\le\sum_{n=1}^\infty \mu(A_n)
 $$
 
-### Proof
-
-Define $B_1=A_1$ and for $n\ge2$ let $B_n=A_n\setminus\bigcup_{k=1}^{n-1}A_k$. Then the sets $B_n$ are pairwise disjoint and $\bigcup_{n=1}^\infty A_n=\bigcup_{n=1}^\infty B_n$. By countable additivity,
+3. (Continuity from Below) If $(A_n)$ is an increasing sequence in $\mathcal{F}$ and $A_n \nearrow A$, then
 
 $$
-\mu\left(\bigcup_{n=1}^\infty A_n\right)=\sum_{n=1}^\infty \mu(B_n)
+\mu(A)=\lim \mu(A_n)
 $$
 
-Since $B_n\subset A_n$, monotonicity implies $\mu(B_n)\le\mu(A_n)$ for each $n$, and the result follows. $\blacksquare$
-
-## Proposition (Measure of Differences)
-
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. If $A,B\in\mathcal{F}$ with $A\subset B$ and $\mu(A)<\infty$, then
+4. (Continuity from Above) If $(A_n)$ is a decreasing sequence in $\mathcal{F}$ with $\mu(A_1)<\infty$ and $A_n \searrow A$, then
 
 $$
-\mu(B\setminus A)=\mu(B)-\mu(A)
+\mu(A)=\lim\mu(A_n)
 $$
 
-### Proof
+### Proof.
+The proofs are a straightforward application of countable additivity and set identities.
 
-Since $B=A\cup(B\setminus A)$ is a disjoint union, countable additivity yields
+## Special Classes of Measures
 
-$$
-\mu(B)=\mu(A)+\mu(B\setminus A)
-$$
+Different structural properties of measures lead to important subclasses that play central roles in analysis and probability.
 
-Because $\mu(A)<\infty$, subtraction gives the desired identity.
-$\blacksquare$
+### Finite Measures
 
-## Proposition (Null Sets Are Hereditary)
+Let $(\Omega,\mathcal{F},\mu)$ be a measure space. The measure $\mu$ is called **finite** if $\mu(\Omega)<\infty$.
+Finite measures behave particularly well under decreasing limits, since continuity from above requires finiteness of the initial set.
 
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. If $N\in\mathcal{F}$ satisfies $\mu(N)=0$ and $A\subset N$ with $A\in\mathcal{F}$, then $\mu(A)=0$.
+### $\sigma$-Finite Measures
 
-### Proof
-
-By monotonicity, $\mu(A)\le\mu(N)=0$. Since measures are nonnegative, $\mu(A)=0$. $\blacksquare$
-
-## Proposition (Continuity from Below)
-
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. If $(A_n)$ is an increasing sequence in $\mathcal{F}$ and $A_n \nearrow A$, then
-$$\mu(A)=\lim \mu(A_n).$$
-
-### Proof
-
-Define $B_1=A_1$ and for $n\ge2$ let $B_n=A_n\setminus A_{n-1}$. Then the sets $B_n$ are pairwise disjoint and $A=\bigcup_{n=1}^\infty B_n$. By countable additivity,
+Let $(\Omega,\mathcal{F},\mu)$ be a measure space. The measure $\mu$ is called **$\sigma$-finite** if there exists a sequence $(E_n)_{n=1}^\infty$ in $\mathcal{F}$ such that
 
 $$
-\mu(A)=\sum_{n=1}^\infty \mu(B_n)
+\Omega=\bigcup_{n=1}^\infty E_n \quad \text{and} \quad \mu(E_n)<\infty \text{ for all } n
 $$
 
-For each $n$,
+Thus, a $\sigma$-finite measure space can be decomposed into countably many finite pieces. This mild finiteness condition is sufficient for many fundamental results, including uniqueness of extensions, product measure constructions, and the Radon–Nikodym theorem.
+
+### Probability Measures
+
+Let $(\Omega,\mathcal{F},\mu)$ be a measure space. The measure $\mu$ is called a **probability measure** if
+$$\mu(\Omega)=1.$$
+
+Probability measures are finite measures and form the foundation of modern probability theory. Later, when studying convergence of measures, probability measures will play a central role.
+
+### Atomic and Non-Atomic Measures
+
+Let $(\Omega,\mathcal{F},\mu)$ be a measure space.
+A measurable set $A$ with $\mu(A)>0$ is called an **atom** if for every measurable subset $B\subset A$, either $\mu(B)=0$ or $\mu(B)=\mu(A)$.
+The measure $\mu$ is called **atomic** if every measurable set of positive measure contains an atom, and **non-atomic** if it contains no atoms.
+
+Atomic measures behave discretely, while non-atomic measures exhibit a continuous structure. The counting measure and Dirac measure is atomic.
+
+## Nonmeasurable Sets
+
+Having defined measures abstractly, it is natural to ask whether we can construct a measure on all subsets of $\mathbb{R}$ that agrees with geometric intuition.
+More precisely, does there exist a measure $\mu:2^{\mathbb{R}}\to[0,\infty]$ satisfying:
+
+- $\mu([a,b])=b-a$ for all intervals
+- $\mu$ is translation invariant
+- $\mu$ is countably additive
+
+The answer is no.
+
+## Theorem (Vitali)
+
+There is no countably additive, translation-invariant measure defined on all subsets of $\mathbb{R}$ that assigns positive measure to $[0,1]$.
+
+### Proof.
+
+By contradiction. Suppose that such a measure $\mu$ exists. Define an equivalence relation on $\mathbb{R}$ by declaring $x\sim y$ if $x-y\in\mathbb{Q}$. The equivalence classes are cosets of $\mathbb{Q}$ in $\mathbb{R}$.
+
+Using the axiom of choice, select exactly one representative from each equivalence class intersecting $[0,1]$. Let $V$ denote this set of representatives. The set $V$ is called a Vitali set.
+
+For each rational number $q\in\mathbb{Q}\cap[-1,1]$, consider the translate
 
 $$
-\mu(A_n)=\sum_{k=1}^n \mu(B_k)
+V+q=\{v+q:v\in V\}
 $$
 
-Thus $\mu(A_n)$ is an increasing sequence whose limit equals $\sum_{n=1}^\infty \mu(B_n)=\mu(A)$.
-$\blacksquare$
-
-## Proposition (Continuity from Above)
-
-Let $(\Omega,\mathcal{F},\mu)$ be a measure space. If $(A_n)$ is a decreasing sequence in $\mathcal{F}$ with $\mu(A_1)<\infty$ and $A_n \searrow A$, then
+These translates are pairwise disjoint, and their union covers $[0,1]$ up to a bounded region. Translation invariance would force
 
 $$
-\mu(A)=\lim_{n\to\infty}\mu(A_n)
+\mu(V+q)=\mu(V)
 $$
 
-### Proof
-
-Define $B_n=A_1\setminus A_n$. Then $(B_n)$ is increasing and
-
-$$
-\bigcup_{n=1}^\infty B_n=A_1\setminus A
-$$
-
-By continuity from below,
+for each such $q$.
+Let $(q_n)$ be an enumeration of the rationals in $[0,1]$.
+Countable additivity would then imply
 
 $$
-\mu(A_1\setminus A)=\lim_{n\to\infty}\mu(A_1\setminus A_n)
+\mu([0,1]) \leq \mu\left(\bigcup_{n \in \N} (V+q_n)\right)=\sum_{n=1}^{\infty} \mu(V) \leq \mu([-1,2])
 $$
 
-Since $\mu(A_1)<\infty$, we may use the difference formula to obtain
+We consider two cases:
 
-$$
-\mu(A_1\setminus A_n)=\mu(A_1)-\mu(A_n)
-$$
+1. If $\mu(V)=0$, then the right-hand side equals $0$, contradicting $\mu([0,1])>0$.
 
-$$
-\mu(A_1\setminus A)=\mu(A_1)-\mu(A)
-$$
+2. If $\mu(V)>0$, then the right-hand side diverges to $\infty$, contradicting the fact that the union is contained in $[-1,2]$, which has finite measure.
 
-Taking limits yields $\mu(A)=\lim \mu(A_n)$.
-$\blacksquare$
+In either case, we obtain a contradiction. $\blacksquare$
+
+## Consequence
+
+There exist subsets of $\mathbb{R}$ that cannot be assigned a translation-invariant, countably additive notion of length.
+The failure does not arise from geometry itself, but from the interaction of infinite decomposition and invariance under translation. Countable additivity is too rigid to be compatible with measuring all subsets of $\mathbb{R}$.
+Thus we are forced to restrict the domain of definition. The natural question becomes:
+
+> Which subsets of $\mathbb{R}$ can be assigned length in a manner consistent with countable additivity?
+
+Carathéodory's construction provides a systematic answer.
