@@ -49,18 +49,35 @@ Finite additivity guarantees additivity for a single fixed partition. However, m
 ## Monotone Limits of Sets
 
 - A sequence $(A_n)$ is **increasing** if $A_n \subset A_{n+1}$ for all $n \in \N$. 
-The limit of the increasing sequence, denoted $A_n \nearrow A$, is defined to be $$A=\bigcup_{n=1}^\infty A_n$$
+The limit of the increasing sequence, denoted $A_n \nearrow A$, is defined to be 
+
+$$
+A=\bigcup_{n=1}^\infty A_n
+$$
+
 - A sequence $(A_n)$ is **decreasing** if $A_n \supset A_{n+1}$ for all $n \in \N$.
-The limit of the decreasing sequence, denoted $A_n \searrow A$, is defined to be $$A=\bigcap_{n=1}^\infty A_n$$
+The limit of the decreasing sequence, denoted $A_n \searrow A$, is defined to be 
+
+$$
+A=\bigcap_{n=1}^\infty A_n
+$$
 
 Increasing sequences represent approximation from below: each stage enlarges the set by adding finer detail. Decreasing sequences represent approximation from above: each stage removes excess portions and refines the set inward.
 
 Suppose $(A_n)$ is increasing such that $A_n \nearrow A$.
 Using set identities, we may write
-$$A=A_1 \sqcup (A_2\setminus A_1) \sqcup (A_3\setminus A_2)\sqcup \dots$$
+
+$$
+A=A_1 \sqcup (A_2\setminus A_1) \sqcup (A_3\setminus A_2)\sqcup \dots
+$$
+
 a countable disjoint union arising from successive refinements. Countable additivity then implies
-$$\mu(A)=\sum_{n=1}^\infty \mu(A_n\setminus A_{n-1})=\lim_{n\to\infty}\mu(A_n).$$
-Thus countable additivity guarantees stability under increasing limits, a property known as continuity from below. Finite additivity alone does not ensure this limit identity.
+
+$$
+\mu(A)=\sum_{n=1}^\infty \mu(A_n\setminus A_{n-1})=\lim_{n\to\infty}\mu(A_n)
+$$
+
+Thus, countable additivity guarantees stability under increasing limits, a property known as continuity from below. Finite additivity alone does not ensure this limit identity.
 
 Decreasing sequences require complements. If $(A_n)$ is decreasing and $A_n \searrow A$, then DeMorgan's law imply $A^c_n \nearrow A^c$
 Thus stability under decreasing limits depends on closure under complements together with closure under countable unions. Under appropriate finiteness assumptions, this leads to continuity from above.
