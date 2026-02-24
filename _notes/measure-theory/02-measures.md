@@ -88,8 +88,6 @@ The analytic demand that measure behaves consistently under monotone limits lead
 
 Collections of sets satisfying these properties are precisely $\sigma$-algebras. Countable additivity governs infinite decomposition, and $\sigma$-algebras provide the structural environment in which such decompositions are well defined.
 
----
-
 ## Measurable Spaces and Measures
 
 We now formalize the structures motivated in the previous section.
@@ -111,8 +109,6 @@ The second condition is called **countable additivity** or **$\sigma$-additivity
 
 A **measure space** is a triple $(\Omega,\mathcal{F},\mu)$ consisting of a measurable space $(\Omega,\mathcal{F})$ together with a measure $\mu$ on $\mathcal{F}$.
 We now consider several fundamental examples.
-
----
 
 ## Example: The Dirac Measure
 
@@ -141,8 +137,6 @@ p(A)=\frac{|A|}{|\Omega|}
 $$
 
 This measure coincides with a **uniform probability measure** on a finite discrete set. We will now record some important properties of measures.
-
----
 
 ## Proposition (Monotonicity)
 

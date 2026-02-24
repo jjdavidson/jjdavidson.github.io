@@ -88,8 +88,6 @@ Let $f:X\to Y$ be a function. Then
 Many of these identities also hold for arbitrary unions and arbitrary intersections.  
 For proofs of these results, see Halmos, *Naive Set Theory*, Chapters I–II.
 
----
-
 ## Semi-rings of Sets
 Historically, measure theory did not begin with abstract collections of sets.
 It began with concrete geometric problems: measuring lengths of intervals,
@@ -198,8 +196,6 @@ The collection of all such cylinder sets will be denoted by $\mathrm{Cyl}$.
  
 7. Use the facts above to show that $\mathrm{Cyl}$ is a semi-ring.
 
----
-
 ## From Semi-rings to Algebras
 
 Semi-rings model elementary building blocks: simple sets whose geometry we understand and on which size can be assigned directly. However, most sets of interest are formed by combining such building blocks.
@@ -278,8 +274,6 @@ See exercises.
 $\blacksquare$
 
 More sophisticated $\sigma$-algebras are typically constructed by specifying a generating family of sets and closing under countable operations.
-
----
 
 ## Generated Set Families
 Many constructions in measure theory follow the same pattern: given a collection of sets, build the smallest structured family containing them. The key observation is that the classes of semi-rings, algebras, and $\sigma$-algebras are all stable under intersections. More precisely,
