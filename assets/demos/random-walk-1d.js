@@ -22,14 +22,14 @@
     // Generate an array of positions [x0, x1, ..., xN]
     function generateWalk(N) {
 
-        const positions = [];
+        const positions = new Int16Array(N + 1);
         let x = 0;
 
-        positions.push(x);
+        positions[0] = 0;
 
         for (let k = 1; k <= N; k++) {
             x = x + randomStep();
-            positions.push(x);
+            positions[k] = x;
         }
 
         return positions;
@@ -49,7 +49,7 @@
         const yBottom = h - padB;
 
         // y-axis (left)
-        ctx.strokeStyle = "rgba(0,0,0,0.5)";
+        ctx.strokeStyle = "rgba(0,0,0,0.45)";
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(xLeft, yTop);
@@ -57,9 +57,8 @@
         ctx.stroke();
 
         // x-axis (position = 0) in the middle
-        // (Red so you can clearly see it while debugging.)
-        ctx.strokeStyle = "rgba(200,0,0,0.6)";
-        ctx.lineWidth = 2;
+        ctx.strokeStyle = "rgba(0,0,0,0.35)";
+        ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(xLeft, yMid);
         ctx.lineTo(xRight, yMid);
@@ -68,15 +67,25 @@
         // labels
         ctx.fillStyle = "rgba(0,0,0,0.8)";
         ctx.font = "14px system-ui";
-        ctx.fillText("position", 10, 18);
+
+        // x label
         ctx.fillText("step #", xRight - 50, h - 15);
+
+        // rotated y label
+        ctx.save();
+        ctx.translate(18, (yTop + yBottom) / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.fillText("position", 0, 0);
+        ctx.restore();
+
+        // mark the 0 line
         ctx.fillText("0", xLeft - 18, yMid + 5);
     }
 
-    function drawOneWalk() {
+    function drawManyWalks() {
 
         const N = Number(stepsInput.value);
-        const positions = generateWalk(N);
+        const count = Number(walkCount.value);
 
         const w = canvas.width;
         const h = canvas.height;
@@ -91,44 +100,76 @@
 
         const yMid = padT + graphHeight / 2;
 
-        drawAxes(yMid, padL, padR, padT, padB);
-
-        // Find maximum absolute position for scaling
+        // Generate walks and find a common vertical scale (based on max abs across all walks)
+        const walks = new Array(count);
         let maxAbs = 1;
 
-        for (let i = 0; i < positions.length; i++) {
-            const absVal = Math.abs(positions[i]);
-            if (absVal > maxAbs) {
-                maxAbs = absVal;
+        for (let i = 0; i < count; i++) {
+
+            const positions = generateWalk(N);
+            walks[i] = positions;
+
+            for (let k = 0; k < positions.length; k++) {
+                const absVal = Math.abs(positions[k]);
+                if (absVal > maxAbs) {
+                    maxAbs = absVal;
+                }
             }
         }
 
+        drawAxes(yMid, padL, padR, padT, padB);
+
         const verticalScale = graphHeight / (2 * maxAbs);
 
-        // Draw random walk polyline
-        ctx.strokeStyle = "rgba(0,0,0,0.85)";
-        ctx.lineWidth = 2;
+        // Choose styling based on count
+        // (Global alpha keeps the picture readable when there are many walks.)
+        let alpha = 0.85;
+        let lineWidth = 2;
+
+        if (count === 10) {
+            alpha = 0.35;
+            lineWidth = 1.5;
+        } else if (count === 100) {
+            alpha = 0.12;
+            lineWidth = 1;
+        } else if (count === 1000) {
+            alpha = 0.035;
+            lineWidth = 1;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.strokeStyle = "rgba(0,0,0,1)";
+        ctx.lineWidth = lineWidth;
+
+        // Efficient: build ONE combined path for all walks, then stroke once
         ctx.beginPath();
 
-        for (let k = 0; k < positions.length; k++) {
+        for (let i = 0; i < count; i++) {
 
-            const xPixel = padL + (k / N) * graphWidth;
-            const yPixel = yMid - positions[k] * verticalScale;
+            const positions = walks[i];
 
-            if (k === 0) {
-                ctx.moveTo(xPixel, yPixel);
-            } else {
-                ctx.lineTo(xPixel, yPixel);
+            for (let k = 0; k < positions.length; k++) {
+
+                const xPixel = padL + (k / N) * graphWidth;
+                const yPixel = yMid - positions[k] * verticalScale;
+
+                if (k === 0) {
+                    ctx.moveTo(xPixel, yPixel);
+                } else {
+                    ctx.lineTo(xPixel, yPixel);
+                }
             }
         }
 
         ctx.stroke();
+        ctx.restore();
     }
 
     drawButton.addEventListener("click", () => {
-        drawOneWalk();
+        drawManyWalks();
     });
 
-    drawOneWalk();
+    drawManyWalks();
 
 })();
