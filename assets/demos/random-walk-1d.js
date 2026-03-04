@@ -41,26 +41,58 @@
         ctx.fillText("position", 10, 18);
         ctx.fillText("step #", x1 - 50, h - 15);
 
-        return { x0, x1, y0, y1 };
+        return { x0, x1, y0, y1, padL, padR, padT, padB };
     }
 
-    function drawPlaceholder() {
+    // Returns +1 or -1 with 50/50 probability
+    function randomStep() {
+
+        if (Math.random() < 0.5) {
+            return -1;
+        }
+
+        return 1;
+    }
+
+    // Generate an array of positions [x0, x1, ..., xN]
+    function generateWalk(N) {
+
+        const positions = [];
+        let x = 0;
+
+        positions.push(x);               // x0 = 0
+
+        for (let k = 1; k <= N; k++) {   // compute x1..xN
+            x = x + randomStep();
+            positions.push(x);
+        }
+
+        return positions;
+    }
+
+    function drawOneWalk() {
+
+        const N = Number(stepsInput.value);
+        const positions = generateWalk(N);
 
         const { x0, x1, y0, y1 } = drawAxes();
 
-        ctx.strokeStyle = "rgba(0,0,0,0.85)";
-        ctx.lineWidth = 2;
+        // For now, just log so we can inspect the positions in the console
+        console.log("positions:", positions);
 
+        // We will draw it on the canvas in the next step.
+        // For now, draw a small dot at the origin so you see something.
+        ctx.fillStyle = "rgba(0,0,0,0.85)";
         ctx.beginPath();
-        ctx.moveTo(x0, y0);
-        ctx.lineTo(x1, y1);
-        ctx.stroke();
+        ctx.arc(x0, y0, 3, 0, Math.PI * 2);
+        ctx.fill();
     }
 
     drawButton.addEventListener("click", () => {
-        drawPlaceholder();
+        drawOneWalk();
     });
 
-    drawPlaceholder();
+    // Initial draw
+    drawOneWalk();
 
 })();
