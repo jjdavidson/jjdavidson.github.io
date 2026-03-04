@@ -77,7 +77,7 @@
         walkCtx.lineTo(xLeft, yBottom);
         walkCtx.stroke();
 
-        // x-axis at position = 0
+        // x-axis (position = 0)
         walkCtx.strokeStyle = "rgba(0,0,0,0.35)";
         walkCtx.lineWidth = 1;
         walkCtx.beginPath();
@@ -85,18 +85,26 @@
         walkCtx.lineTo(xRight, yMid);
         walkCtx.stroke();
 
-        // labels
         walkCtx.fillStyle = "rgba(0,0,0,0.8)";
         walkCtx.font = "14px system-ui";
 
-        walkCtx.fillText("step #", xRight - 50, h - 15);
+        // Centered x-axis label
+        const xCenter = (xLeft + xRight) / 2;
+        walkCtx.textAlign = "center";
+        walkCtx.fillText("step #", xCenter, h - 15);
 
+        // Rotated y-axis label centered at y = 0
         walkCtx.save();
-        walkCtx.translate(18, (yTop + yBottom) / 2);
+        walkCtx.translate(xLeft - 40, yMid);
         walkCtx.rotate(-Math.PI / 2);
+        walkCtx.textAlign = "center";
         walkCtx.fillText("position", 0, 0);
         walkCtx.restore();
 
+        // Reset alignment
+        walkCtx.textAlign = "left";
+
+        // Label 0 at axis
         walkCtx.fillText("0", xLeft - 18, yMid + 5);
     }
 
@@ -123,8 +131,21 @@
 
         histCtx.fillStyle = "rgba(0,0,0,0.8)";
         histCtx.font = "14px system-ui";
-        histCtx.fillText("count", 10, 18);
-        histCtx.fillText("position", xRight - 60, h - 15);
+
+        // Centered x-axis label
+        const xCenter = (xLeft + xRight) / 2;
+        histCtx.textAlign = "center";
+        histCtx.fillText("position", xCenter, h - 10);
+
+        // Rotated y-axis label centered vertically
+        histCtx.save();
+        histCtx.translate(xLeft - 40, (yTop + yBottom) / 2);
+        histCtx.rotate(-Math.PI / 2);
+        histCtx.textAlign = "center";
+        histCtx.fillText("count", 0, 0);
+        histCtx.restore();
+
+        histCtx.textAlign = "left";
 
         return { xLeft, xRight, yTop, yBottom };
     }
@@ -255,7 +276,10 @@
         // Add small text showing step
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
-        histCtx.fillText(`step = ${stepIndex}`, xLeft, yTop - 6);
+        const xCenter = (xLeft + xRight) / 2;
+        histCtx.textAlign = "center";
+        histCtx.fillText(`step = ${stepIndex}`, xCenter, yTop - 6);
+        histCtx.textAlign = "left";
     }
 
     function renderAll() {
