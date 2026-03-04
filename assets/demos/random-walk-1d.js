@@ -2,7 +2,6 @@
 
     const canvas = document.getElementById("canvas");
     const stepsInput = document.getElementById("stepsInput");
-    const stepsLabel = document.getElementById("stepsLabel");
     const walkCount = document.getElementById("walkCount");
     const drawButton = document.getElementById("drawButton");
 
@@ -57,10 +56,6 @@
         ctx.lineTo(x1, y1);
         ctx.stroke();
     }
-
-    stepsInput.addEventListener("change", () => {
-        stepsLabel.textContent = stepsInput.value;
-    });
 
     drawButton.addEventListener("click", () => {
         drawPlaceholder();

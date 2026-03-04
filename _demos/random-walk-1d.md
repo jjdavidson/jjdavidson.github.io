@@ -12,7 +12,6 @@ nav_order: 1
         <label>
             <div class="row">
                 <span>Total Steps</span>
-                <span id="stepsLabel" class="pill">200</span>
             </div>
             <select id="stepsInput">
                 <option value="25">25</option>
@@ -68,13 +67,6 @@ nav_order: 1
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#randomWalk1D .pill {
-    padding: 2px 10px;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 999px;
-    font-variant-numeric: tabular-nums;
 }
 
 #randomWalk1D button {
