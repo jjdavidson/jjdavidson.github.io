@@ -38,7 +38,7 @@ just_the_docs:
       name: Research
       nav_fold: true
     demos:
-      name: demos
+      name: Demos
       nav_fold: true
 
 defaults:
