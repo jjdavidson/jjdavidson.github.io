@@ -35,11 +35,29 @@ nav_order: 1
             </select>
         </label>
 
-        <button id="drawButton">Draw</button>
+        <label class="wide">
+            <div class="row">
+                <span>Current Step</span>
+                <span id="currentStepLabel">0</span>
+            </div>
+            <input id="currentStep" type="range" min="0" max="200" step="1" value="0">
+        </label>
+
+        <button id="drawButton">Regenerate</button>
 
     </div>
 
-    <canvas id="canvas" width="900" height="420"></canvas>
+    <div class="panels">
+        <div class="panel">
+            <div class="panelTitle">Walks (up to current step)</div>
+            <canvas id="walkCanvas" width="900" height="420"></canvas>
+        </div>
+
+        <div class="panel">
+            <div class="panelTitle">Histogram of positions at current step</div>
+            <canvas id="histCanvas" width="900" height="300"></canvas>
+        </div>
+    </div>
 </div>
 
 <style>
@@ -63,6 +81,11 @@ nav_order: 1
     min-width: 220px;
 }
 
+#randomWalk1D label.wide {
+    min-width: 320px;
+    flex: 1 1 320px;
+}
+
 #randomWalk1D .row {
     display: flex;
     justify-content: space-between;
@@ -75,13 +98,28 @@ nav_order: 1
     cursor: pointer;
 }
 
+#randomWalk1D .panels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+#randomWalk1D .panel {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#randomWalk1D .panelTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
 #randomWalk1D canvas {
     width: 100%;
     height: auto;
     display: block;
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 10px;
 }
 </style>
 
-<script defer src="/assets/demos/random-walk-1d.js"></script>
+<script defer src="/assets/demos/random-walk-1d.js?v=3"></script>
