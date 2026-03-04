@@ -35,6 +35,17 @@ nav_order: 1
             </select>
         </label>
 
+        <label>
+            <div class="row">
+                <span>Simulation Speed</span>
+            </div>
+            <select id="speedSelect">
+                <option value="10">Slow</option>
+                <option value="20" selected>Medium</option>
+                <option value="40">Fast</option>
+            </select>
+        </label>
+
         <label class="wide">
             <div class="row">
                 <span>Current Step</span>
@@ -45,15 +56,6 @@ nav_order: 1
 
         <button id="restartButton">Restart</button>
         <button id="playPauseButton">Play</button>
-
-        <label>
-            <div class="row">
-                <span>Speed (steps/sec)</span>
-                <span id="speedLabel">60</span>
-            </div>
-            <input id="speedInput" type="range" min="5" max="300" step="5" value="60">
-        </label>
-
     </div>
 
     <div class="panels">

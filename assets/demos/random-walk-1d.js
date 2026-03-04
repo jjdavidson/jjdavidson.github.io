@@ -2,14 +2,13 @@
 
     const stepsInput = document.getElementById("stepsInput");
     const walkCount = document.getElementById("walkCount");
+    const speedSelect = document.getElementById("speedSelect");
+
     const currentStep = document.getElementById("currentStep");
     const currentStepLabel = document.getElementById("currentStepLabel");
 
     const restartButton = document.getElementById("restartButton");
     const playPauseButton = document.getElementById("playPauseButton");
-
-    const speedInput = document.getElementById("speedInput");
-    const speedLabel = document.getElementById("speedLabel");
 
     const walkCanvas = document.getElementById("walkCanvas");
     const histCanvas = document.getElementById("histCanvas");
@@ -274,7 +273,6 @@
             histCtx.fillRect(x, y, Math.max(1, barW - 1), barH);
         }
 
-        // Step legend (closer to center)
         const xCenter = (xLeft + xRight) / 2;
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
@@ -292,7 +290,7 @@
         renderHistogramAtStep(s);
     }
 
-    // Animation loop: advances currentStep based on speedInput (steps/sec)
+    // Animation loop: advances currentStep based on speedSelect (steps/sec)
     function tick(timestampMs) {
 
         if (!isPlaying) {
@@ -308,7 +306,7 @@
         const dt = (timestampMs - lastTimeMs) / 1000;
         lastTimeMs = timestampMs;
 
-        const speed = Number(speedInput.value);
+        const speed = Number(speedSelect.value);
         stepAccumulator += speed * dt;
 
         const advance = Math.floor(stepAccumulator);
@@ -338,7 +336,6 @@
 
         if (isPlaying) return;
 
-        // If already at the end, restart from 0
         if (Number(currentStep.value) >= N) {
             currentStep.value = "0";
             renderAll();
@@ -373,6 +370,10 @@
         regenerateAllWalks();
     });
 
+    speedSelect.addEventListener("change", () => {
+        // No need to stop; speed changes live during play.
+    });
+
     currentStep.addEventListener("input", () => {
         stopPlaying();
         renderAll();
@@ -386,12 +387,7 @@
         }
     });
 
-    speedInput.addEventListener("input", () => {
-        speedLabel.textContent = speedInput.value;
-    });
-
     // Init
-    speedLabel.textContent = speedInput.value;
     regenerateAllWalks();
     renderAll();
 
