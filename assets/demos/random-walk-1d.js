@@ -1,66 +1,71 @@
 (() => {
 
-  const canvas = document.getElementById("canvas");
-  const stepsInput = document.getElementById("stepsInput");
-  const stepsLabel = document.getElementById("stepsLabel");
-  const drawButton = document.getElementById("drawButton");
+    const canvas = document.getElementById("canvas");
+    const stepsInput = document.getElementById("stepsInput");
+    const stepsLabel = document.getElementById("stepsLabel");
+    const walkCount = document.getElementById("walkCount");
+    const drawButton = document.getElementById("drawButton");
 
-  if (!canvas) return;
+    if (!canvas) return;
 
-  const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d");
 
-  function drawAxes() {
-    const w = canvas.width;
-    const h = canvas.height;
+    function drawAxes() {
 
-    ctx.clearRect(0, 0, w, h);
+        const w = canvas.width;
+        const h = canvas.height;
 
-    const padL = 60;
-    const padR = 20;
-    const padT = 20;
-    const padB = 50;
+        ctx.clearRect(0, 0, w, h);
 
-    const x0 = padL;
-    const x1 = w - padR;
-    const y0 = h - padB;
-    const y1 = padT;
+        const padL = 60;
+        const padR = 20;
+        const padT = 20;
+        const padB = 50;
 
-    ctx.strokeStyle = "rgba(0,0,0,0.5)";
-    ctx.lineWidth = 1;
+        const x0 = padL;
+        const x1 = w - padR;
+        const y0 = h - padB;
+        const y1 = padT;
 
-    ctx.beginPath();
-    ctx.moveTo(x0, y1);
-    ctx.lineTo(x0, y0);
-    ctx.lineTo(x1, y0);
-    ctx.stroke();
+        ctx.strokeStyle = "rgba(0,0,0,0.5)";
+        ctx.lineWidth = 1;
 
-    ctx.fillStyle = "rgba(0,0,0,0.8)";
-    ctx.font = "14px system-ui";
+        ctx.beginPath();
+        ctx.moveTo(x0, y1);
+        ctx.lineTo(x0, y0);
+        ctx.lineTo(x1, y0);
+        ctx.stroke();
 
-    ctx.fillText("position", 10, 18);
-    ctx.fillText("step #", x1 - 50, h - 15);
+        ctx.fillStyle = "rgba(0,0,0,0.8)";
+        ctx.font = "14px system-ui";
 
-    return { x0, x1, y0, y1 };
-  }
+        ctx.fillText("position", 10, 18);
+        ctx.fillText("step #", x1 - 50, h - 15);
 
-  function drawPlaceholder() {
-    const { x0, x1, y0, y1 } = drawAxes();
+        return { x0, x1, y0, y1 };
+    }
 
-    ctx.strokeStyle = "rgba(0,0,0,0.85)";
-    ctx.lineWidth = 2;
+    function drawPlaceholder() {
 
-    ctx.beginPath();
-    ctx.moveTo(x0, y0);
-    ctx.lineTo(x1, y1);
-    ctx.stroke();
-  }
+        const { x0, x1, y0, y1 } = drawAxes();
 
-  stepsInput.addEventListener("input", () => {
-    stepsLabel.textContent = stepsInput.value;
-  });
+        ctx.strokeStyle = "rgba(0,0,0,0.85)";
+        ctx.lineWidth = 2;
 
-  drawButton.addEventListener("click", drawPlaceholder);
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.lineTo(x1, y1);
+        ctx.stroke();
+    }
 
-  drawPlaceholder();
+    stepsInput.addEventListener("change", () => {
+        stepsLabel.textContent = stepsInput.value;
+    });
+
+    drawButton.addEventListener("click", () => {
+        drawPlaceholder();
+    });
+
+    drawPlaceholder();
 
 })();
