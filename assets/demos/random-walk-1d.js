@@ -4,7 +4,12 @@
     const walkCount = document.getElementById("walkCount");
     const currentStep = document.getElementById("currentStep");
     const currentStepLabel = document.getElementById("currentStepLabel");
-    const drawButton = document.getElementById("drawButton");
+
+    const restartButton = document.getElementById("restartButton");
+    const playPauseButton = document.getElementById("playPauseButton");
+
+    const speedInput = document.getElementById("speedInput");
+    const speedLabel = document.getElementById("speedLabel");
 
     const walkCanvas = document.getElementById("walkCanvas");
     const histCanvas = document.getElementById("histCanvas");
@@ -17,6 +22,11 @@
     // Data: an array of Int16Array walks, each of length N+1
     let walks = [];
     let N = 200;
+
+    // Animation state
+    let isPlaying = false;
+    let lastTimeMs = null;
+    let stepAccumulator = 0;
 
     function randomStep() {
 
@@ -49,7 +59,6 @@
             walks[i] = generateWalk(N);
         }
 
-        // Update current step slider bounds
         currentStep.max = String(N);
         currentStep.value = "0";
         currentStepLabel.textContent = "0";
@@ -77,7 +86,7 @@
         walkCtx.lineTo(xLeft, yBottom);
         walkCtx.stroke();
 
-        // x-axis (position = 0)
+        // x-axis at position = 0
         walkCtx.strokeStyle = "rgba(0,0,0,0.35)";
         walkCtx.lineWidth = 1;
         walkCtx.beginPath();
@@ -101,10 +110,7 @@
         walkCtx.fillText("position", 0, 0);
         walkCtx.restore();
 
-        // Reset alignment
         walkCtx.textAlign = "left";
-
-        // Label 0 at axis
         walkCtx.fillText("0", xLeft - 18, yMid + 5);
     }
 
@@ -132,12 +138,10 @@
         histCtx.fillStyle = "rgba(0,0,0,0.8)";
         histCtx.font = "14px system-ui";
 
-        // Centered x-axis label
         const xCenter = (xLeft + xRight) / 2;
         histCtx.textAlign = "center";
         histCtx.fillText("position", xCenter, h - 10);
 
-        // Rotated y-axis label centered vertically
         histCtx.save();
         histCtx.translate(xLeft - 40, (yTop + yBottom) / 2);
         histCtx.rotate(-Math.PI / 2);
@@ -164,7 +168,7 @@
         const graphHeight = h - padT - padB;
         const yMid = padT + graphHeight / 2;
 
-        // Scale based on max abs across all walks (full length), so view is stable as s increases
+        // Stable scale based on max abs across full walks
         let maxAbs = 1;
 
         for (let i = 0; i < walks.length; i++) {
@@ -179,7 +183,6 @@
 
         drawWalkAxes(yMid, padL, padR, padT, padB);
 
-        // Use a constant alpha for multi-walk readability
         const count = walks.length;
         const alpha = (count === 1) ? 0.9 : 0.35;
         const lineWidth = (count === 1) ? 2 : 1.25;
@@ -191,10 +194,11 @@
 
         walkCtx.beginPath();
 
+        const last = Math.min(s, N);
+
         for (let i = 0; i < count; i++) {
 
             const positions = walks[i];
-            const last = Math.min(s, N);
 
             for (let k = 0; k <= last; k++) {
 
@@ -217,7 +221,7 @@
 
         const padL = 60;
         const padR = 20;
-        const padT = 20;
+        const padT = 24;
         const padB = 40;
 
         const { xLeft, xRight, yTop, yBottom } = drawHistogramAxes(padL, padR, padT, padB);
@@ -227,7 +231,6 @@
 
         const stepIndex = Math.min(s, N);
 
-        // Collect positions at this step
         let minPos = Infinity;
         let maxPos = -Infinity;
 
@@ -240,7 +243,6 @@
             if (v > maxPos) maxPos = v;
         }
 
-        // Choose bin width 1 (integer lattice). Add padding so edge bars aren't glued to axes.
         const pad = 2;
         minPos -= pad;
         maxPos += pad;
@@ -254,7 +256,6 @@
             bins[Math.max(0, Math.min(binCount - 1, b))]++;
         }
 
-        // Draw bars
         let maxBin = 1;
         for (let b = 0; b < binCount; b++) {
             if (bins[b] > maxBin) maxBin = bins[b];
@@ -273,10 +274,10 @@
             histCtx.fillRect(x, y, Math.max(1, barW - 1), barH);
         }
 
-        // Add small text showing step
+        // Step legend (closer to center)
+        const xCenter = (xLeft + xRight) / 2;
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
-        const xCenter = (xLeft + xRight) / 2;
         histCtx.textAlign = "center";
         histCtx.fillText(`step = ${stepIndex}`, xCenter, yTop - 6);
         histCtx.textAlign = "left";
@@ -291,24 +292,107 @@
         renderHistogramAtStep(s);
     }
 
-    // Events
-    drawButton.addEventListener("click", () => {
+    // Animation loop: advances currentStep based on speedInput (steps/sec)
+    function tick(timestampMs) {
+
+        if (!isPlaying) {
+            lastTimeMs = null;
+            stepAccumulator = 0;
+            return;
+        }
+
+        if (lastTimeMs === null) {
+            lastTimeMs = timestampMs;
+        }
+
+        const dt = (timestampMs - lastTimeMs) / 1000;
+        lastTimeMs = timestampMs;
+
+        const speed = Number(speedInput.value);
+        stepAccumulator += speed * dt;
+
+        const advance = Math.floor(stepAccumulator);
+        if (advance > 0) {
+
+            stepAccumulator -= advance;
+
+            const s0 = Number(currentStep.value);
+            const s1 = Math.min(N, s0 + advance);
+
+            currentStep.value = String(s1);
+            renderAll();
+
+            if (s1 >= N) {
+                isPlaying = false;
+                playPauseButton.textContent = "Play";
+                lastTimeMs = null;
+                stepAccumulator = 0;
+                return;
+            }
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    function startPlaying() {
+
+        if (isPlaying) return;
+
+        // If already at the end, restart from 0
+        if (Number(currentStep.value) >= N) {
+            currentStep.value = "0";
+            renderAll();
+        }
+
+        isPlaying = true;
+        playPauseButton.textContent = "Pause";
+        requestAnimationFrame(tick);
+    }
+
+    function stopPlaying() {
+
+        isPlaying = false;
+        playPauseButton.textContent = "Play";
+        lastTimeMs = null;
+        stepAccumulator = 0;
+    }
+
+    // UI wiring
+    restartButton.addEventListener("click", () => {
+        stopPlaying();
         regenerateAllWalks();
     });
 
     stepsInput.addEventListener("change", () => {
+        stopPlaying();
         regenerateAllWalks();
     });
 
     walkCount.addEventListener("change", () => {
+        stopPlaying();
         regenerateAllWalks();
     });
 
     currentStep.addEventListener("input", () => {
+        stopPlaying();
         renderAll();
     });
 
+    playPauseButton.addEventListener("click", () => {
+        if (isPlaying) {
+            stopPlaying();
+        } else {
+            startPlaying();
+        }
+    });
+
+    speedInput.addEventListener("input", () => {
+        speedLabel.textContent = speedInput.value;
+    });
+
     // Init
+    speedLabel.textContent = speedInput.value;
     regenerateAllWalks();
+    renderAll();
 
 })();

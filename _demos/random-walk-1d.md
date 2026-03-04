@@ -43,7 +43,16 @@ nav_order: 1
             <input id="currentStep" type="range" min="0" max="200" step="1" value="0">
         </label>
 
-        <button id="drawButton">Regenerate</button>
+        <button id="restartButton">Restart</button>
+        <button id="playPauseButton">Play</button>
+
+        <label>
+            <div class="row">
+                <span>Speed (steps/sec)</span>
+                <span id="speedLabel">60</span>
+            </div>
+            <input id="speedInput" type="range" min="5" max="300" step="5" value="60">
+        </label>
 
     </div>
 
