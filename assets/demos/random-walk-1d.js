@@ -75,17 +75,54 @@
         const N = Number(stepsInput.value);
         const positions = generateWalk(N);
 
-        const { x0, x1, y0, y1 } = drawAxes();
+        const { padL, padR, padT, padB } = drawAxes();
 
-        // For now, just log so we can inspect the positions in the console
-        console.log("positions:", positions);
+        const w = canvas.width;
+        const h = canvas.height;
 
-        // We will draw it on the canvas in the next step.
-        // For now, draw a small dot at the origin so you see something.
-        ctx.fillStyle = "rgba(0,0,0,0.85)";
+        const graphWidth = w - padL - padR;
+        const graphHeight = h - padT - padB;
+
+        const x0 = padL;
+        const yMid = padT + graphHeight / 2;
+
+        // Find vertical scaling
+        let maxAbs = 1;
+
+        for (let i = 0; i < positions.length; i++) {
+            const absVal = Math.abs(positions[i]);
+            if (absVal > maxAbs) {
+                maxAbs = absVal;
+            }
+        }
+
+        const verticalScale = graphHeight / (2 * maxAbs);
+
+        // Draw horizontal axis (y = 0)
+        ctx.strokeStyle = "rgba(0,0,0,0.4)";
         ctx.beginPath();
-        ctx.arc(x0, y0, 3, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(padL, yMid);
+        ctx.lineTo(w - padR, yMid);
+        ctx.stroke();
+
+        // Draw the random walk polyline
+        ctx.strokeStyle = "rgba(0,0,0,0.85)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+
+        for (let k = 0; k < positions.length; k++) {
+
+            const xPixel = padL + (k / N) * graphWidth;
+            const yPixel = yMid - positions[k] * verticalScale;
+
+            if (k === 0) {
+                ctx.moveTo(xPixel, yPixel);
+            } else {
+                ctx.lineTo(xPixel, yPixel);
+            }
+        }
+
+        ctx.stroke();
     }
 
     drawButton.addEventListener("click", () => {
