@@ -14,10 +14,10 @@ nav_order: 1
                 <span>Total Steps</span>
             </div>
             <select id="stepsInput">
-                <option value="25">25</option>
+                <option value="25" selected>25</option>
                 <option value="50">50</option>
                 <option value="100">100</option>
-                <option value="200" selected>200</option>
+                <option value="200">200</option>
                 <option value="500">500</option>
                 <option value="1000">1000</option>
             </select>
@@ -31,7 +31,9 @@ nav_order: 1
                 <option value="1" selected>1</option>
                 <option value="10">10</option>
                 <option value="100">100</option>
+                <option value="500">500</option>
                 <option value="1000">1000</option>
+                <option value="2000">2000</option>
             </select>
         </label>
 

@@ -242,17 +242,28 @@
             if (v > maxPos) maxPos = v;
         }
 
-        const pad = 2;
+        // Use bin width = 2 to fix the parity issue (even/odd support)
+        const binWidth = 2;
+
+        // Add some padding so bars aren't glued to the axes
+        const pad = 4;
         minPos -= pad;
         maxPos += pad;
 
-        const binCount = Math.max(5, Math.min(121, (maxPos - minPos + 1)));
+        // Snap min/max to bin boundaries
+        const minEdge = Math.floor(minPos / binWidth) * binWidth;
+        const maxEdge = Math.ceil(maxPos / binWidth) * binWidth;
+
+        const binCount = Math.min(200, Math.max(5, Math.floor((maxEdge - minEdge) / binWidth) + 1));
         const bins = new Int32Array(binCount);
 
+        // Fill bins
         for (let i = 0; i < count; i++) {
             const v = values[i];
-            const b = Math.floor((v - minPos) * (binCount - 1) / ((maxPos - minPos) || 1));
-            bins[Math.max(0, Math.min(binCount - 1, b))]++;
+            const b = Math.floor((v - minEdge) / binWidth);
+            if (b >= 0 && b < binCount) {
+                bins[b]++;
+            }
         }
 
         let maxBin = 1;
@@ -287,7 +298,13 @@
         currentStepLabel.textContent = String(s);
 
         renderWalksUpToStep(s);
-        renderHistogramAtStep(s);
+
+        // Throttle histogram updates for large simulations
+        const count = walks.length;
+
+        if (count <= 100 || s % 3 === 0) {
+            renderHistogramAtStep(s);
+        }
     }
 
     // Animation loop: advances currentStep based on speedSelect (steps/sec)
