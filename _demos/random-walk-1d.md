@@ -134,4 +134,4 @@ nav_order: 1
 }
 </style>
 
-<script defer src="/assets/demos/random-walk-1d.js?v=3"></script>
+<script defer src="/assets/demos/random-walk-1d.js?v=8"></script>
