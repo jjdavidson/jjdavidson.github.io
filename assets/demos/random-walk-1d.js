@@ -217,6 +217,40 @@
         walkCtx.restore();
     }
 
+    function drawHistXTicks(xLeft, xRight, yBottom, minEdge, maxEdge) {
+
+        const W = xRight - xLeft;
+        const range = maxEdge - minEdge;
+
+        histCtx.strokeStyle = "rgba(0,0,0,0.25)";
+        histCtx.fillStyle = "rgba(0,0,0,0.7)";
+        histCtx.lineWidth = 1;
+        histCtx.font = "12px system-ui";
+        histCtx.textAlign = "center";
+
+        const tickEvery = 10;
+        const tickLen = 6;
+
+        const start = Math.ceil(minEdge / tickEvery) * tickEvery;
+
+        for (let v = start; v <= maxEdge; v += tickEvery) {
+
+            const x = xLeft + ((v - minEdge) / range) * W;
+
+            histCtx.beginPath();
+            histCtx.moveTo(x, yBottom);
+            histCtx.lineTo(x, yBottom + tickLen);
+            histCtx.stroke();
+
+            // Label every 20 to avoid clutter
+            if (v % 20 === 0) {
+                histCtx.fillText(String(v), x, yBottom + tickLen + 12);
+            }
+        }
+
+        histCtx.textAlign = "left";
+    }
+
     function renderHistogramAtStep(s) {
 
         const padL = 60;
@@ -284,12 +318,8 @@
             histCtx.fillRect(x0, y, Math.max(1, (x1 - x0) - 1), barH);
         }
 
-        // Step legend
-        const xCenter = (xLeft + xRight) / 2;
-        histCtx.fillStyle = "rgba(0,0,0,0.75)";
-        histCtx.font = "14px system-ui";
-        histCtx.textAlign = "center";
-        histCtx.textAlign = "left";
+        // draw axis ticks
+        drawHistXTicks(xLeft, xRight, yBottom, minEdge, maxEdge);
     }
 
     function renderAll() {
@@ -299,10 +329,11 @@
 
         renderWalksUpToStep(s);
 
-        // Throttle histogram updates for large simulations
-        const count = walks.length;
-
-        if (count <= 100 || s % 3 === 0) {
+        if (N >= 100) {
+            if (s % 5 === 0 || s === N) {
+                renderHistogramAtStep(s);
+            }
+        } else {
             renderHistogramAtStep(s);
         }
     }
