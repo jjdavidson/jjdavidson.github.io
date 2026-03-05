@@ -230,34 +230,22 @@
 
         const stepIndex = Math.min(s, N);
 
-        let minPos = Infinity;
-        let maxPos = -Infinity;
-
+        // Collect positions at this step
         const values = new Int16Array(count);
 
         for (let i = 0; i < count; i++) {
-            const v = walks[i][stepIndex];
-            values[i] = v;
-            if (v < minPos) minPos = v;
-            if (v > maxPos) maxPos = v;
+            values[i] = walks[i][stepIndex];
         }
 
-        // Use bin width = 2 to fix the parity issue (even/odd support)
+        // Fixed histogram range and binning (bin width = 2 fixes parity issue)
+        const minEdge = -80;
+        const maxEdge = 80;
         const binWidth = 2;
 
-        // Add some padding so bars aren't glued to the axes
-        const pad = 4;
-        minPos -= pad;
-        maxPos += pad;
-
-        // Snap min/max to bin boundaries
-        const minEdge = Math.floor(minPos / binWidth) * binWidth;
-        const maxEdge = Math.ceil(maxPos / binWidth) * binWidth;
-
-        const binCount = Math.min(200, Math.max(5, Math.floor((maxEdge - minEdge) / binWidth) + 1));
+        const binCount = Math.floor((maxEdge - minEdge) / binWidth);
         const bins = new Int32Array(binCount);
 
-        // Fill bins
+        // Fill bins (ignore values outside [-80, 80])
         for (let i = 0; i < count; i++) {
             const v = values[i];
             const b = Math.floor((v - minEdge) / binWidth);
@@ -266,29 +254,40 @@
             }
         }
 
+        // Find max bin for scaling bar heights
         let maxBin = 1;
         for (let b = 0; b < binCount; b++) {
             if (bins[b] > maxBin) maxBin = bins[b];
         }
 
+        // Draw bars with value-based x mapping
         const W = (xRight - xLeft);
         const H = (yBottom - yTop);
-        const barW = W / binCount;
+        const range = maxEdge - minEdge;
 
         histCtx.fillStyle = "rgba(0,0,0,0.85)";
 
         for (let b = 0; b < binCount; b++) {
+
             const barH = (bins[b] / maxBin) * H;
-            const x = xLeft + b * barW;
+
+            const leftEdge = minEdge + b * binWidth;
+            const rightEdge = leftEdge + binWidth;
+
+            const x0 = xLeft + ((leftEdge - minEdge) / range) * W;
+            const x1 = xLeft + ((rightEdge - minEdge) / range) * W;
+
             const y = yBottom - barH;
-            histCtx.fillRect(x, y, Math.max(1, barW - 1), barH);
+
+            histCtx.fillRect(x0, y, Math.max(1, (x1 - x0) - 1), barH);
         }
 
+        // Step legend
         const xCenter = (xLeft + xRight) / 2;
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
         histCtx.textAlign = "center";
-        histCtx.fillText(`step = ${stepIndex}`, xCenter, yTop - 6);
+        histCtx.fillText(`step = ${stepIndex}   (range [-80, 80], bin width = 2)`, xCenter, yTop - 6);
         histCtx.textAlign = "left";
     }
 
