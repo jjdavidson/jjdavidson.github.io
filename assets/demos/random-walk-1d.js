@@ -3,6 +3,7 @@
     const stepsInput = document.getElementById("stepsInput");
     const walkCount = document.getElementById("walkCount");
     const speedSelect = document.getElementById("speedSelect");
+    const showHistogram = document.getElementById("showHistogram");
 
     const currentStep = document.getElementById("currentStep");
     const currentStepLabel = document.getElementById("currentStepLabel");
@@ -287,7 +288,7 @@
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
         histCtx.textAlign = "center";
-        histCtx.fillText(`step = ${stepIndex}   (range [-80, 80], bin width = 2)`, xCenter, yTop - 6);
+        histCtx.fillText(`step = ${stepIndex}`, xCenter, yTop - 6);
         histCtx.textAlign = "left";
     }
 
@@ -298,11 +299,10 @@
 
         renderWalksUpToStep(s);
 
-        // Throttle histogram updates for large simulations
-        const count = walks.length;
-
-        if (count <= 100 || s % 3 === 0) {
+        if (showHistogram.checked) {
             renderHistogramAtStep(s);
+        } else {
+            histCtx.clearRect(0, 0, histCanvas.width, histCanvas.height);
         }
     }
 
@@ -401,6 +401,10 @@
         } else {
             startPlaying();
         }
+    });
+
+    showHistogram.addEventListener("change", () => {
+        renderAll();
     });
 
     // Init

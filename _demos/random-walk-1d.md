@@ -47,6 +47,13 @@ nav_order: 1
             </select>
         </label>
 
+        <label>
+            <div class="row">
+                <span>Show Histogram</span>
+            </div>
+            <input id="showHistogram" type="checkbox" checked>
+        </label>
+
         <label class="wide">
             <div class="row">
                 <span>Current Step</span>
