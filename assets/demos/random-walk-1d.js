@@ -12,6 +12,7 @@
 
     const walkCanvas = document.getElementById("walkCanvas");
     const histCanvas = document.getElementById("histCanvas");
+    const histTitle = document.getElementById("histTitle");
 
     if (!walkCanvas || !histCanvas) return;
 
@@ -229,6 +230,7 @@
         if (count === 0) return;
 
         const stepIndex = Math.min(s, N);
+        histTitle.textContent = `Distribution of Positions (Step = ${stepIndex})`;
 
         // Collect positions at this step
         const values = new Int16Array(count);
@@ -287,7 +289,6 @@
         histCtx.fillStyle = "rgba(0,0,0,0.75)";
         histCtx.font = "14px system-ui";
         histCtx.textAlign = "center";
-        histCtx.fillText(`step = ${stepIndex}   (range [-80, 80], bin width = 2)`, xCenter, yTop - 6);
         histCtx.textAlign = "left";
     }
 

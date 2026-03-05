@@ -61,12 +61,12 @@ nav_order: 1
 
     <div class="panels">
         <div class="panel">
-            <div class="panelTitle">Walks (up to current step)</div>
+            <div class="panelTitle">Random Walk Paths</div>
             <canvas id="walkCanvas" width="900" height="420"></canvas>
         </div>
 
         <div class="panel">
-            <div class="panelTitle">Histogram of positions at current step</div>
+            <div class="panelTitle" id="histTitle">Distribution of Positions (Step = 0)</div>
             <canvas id="histCanvas" width="900" height="300"></canvas>
         </div>
     </div>
