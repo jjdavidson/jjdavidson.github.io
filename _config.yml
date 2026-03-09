@@ -4,6 +4,8 @@ description: Personal Website for Jonathan Davidson
 remote_theme: just-the-docs/just-the-docs
 plugins:
   - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-include-cache
 
 search_enabled: true
 color_scheme: light
