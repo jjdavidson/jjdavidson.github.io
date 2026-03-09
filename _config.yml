@@ -46,6 +46,10 @@ just_the_docs:
 defaults:
   - scope:
       path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
       type: notes
     values:
       layout: default
