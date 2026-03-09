@@ -146,7 +146,7 @@ Stronger bounds require understanding how the families $\mathcal F_i$ interact.
 This interaction is where additional algebraic and Fourier-analytic techniques begin to play a role.
 
 
-## The Case $q = 6$ and Szegedy's Improvement
+## Exploiting Orthogonality
 
 The first nontrivial composite modulus is $q = 6 = 2 \cdot 3$. The bound above gives
 
@@ -179,7 +179,7 @@ Thus $\mathcal{F}_2'$ consists of the sets whose sizes are divisible by $2$, whi
 Working modulo $2$, the characteristic vectors corresponding to sets in $\mathcal{F}_2$ are linearly independent in $\mathbb{F}_2^n$, while the vectors corresponding to $\mathcal{F}_2'$ lie in their orthogonal complement.
 Recall the following lemma from linear algebra over finite fields.
 
-> **Lemma.**
+> **Lemma. (Dimension Bound)**
 > Suppose that $V$ is a $d$-dimensional subspace of $\mathbb{F}_p^n$. Then,
 >
 > $$ 
@@ -237,7 +237,62 @@ $$
 n \leq f_q(n) \leq \omega n - \omega \log_2(n)
 $$
 
-## Fourier Analytic Methods
+## A Stronger Orthogonality Structure
+
+In the previous argument we used the fact that the vectors corresponding to sets in $\mathcal{F}_i'$ lie in the orthogonal complement of the span of $\mathcal{F}_i$. This yielded the dimension bound
+
+$$
+\dim(V_i) \le n - \lvert \mathcal{F}_i \rvert,
+$$
+
+where $V_i = \mathrm{span}(\mathcal{F}_i')$.
+However, the vectors in $\mathcal{F}_i'$ satisfy an even stronger property.
+If $A,B \in \mathcal{F}_i'$, then by definition
+
+$$
+\lvert A \rvert \equiv 0 \pmod{p_i}, \qquad \lvert B \rvert \equiv 0 \pmod{p_i}.
+$$
+
+Since $\mathcal{F}$ is a $q$-Oddtown family, intersections satisfy
+
+$$
+\lvert A \cap B \rvert \equiv 0 \pmod{p_i}.
+$$
+
+Passing to characteristic vectors over $\mathbb{F}_{p_i}$ gives
+
+$$
+v_A \cdot v_B = 0.
+$$
+
+This includes the case $A = B$. Thus every pair of vectors in $\mathcal{F}_i'$ is orthogonal. 
+A subspace with this property is called **totally isotropic**. 
+In such spaces, we can construct a stronger dimension bound.
+
+> **Lemma. (Isotropic Bound)**
+>If $V \subseteq \mathbb{F}_p^n$ is totally isotropic, then
+>
+> $$
+> \dim(V) \leq \frac{n}{2}
+> $$
+
+Applying this to $V_i = \mathrm{span}(\mathcal{F}_i')$ yields
+
+$$
+\dim(V_i) \le \frac{n - \lvert \mathcal{F}_i \rvert}{2}.
+$$
+
+Using the dimension bound along with the isotropic bound, we obtain
+
+$$
+\lvert \mathcal{F}_i \rvert \leq n - 2\log_2 \lvert \mathcal{F}_i' \rvert.
+$$
+
+Thus the logarithmic saving from Szegedy's argument doubles, leading to
+
+$$
+f_q(n) \le \omega n - 2\omega \log_2 n + O(1).
+$$
 
 
 ## References
