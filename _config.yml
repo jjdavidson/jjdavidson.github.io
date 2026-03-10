@@ -2,6 +2,7 @@ title: Jonathan Davidson
 description: Personal Website for Jonathan Davidson
 
 remote_theme: just-the-docs/just-the-docs
+
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
@@ -9,62 +10,12 @@ plugins:
 
 search_enabled: true
 color_scheme: light
-
 markdown: kramdown
 
 footer_content: "© 2026 Jonathan Davidson. All rights reserved."
 
-collections:
-  notes:
-    output: true
-    permalink: /notes/:path/
-  teaching:
-    output: true
-    permalink: /teaching/:path/
-  research:
-    output: true
-    permalink: /research/:path/
-  demos:
-    output: true
-    permalink: /demos/:path/
-
-just_the_docs:
-  collections:
-    notes:
-      name: Math Notes
-      nav_fold: true
-    teaching:
-      name: Teaching
-      nav_fold: true
-    research:
-      name: Research
-      nav_fold: true
-    demos:
-      name: Demos
-      nav_fold: true
-
 defaults:
   - scope:
       path: ""
-    values:
-      layout: default
-  - scope:
-      path: ""
-      type: notes
-    values:
-      layout: default
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: default
-  - scope:
-      path: ""
-      type: research
-    values:
-      layout: default
-  - scope:
-      path: ""
-      type: demos
     values:
       layout: default

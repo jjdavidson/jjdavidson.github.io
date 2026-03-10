@@ -1,5 +1,7 @@
 ---
 title: Monotone Class Theorem
+parent: Measure Theory
+nav_order: 10
 ---
 
 # The Monotone Class Theorem
