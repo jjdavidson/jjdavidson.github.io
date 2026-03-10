@@ -162,7 +162,7 @@
             const ys = walks[i].y;
 
             let start = 0;
-            const useTailOnly = (count >= 500);
+            const useTailOnly = (count >= 100);
 
             if (useTailOnly) {
                 start = Math.max(0, last - tailLength);

@@ -66,7 +66,7 @@ nav_order: 1
         </div>
 
         <div class="panel">
-            <div class="panelTitle" id="histTitle">Distribution of Positions (Step = 0)</div>
+            <div class="panelTitle" id="histTitle">Distribution of Positions</div>
             <canvas id="histCanvas" width="900" height="300"></canvas>
         </div>
     </div>
@@ -134,4 +134,4 @@ nav_order: 1
 }
 </style>
 
-<script defer src="/assets/demos/random-walk-1d.js?v=8"></script>
+<script defer src="/assets/demos/random-walk-1d.js"></script>

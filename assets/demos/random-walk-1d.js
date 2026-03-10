@@ -146,7 +146,7 @@
         histCtx.translate(xLeft - 40, (yTop + yBottom) / 2);
         histCtx.rotate(-Math.PI / 2);
         histCtx.textAlign = "center";
-        histCtx.fillText("count", 0, 0);
+        histCtx.fillText("density", 0, 0);
         histCtx.restore();
 
         histCtx.textAlign = "left";
@@ -264,7 +264,6 @@
         if (count === 0) return;
 
         const stepIndex = Math.min(s, N);
-        histTitle.textContent = `Distribution of Positions (Step = ${stepIndex})`;
 
         // Collect positions at this step
         const values = new Int16Array(count);
@@ -273,7 +272,7 @@
             values[i] = walks[i][stepIndex];
         }
 
-        // Fixed histogram range and binning (bin width = 2 fixes parity issue)
+        // Fixed histogram range and binning
         const minEdge = -80;
         const maxEdge = 80;
         const binWidth = 2;
@@ -290,22 +289,29 @@
             }
         }
 
-        // Find max bin for scaling bar heights
-        let maxBin = 1;
+        // Convert counts to relative frequency:
+        // height = count_in_bin / total_count
+        const frequencies = new Float32Array(binCount);
+
         for (let b = 0; b < binCount; b++) {
-            if (bins[b] > maxBin) maxBin = bins[b];
+            frequencies[b] = bins[b] / count;
         }
 
+        // Fixed vertical scale based on step 1:
+        // at step 1, about half the walkers are in each of two bins,
+        // so the tallest typical bar is about 1/2.
+        const maxFrequency = 0.15;
+
         // Draw bars with value-based x mapping
-        const W = (xRight - xLeft);
-        const H = (yBottom - yTop);
+        const W = xRight - xLeft;
+        const H = yBottom - yTop;
         const range = maxEdge - minEdge;
 
         histCtx.fillStyle = "rgba(0,0,0,0.85)";
 
         for (let b = 0; b < binCount; b++) {
 
-            const barH = (bins[b] / maxBin) * H;
+            const barH = (frequencies[b] / maxFrequency) * H;
 
             const leftEdge = minEdge + b * binWidth;
             const rightEdge = leftEdge + binWidth;
@@ -318,7 +324,6 @@
             histCtx.fillRect(x0, y, Math.max(1, (x1 - x0) - 1), barH);
         }
 
-        // draw axis ticks
         drawHistXTicks(xLeft, xRight, yBottom, minEdge, maxEdge);
     }
 
@@ -328,14 +333,7 @@
         currentStepLabel.textContent = String(s);
 
         renderWalksUpToStep(s);
-
-        if (N >= 100) {
-            if (s % 5 === 0 || s === N) {
-                renderHistogramAtStep(s);
-            }
-        } else {
-            renderHistogramAtStep(s);
-        }
+        renderHistogramAtStep(s);
     }
 
     // Animation loop: advances currentStep based on speedSelect (steps/sec)
