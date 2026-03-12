@@ -1,10 +1,7 @@
 (() => {
 
     const throwsInput = document.getElementById("throwsInput");
-    const gridType = document.getElementById("gridType");
     const shapeType = document.getElementById("shapeType");
-    const spacingInput = document.getElementById("spacingInput");
-    const sizeInput = document.getElementById("sizeInput");
     const speedSelect = document.getElementById("speedSelect");
 
     const currentThrow = document.getElementById("currentThrow");
@@ -14,27 +11,250 @@
     const playPauseButton = document.getElementById("playPauseButton");
 
     const tossCanvas = document.getElementById("tossCanvas");
-    const statsCanvas = document.getElementById("statsCanvas");
 
-    if (!tossCanvas || !statsCanvas) return;
+    if (!tossCanvas) return;
 
     const tossCtx = tossCanvas.getContext("2d");
-    const statsCtx = statsCanvas.getContext("2d"); 
 
-    // Data: an array of throw objects
     let throws = [];
-    let totalThrows = 100;
+    let crossingCounts = [];
+    let totalThrows = 1000;
 
-    // Animation state
     let isPlaying = false;
     let lastTimeMs = null;
     let throwAccumulator = 0;
 
-    function regenerateAllThrows() {
+    function randomInRange(a, b) {
+        return a + Math.random() * (b - a);
+    }
 
+    function getShapeParameters() {
+        const shape = shapeType.value;
+
+        if (shape === "segment") {
+            return {
+                shape: "segment",
+                size: 40,
+                spacing: 80
+            };
+        }
+
+        if (shape === "square") {
+            return {
+                shape: "square",
+                size: 20,
+                spacing: 80
+            };
+        }
+
+        if (shape === "triangle") {
+            return {
+                shape: "triangle",
+                size: 80 / 3,
+                spacing: 80
+            };
+        }
+
+        return {
+            shape: "piShape",
+            spacing: 80
+        };
+    }
+
+    function getVisibleWindowSize() {
+        return Math.min(200, totalThrows);
+    }
+
+    function getStrokeWidth() {
+        if (totalThrows >= 10000) return 2;
+        return 3;
+    }
+
+    function getShapeLabel() {
+        if (shapeType.value === "segment") return "Line Segment";
+        if (shapeType.value === "square") return "Square";
+        if (shapeType.value === "triangle") return "Equilateral Triangle";
+        return "Pi Shape";
+    }
+
+    function getSegmentEndpoints(throwObj) {
+        const half = throwObj.size / 2;
+        const dx = half * Math.cos(throwObj.theta);
+        const dy = half * Math.sin(throwObj.theta);
+
+        return {
+            x1: throwObj.cx - dx,
+            y1: throwObj.cy - dy,
+            x2: throwObj.cx + dx,
+            y2: throwObj.cy + dy
+        };
+    }
+
+    function getSquareVertices(throwObj) {
+        const s = throwObj.size / 2;
+        const c = Math.cos(throwObj.theta);
+        const sn = Math.sin(throwObj.theta);
+
+        const local = [
+            { x: -s, y: -s },
+            { x:  s, y: -s },
+            { x:  s, y:  s },
+            { x: -s, y:  s }
+        ];
+
+        return local.map(p => ({
+            x: throwObj.cx + p.x * c - p.y * sn,
+            y: throwObj.cy + p.x * sn + p.y * c
+        }));
+    }
+
+    function getTriangleVertices(throwObj) {
+        const a = throwObj.size;
+        const h = Math.sqrt(3) * a / 2;
+
+        const local = [
+            { x: 0,    y: -2 * h / 3 },
+            { x: -a/2, y:  h / 3 },
+            { x:  a/2, y:  h / 3 }
+        ];
+
+        const c = Math.cos(throwObj.theta);
+        const sn = Math.sin(throwObj.theta);
+
+        return local.map(p => ({
+            x: throwObj.cx + p.x * c - p.y * sn,
+            y: throwObj.cy + p.x * sn + p.y * c
+        }));
+    }
+
+    function getPiShapeSegments(throwObj) {
+        // Lowercase pi shape
+        // bounding trapezoid approximately:
+        // top width = 30
+        // bottom width = 14
+        // height = 16
+        // perimeter ≈ 79.78
+
+        const localSegments = [
+            { x1: -15, y1:  8, x2:  15, y2:  8 }, // top bar
+            { x1:  -7, y1:  8, x2:  -7, y2: -8 }, // left leg
+            { x1:   7, y1:  8, x2:   7, y2: -8 }  // right leg
+        ];
+
+        const c = Math.cos(throwObj.theta);
+        const sn = Math.sin(throwObj.theta);
+
+        return localSegments.map(seg => ({
+            x1: throwObj.cx + seg.x1 * c - seg.y1 * sn,
+            y1: throwObj.cy + seg.x1 * sn + seg.y1 * c,
+            x2: throwObj.cx + seg.x2 * c - seg.y2 * sn,
+            y2: throwObj.cy + seg.x2 * sn + seg.y2 * c
+        }));
+    }
+
+    function segmentCrossesVerticalLinesFromEndpoints(x1, x2, spacing) {
+        return Math.floor(x1 / spacing) !== Math.floor(x2 / spacing);
+    }
+
+    function getShapeXRange(throwObj) {
+
+        if (throwObj.shape === "segment") {
+            const { x1, x2 } = getSegmentEndpoints(throwObj);
+            return {
+                minX: Math.min(x1, x2),
+                maxX: Math.max(x1, x2)
+            };
+        }
+
+        if (throwObj.shape === "square") {
+            const vertices = getSquareVertices(throwObj);
+            let minX = Infinity;
+            let maxX = -Infinity;
+
+            for (const p of vertices) {
+                if (p.x < minX) minX = p.x;
+                if (p.x > maxX) maxX = p.x;
+            }
+
+            return { minX, maxX };
+        }
+
+        if (throwObj.shape === "triangle") {
+            const vertices = getTriangleVertices(throwObj);
+            let minX = Infinity;
+            let maxX = -Infinity;
+
+            for (const p of vertices) {
+                if (p.x < minX) minX = p.x;
+                if (p.x > maxX) maxX = p.x;
+            }
+
+            return { minX, maxX };
+        }
+
+        if (throwObj.shape === "piShape") {
+            const segments = getPiShapeSegments(throwObj);
+            let minX = Infinity;
+            let maxX = -Infinity;
+
+            for (const seg of segments) {
+                minX = Math.min(minX, seg.x1, seg.x2);
+                maxX = Math.max(maxX, seg.x1, seg.x2);
+            }
+
+            return { minX, maxX };
+        }
+
+        return { minX: throwObj.cx, maxX: throwObj.cx };
+    }
+
+    function throwCrossesVerticalLines(throwObj) {
+        const spacing = throwObj.spacing;
+
+        if (throwObj.shape === "piShape") {
+            const segments = getPiShapeSegments(throwObj);
+
+            for (const seg of segments) {
+                if (segmentCrossesVerticalLinesFromEndpoints(seg.x1, seg.x2, spacing)) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        const { minX, maxX } = getShapeXRange(throwObj);
+        return Math.floor(minX / spacing) !== Math.floor(maxX / spacing);
+    }
+
+    function generateThrow() {
+        const params = getShapeParameters();
+
+        const throwObj = {
+            cx: randomInRange(0, tossCanvas.width),
+            cy: randomInRange(0, tossCanvas.height),
+            theta: randomInRange(0, 2 * Math.PI),
+            size: params.size,
+            spacing: params.spacing,
+            shape: params.shape,
+            crosses: false
+        };
+
+        throwObj.crosses = throwCrossesVerticalLines(throwObj);
+        return throwObj;
+    }
+
+    function regenerateAllThrows() {
         totalThrows = Number(throwsInput.value);
 
-        throws = [];
+        throws = new Array(totalThrows);
+        crossingCounts = new Array(totalThrows + 1);
+        crossingCounts[0] = 0;
+
+        for (let i = 0; i < totalThrows; i++) {
+            throws[i] = generateThrow();
+            crossingCounts[i + 1] = crossingCounts[i] + (throws[i].crosses ? 1 : 0);
+        }
 
         currentThrow.max = String(totalThrows);
         currentThrow.value = "0";
@@ -43,28 +263,11 @@
         renderAll();
     }
 
-    function drawHorizontalLines(spacing) {
-
-        const w = tossCanvas.width;
-        const h = tossCanvas.height;
-
-        tossCtx.strokeStyle = "rgba(0,0,0,0.3)";
-        tossCtx.lineWidth = 1;
-
-        for (let y = spacing; y < h; y += spacing) {
-            tossCtx.beginPath();
-            tossCtx.moveTo(0, y);
-            tossCtx.lineTo(w, y);
-            tossCtx.stroke();
-        }
-    }
-
     function drawVerticalLines(spacing) {
-
         const w = tossCanvas.width;
         const h = tossCanvas.height;
 
-        tossCtx.strokeStyle = "rgba(0,0,0,0.3)";
+        tossCtx.strokeStyle = "rgba(0,0,0,0.28)";
         tossCtx.lineWidth = 1;
 
         for (let x = spacing; x < w; x += spacing) {
@@ -75,89 +278,194 @@
         }
     }
 
-    function drawRectangularGrid(spacing) {
+    function drawGridPattern() {
+        tossCtx.clearRect(0, 0, tossCanvas.width, tossCanvas.height);
 
-        drawHorizontalLines(spacing);
+        const { spacing } = getShapeParameters();
         drawVerticalLines(spacing);
     }
 
-    function drawConcentricCircles(spacing) {
+    function getStrokeColor(throwObj, alpha) {
+        if (throwObj.crosses) {
+            return `rgba(200, 0, 0, ${alpha})`;
+        }
+        return `rgba(20, 20, 20, ${alpha})`;
+    }
 
-        const w = tossCanvas.width;
-        const h = tossCanvas.height;
+    function drawSegmentThrow(throwObj, alpha) {
+        const { x1, y1, x2, y2 } = getSegmentEndpoints(throwObj);
 
-        const cx = w / 2;
-        const cy = h / 2;
-        const maxRadius = Math.hypot(cx, cy);
+        tossCtx.strokeStyle = getStrokeColor(throwObj, alpha);
+        tossCtx.lineWidth = getStrokeWidth();
 
-        tossCtx.strokeStyle = "rgba(0,0,0,0.3)";
-        tossCtx.lineWidth = 1;
+        tossCtx.beginPath();
+        tossCtx.moveTo(x1, y1);
+        tossCtx.lineTo(x2, y2);
+        tossCtx.stroke();
+    }
 
-        for (let r = spacing; r < maxRadius; r += spacing) {
+    function drawSquareThrow(throwObj, alpha) {
+        const vertices = getSquareVertices(throwObj);
+
+        tossCtx.strokeStyle = getStrokeColor(throwObj, alpha);
+        tossCtx.lineWidth = getStrokeWidth();
+
+        tossCtx.beginPath();
+        tossCtx.moveTo(vertices[0].x, vertices[0].y);
+        for (let i = 1; i < vertices.length; i++) {
+            tossCtx.lineTo(vertices[i].x, vertices[i].y);
+        }
+        tossCtx.closePath();
+        tossCtx.stroke();
+    }
+
+    function drawTriangleThrow(throwObj, alpha) {
+        const vertices = getTriangleVertices(throwObj);
+
+        tossCtx.strokeStyle = getStrokeColor(throwObj, alpha);
+        tossCtx.lineWidth = getStrokeWidth();
+
+        tossCtx.beginPath();
+        tossCtx.moveTo(vertices[0].x, vertices[0].y);
+        tossCtx.lineTo(vertices[1].x, vertices[1].y);
+        tossCtx.lineTo(vertices[2].x, vertices[2].y);
+        tossCtx.closePath();
+        tossCtx.stroke();
+    }
+
+    function drawPiShapeThrow(throwObj, alpha) {
+        const segments = getPiShapeSegments(throwObj);
+        const color = getStrokeColor(throwObj, alpha);
+
+        // top bar
+        tossCtx.strokeStyle = color;
+        tossCtx.lineWidth = getStrokeWidth();
+
+        tossCtx.beginPath();
+        tossCtx.moveTo(segments[0].x1, segments[0].y1);
+        tossCtx.lineTo(segments[0].x2, segments[0].y2);
+        tossCtx.stroke();
+
+        // legs
+        tossCtx.lineWidth = Math.max(1.5, getStrokeWidth() - 1);
+
+        for (let i = 1; i < segments.length; i++) {
             tossCtx.beginPath();
-            tossCtx.arc(cx, cy, r, 0, 2 * Math.PI);
+            tossCtx.moveTo(segments[i].x1, segments[i].y1);
+            tossCtx.lineTo(segments[i].x2, segments[i].y2);
             tossCtx.stroke();
         }
     }
 
-    function drawGridPattern() {
-
-        const w = tossCanvas.width;
-        const h = tossCanvas.height;
-
-        tossCtx.clearRect(0, 0, w, h);
-
-        const spacing = Number(spacingInput.value);
-        const grid = gridType.value;
-
-        if (grid === "horizontal") {
-            drawHorizontalLines(spacing);
-        } else if (grid === "vertical") {
-            drawVerticalLines(spacing);
-        } else if (grid === "grid") {
-            drawRectangularGrid(spacing);
-        } else if (grid === "circles") {
-            drawConcentricCircles(spacing);
+    function drawThrow(throwObj, alpha) {
+        if (throwObj.shape === "segment") {
+            drawSegmentThrow(throwObj, alpha);
+        } else if (throwObj.shape === "square") {
+            drawSquareThrow(throwObj, alpha);
+        } else if (throwObj.shape === "triangle") {
+            drawTriangleThrow(throwObj, alpha);
+        } else if (throwObj.shape === "piShape") {
+            drawPiShapeThrow(throwObj, alpha);
         }
     }
 
-    function renderThrowsUpTo(index) {
+    function getLegendStats(k) {
+        const crossings = crossingCounts[k];
+        const proportion = (k > 0) ? crossings / k : 0;
 
-        drawGridPattern();
+        let piText = "π ≈ —";
 
-        // Throws will be drawn here in the next step.
-        // For now, this just redraws the selected barrier pattern.
+        if (k > 0 && crossings > 0 && crossings < k) {
+            const piEstimate = 1 / proportion;
+
+            const z = 1.96;
+            const seP = Math.sqrt(proportion * (1 - proportion) / k);
+            const marginP = z * seP;
+
+            const pLower = Math.max(proportion - marginP, 1e-9);
+            const pUpper = Math.min(proportion + marginP, 1 - 1e-9);
+
+            const piLower = 1 / pUpper;
+            const piUpper = 1 / pLower;
+            const piMargin = (piUpper - piLower) / 2;
+
+            piText = `π ≈ ${piEstimate.toFixed(3)} ± ${piMargin.toFixed(3)}`;
+        }
+
+        return {
+            shape: getShapeLabel(),
+            crossings,
+            proportion,
+            piText
+        };
     }
 
-    function renderStatsPanel() {
+    function drawLegend(k) {
+        const stats = getLegendStats(k);
 
-        const w = statsCanvas.width;
-        const h = statsCanvas.height;
+        const lines = [
+            `Shape: ${stats.shape}`,
+            `Crossings: ${stats.crossings}`,
+            `p_est = ${stats.proportion.toFixed(3)}`,
+            stats.piText
+        ];
 
-        statsCtx.clearRect(0, 0, w, h);
+        tossCtx.save();
 
-        statsCtx.fillStyle = "rgba(0,0,0,0.75)";
-        statsCtx.font = "16px system-ui";
-        statsCtx.textAlign = "center";
-        statsCtx.textBaseline = "middle";
+        tossCtx.font = "15px system-ui";
+        tossCtx.textBaseline = "top";
 
-        statsCtx.fillText("Crossing statistics will appear here.", w / 2, h / 2);
+        const pad = 10;
+        const lineGap = 6;
+        const lineHeight = 18;
+        const boxX = 14;
+        const boxY = 14;
+        const boxW = 250;
+        const boxH = pad * 2 + lines.length * lineHeight + (lines.length - 1) * lineGap;
 
-        statsCtx.textAlign = "left";
-        statsCtx.textBaseline = "alphabetic";
+        tossCtx.fillStyle = "rgba(255,255,255,0.88)";
+        tossCtx.strokeStyle = "rgba(0,0,0,0.18)";
+        tossCtx.lineWidth = 1;
+
+        tossCtx.fillRect(boxX, boxY, boxW, boxH);
+        tossCtx.strokeRect(boxX, boxY, boxW, boxH);
+
+        tossCtx.fillStyle = "rgba(0,0,0,0.82)";
+
+        for (let i = 0; i < lines.length; i++) {
+            const y = boxY + pad + i * (lineHeight + lineGap);
+            tossCtx.fillText(lines[i], boxX + pad, y);
+        }
+
+        tossCtx.restore();
+    }
+
+    function renderThrowsUpTo(k) {
+        drawGridPattern();
+
+        const last = Math.min(k, throws.length);
+        const windowSize = getVisibleWindowSize();
+        const start = Math.max(0, last - windowSize);
+        const span = Math.max(1, last - start);
+
+        for (let i = start; i < last; i++) {
+            const age = i - start;
+            const t = age / span;
+            const alpha = 0.12 + 0.88 * t;
+
+            drawThrow(throws[i], alpha);
+        }
+
+        drawLegend(last);
     }
 
     function renderAll() {
-
         const k = Number(currentThrow.value);
         currentThrowLabel.textContent = String(k);
-
         renderThrowsUpTo(k);
-        renderStatsPanel();
     }
 
     function tick(timestampMs) {
-
         if (!isPlaying) {
             lastTimeMs = null;
             throwAccumulator = 0;
@@ -171,12 +479,10 @@
         const dt = (timestampMs - lastTimeMs) / 1000;
         lastTimeMs = timestampMs;
 
-        const speed = Number(speedSelect.value);
-        throwAccumulator += speed * dt;
+        throwAccumulator += Number(speedSelect.value) * dt;
 
         const advance = Math.floor(throwAccumulator);
         if (advance > 0) {
-
             throwAccumulator -= advance;
 
             const k0 = Number(currentThrow.value);
@@ -198,7 +504,6 @@
     }
 
     function startPlaying() {
-
         if (isPlaying) return;
 
         if (Number(currentThrow.value) >= totalThrows) {
@@ -212,7 +517,6 @@
     }
 
     function stopPlaying() {
-
         isPlaying = false;
         playPauseButton.textContent = "Play";
         lastTimeMs = null;
@@ -229,28 +533,9 @@
         regenerateAllThrows();
     });
 
-    gridType.addEventListener("change", () => {
-        stopPlaying();
-        renderAll();
-    });
-
     shapeType.addEventListener("change", () => {
         stopPlaying();
-        renderAll();
-    });
-
-    spacingInput.addEventListener("change", () => {
-        stopPlaying();
-        renderAll();
-    });
-
-    sizeInput.addEventListener("change", () => {
-        stopPlaying();
-        renderAll();
-    });
-
-    speedSelect.addEventListener("change", () => {
-        // Speed changes live during play.
+        regenerateAllThrows();
     });
 
     currentThrow.addEventListener("input", () => {
@@ -267,6 +552,5 @@
     });
 
     regenerateAllThrows();
-    renderAll();
 
 })();

@@ -179,7 +179,7 @@ Thus $\mathcal{F}_2'$ consists of the sets whose sizes are divisible by $2$, whi
 Working modulo $2$, the characteristic vectors corresponding to sets in $\mathcal{F}_2$ are linearly independent in $\mathbb{F}_2^n$, while the vectors corresponding to $\mathcal{F}_2'$ lie in their orthogonal complement.
 Recall the following lemma from linear algebra over finite fields.
 
-> **Lemma. (Dimension Bound)**
+> **Lemma. (0-1 Bound)**
 > Suppose that $V$ is a $d$-dimensional subspace of $\mathbb{F}_p^n$. Then,
 >
 > $$ 
