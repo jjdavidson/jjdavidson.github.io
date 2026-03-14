@@ -1,7 +1,7 @@
 ---
 title: Buffon's Needle 
 parent: Demos
-nav_order: 3
+nav_order: 4
 ---
 
 # Estimating $\pi$ by Tossing Polygons
@@ -16,7 +16,7 @@ nav_order: 3
                 <option value="segment" selected>Line Segment</option>
                 <option value="triangle">Triangle</option>
                 <option value="square">Square</option>
-                <option value="piShape">$\pi$ Shape</option>
+                <option value="piShape">$\pi$</option>
             </select>
         </label>
         <label>
