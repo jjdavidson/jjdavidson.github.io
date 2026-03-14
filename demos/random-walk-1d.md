@@ -283,4 +283,97 @@ As the step number increases:
 - the distribution spreads out,
 - and the width of that spread grows on the order of $\sqrt{n}$.
 
-This is one of the simplest examples of how randomness at a small scale produces a very structured pattern at a larger scale.
+## From Random Walks to Diffusion
+
+The Central Limit Theorem explains why the histogram in the simulation begins to resemble a Gaussian distribution. It tells us that the sum of many independent random steps approaches a normal distribution.
+However, there is another perspective that leads to the same Gaussian shape.
+
+Instead of studying a single walker, we can study how the **entire probability distribution evolves over time**. This viewpoint leads naturally to the **diffusion equation**, a partial differential equation that describes how probability spreads in space.
+
+Let $P(n,j)$ denote the probability that the walker is at position $j$ after $n$ steps. Because each step moves the walker one unit left or right, the walker can only arrive at position $j$ from the neighboring positions $j-1$ or $j+1$. Therefore
+
+$$
+P(n+1,j)
+=
+\frac12 P(n,j-1) + \frac12 P(n,j+1).
+$$
+
+This equation describes how the probability distribution evolves from one step to the next.
+
+## Rewriting the Difference Equation
+
+We now subtract $P(n,j)$ from both sides:
+
+$$
+P(n+1,j) - P(n,j)
+=
+\frac12\bigl(P(n,j-1) - 2P(n,j) + P(n,j+1)\bigr).
+$$
+
+The left-hand side represents a **first difference in time**, while the right-hand side is a **second difference in space**.
+To make this structure clearer, suppose each spatial step has length $\Delta x$ and each time step has length $\Delta t$. 
+We write the probability as $P(x,t)$, where
+
+$$
+x = j\,\Delta x,
+\qquad
+t = n\,\Delta t.
+$$
+
+The recursion becomes
+
+$$
+P(x,t+\Delta t) - P(x,t)
+=
+\frac12\bigl(P(x-\Delta x,t) - 2P(x,t) + P(x+\Delta x,t)\bigr).
+$$
+
+Dividing by $\Delta t$ gives
+
+$$
+\frac{P(x,t+\Delta t)-P(x,t)}{\Delta t}
+=
+\frac{(\Delta x)^2}{2\Delta t}
+\cdot
+\frac{P(x-\Delta x,t)-2P(x,t)+P(x+\Delta x,t)}{(\Delta x)^2}.
+$$
+
+The left-hand side is the discrete version of a **time derivative**, and the expression on the right is the discrete version of a **second spatial derivative**.
+
+## The Diffusion Equation
+
+Now imagine zooming out so that $\Delta x \to 0$ and $\Delta t \to 0$, while keeping the ratio
+
+$$
+\frac{(\Delta x)^2}{2\Delta t}
+\to D
+$$
+
+fixed. In this limit, the difference equation becomes
+
+$$
+\frac{\partial p}{\partial t}
+=
+D \frac{\partial^2 p}{\partial x^2}.
+$$
+
+This is the **diffusion equation**.
+It describes how probability spreads over time in the large-scale limit of the random walk.
+If the walk begins at the origin, the diffusion equation has solution
+
+$$
+p(x,t)
+=
+\frac{1}{\sqrt{4\pi Dt}}
+\exp\!\left(-\frac{x^2}{4Dt}\right).
+$$
+
+This is a Gaussian distribution whose width grows like $\sqrt{t}$.
+This matches exactly what we observed in the simulation: the distribution spreads out, and its typical width grows like the square root of time. So both approaches lead to the same conclusion:
+
+- the **discrete random walk** produces a binomial distribution that approaches a Gaussian,
+- the **continuous diffusion equation** has a Gaussian solution.
+
+In this sense,
+
+> **Diffusion is the continuum limit of the random walk.**

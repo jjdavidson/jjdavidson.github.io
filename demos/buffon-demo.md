@@ -131,10 +131,9 @@ Even in a simplified setting, these random variations create a natural question:
 
 > If objects fall with random positions and random orientations, how often will they intersect a set of regularly spaced lines?
 
-To study this, Buffon introduced a simple **mathematical model**.
+To study this, Buffon introduced a **toy mathematical model**.
 
 Imagine a floor marked with equally spaced parallel lines a distance $$D$$ apart. Now suppose we randomly toss a needle of length $$L$$ onto the floor.
-
 Each toss produces a random position and a random orientation for the needle. The question becomes:
 
 > What is the probability that the needle crosses one of the lines?
@@ -146,7 +145,6 @@ P(\text{cross}) = \frac{2L}{\pi D}.
 $$
 
 This formula is surprising because the constant $$\pi$$, normally associated with circles, appears in a problem about **random geometric placement**.
-
 If we choose the spacing so that $D = 2L$, then the formula simplifies to
 
 $$
@@ -167,18 +165,14 @@ $$
 
 To understand why this formula is true, we analyze the **geometry of a random toss**.
 
----
-
-### Deriving Buffon’s Formula by Projection
+## Deriving Buffon’s Formula by Projection
 
 Because the floor markings are **vertical lines**, the crossing event depends only on the needle’s **horizontal extent**. The vertical position of the needle does not matter.
-
 So instead of tracking the full position of the needle in the plane, we can simplify the problem by projecting everything onto the $x$-axis.
 
-#### Step 1: Collapse the geometry to one dimension
+### Step 1: Collapse the geometry to one dimension
 
 Fix an angle $\theta \in [0,\pi/2]$ between the needle and the vertical lines.
-
 When the needle has length $L$ and makes angle $\theta$ with the vertical, its projection onto the $x$-axis has length
 
 $$
@@ -186,17 +180,14 @@ L\sin\theta.
 $$
 
 This projected length measures how far the needle stretches horizontally.
-
 Since the floor lines are vertical, the needle crosses a line exactly when its horizontal projection crosses one of the projected line locations on the $x$-axis.
-
 So for a fixed angle $\theta$, the two-dimensional crossing problem becomes a one-dimensional question:
 
 > If an interval of length $L\sin\theta$ is placed randomly on a line with marks spaced distance $D$ apart, what is the probability that it crosses one of the marks?
 
-#### Step 2: Crossing probability for a fixed angle
+### Step 2: Crossing probability for a fixed angle
 
 For a fixed angle $\theta$, let $x$ be the distance from the center of the needle to the nearest vertical line.
-
 Because the lines are spaced $D$ apart, the center is equally likely to fall anywhere between two neighboring lines. By symmetry, it is enough to take
 
 $$
@@ -227,10 +218,9 @@ $$
 
 So once the angle is fixed, the crossing probability is simply proportional to the horizontal projection length.
 
-#### Step 3: Average over all angles
+### Step 3: Average over all angles
 
 Now we allow the needle to have a random orientation.
-
 By symmetry, we only need to consider angles
 
 $$
@@ -238,7 +228,6 @@ $$
 $$
 
 All such angles are equally likely, so $\theta$ is uniformly distributed on this interval.
-
 That means the overall crossing probability is the average of the conditional probability $P(\text{cross}\mid\theta)$ over all angles:
 
 $$
@@ -263,7 +252,7 @@ P(\text{cross})
 \frac{2L}{\pi D}\int_0^{\pi/2}\sin\theta\,d\theta.
 $$
 
-#### Step 4: Evaluate the integral
+### Step 4: Evaluate the integral
 
 We compute
 
@@ -287,8 +276,6 @@ $$
 
 This is Buffon’s needle formula.
 
----
-
 #### Final Interpretation
 
 The key idea is that for each fixed angle, the needle behaves like a one-dimensional interval whose length is its **horizontal projection**
@@ -298,50 +285,43 @@ L\sin\theta.
 $$
 
 The chance of crossing at that angle is determined by how large that projection is compared with the spacing $D$. The total probability is then found by averaging over all possible orientations.
-
 This is exactly where the factor of $\pi$ enters: it comes from averaging over angles.
 
----
-
-### Barbier’s Formula
+## Barbier’s Formula
 
 Buffon’s original result applies to **line segments**. In the 1860s, the mathematician **Joseph-Émile Barbier** discovered a remarkable generalization.
 
-Suppose a **convex shape** with perimeter $P$ is tossed randomly onto a floor marked with parallel lines spaced distance $D$ apart. Then the probability that the shape crosses one of the lines is
-
-$$
-P(\text{cross}) = \frac{P}{\pi D}.
-$$
+>Suppose a **convex shape** with perimeter $P$ is tossed randomly onto a floor marked with parallel lines spaced distance $D$ apart. Then the probability that the shape crosses one of the lines is
+>
+>$$
+>P(\text{cross}) = \frac{P}{\pi D}.
+>$$
 
 The surprising part is that **only the perimeter matters**, not the detailed shape.
-
 A circle, square, triangle, or any other convex shape with the same perimeter will therefore have exactly the same crossing probability.
-
----
 
 ### Why the perimeter appears
 
 The intuition behind Barbier’s theorem is closely related to the projection idea used in Buffon’s needle.
-
 For any fixed orientation $\theta$, the crossing event depends only on the **width of the shape in the horizontal direction** — that is, the length of its projection onto the $x$-axis.
+Different shapes have different projection lengths for a given angle. 
 
-Different shapes have different projection lengths for a given angle. However, a remarkable geometric fact is that if we average these projection lengths over all orientations, the result depends **only on the perimeter** of the shape.
+However, Barbier was able to use a remarkable geometric fact proven by Augustin-Louis Cauchy:
 
-More precisely, the average projection length of a convex shape over all directions is
-
-$$
-\frac{P}{\pi}.
-$$
+>**Theorem** (Cauchy, 1832) The average projection length of a convex shape over all directions is
+>
+>$$
+>\frac{P}{\pi}
+>$$
+>
+> where $P$ is the perimeter of the convex shape.
 
 This means that, on average, the shape behaves like a needle whose effective horizontal length is $P/\pi$.
-
 Substituting this average length into Buffon’s needle formula gives
 
 $$
 P(\text{cross}) = \frac{P}{\pi D}.
 $$
-
----
 
 ### How the Simulation Uses Barbier's Formula
 In this simulation, the spacing between the lines is chosen so that the perimeter of each convex hull satisfies
@@ -357,8 +337,6 @@ P(\text{cross}) = \frac{1}{\pi}.
 $$
 
 So every shape in the demo — regardless of its exact geometry — has the same theoretical crossing probability. Repeated random tosses therefore produce an experimental estimate of $\pi$.
-
----
 
 ### Why the $\pi$-Shaped Object Works
 
@@ -382,8 +360,6 @@ P(\text{cross}) = \frac{1}{\pi}.
 $$
 
 Because the $\pi$-shape and its convex hull have identical crossing behavior for vertical lines, the $\pi$-shaped toss also estimates $\pi$.
-
----
 
 ## Statistics Behind the Simulation
 
@@ -427,8 +403,6 @@ Two fundamental results from probability theory explain why this estimate improv
 - the **Law of Large Numbers**, which explains convergence of the estimate  
 - the **Central Limit Theorem**, which describes the distribution of the error
 
----
-
 ### Law of Large Numbers
 
 The estimate of $\pi$ improves as more tosses are performed. This phenomenon is explained by the Law of Large Numbers.
@@ -467,8 +441,6 @@ However, this argument says nothing about *how quickly* this convergence occurs.
 From the simulation above, even performing 10,000 tosses typically estimates $\pi$ to only one or two decimal places.
 To understand the **size of the fluctuations** in the estimate, we turn to the Central Limit Theorem.
 
----
-
 ### Central Limit Theorem
 
 While the law of large numbers guarantees convergence, it does not describe the **distribution of the error**. This description is provided by the Central Limit Theorem.
@@ -499,8 +471,6 @@ $$
 \text{SE}(\hat{p}) =
 \sqrt{\frac{\hat{p}(1-\hat{p})}{n}}.
 $$
-
----
 
 ### Transferring Uncertainty
 
