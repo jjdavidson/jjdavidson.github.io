@@ -1,6 +1,6 @@
 ---
 title: The Oddtown Problem
-parent: Research
+parent: Extremal Set Theory 
 nav_order: 1
 layout: default
 has_toc: true
