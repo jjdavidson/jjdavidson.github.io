@@ -1,30 +1,36 @@
 ---
 layout: home
-title: About
+title: Home
 nav_order: 1
 ---
 
-# Welcome
+# Welcome to my website
 
-<img src="/assets/images/headshot.jpg" width="200" style="float: right; margin-left: 20px; margin-bottom: 10px;">
+<img src="/assets/images/headshot.jpg" width="200" style="float: left; margin-right: 20px; margin-top: 15px;">
 
-I am a mathematician interested in **analysis** and **combinatorics**, with a focus on problems where discrete structure gives rise to analytic phenomena. I am particularly motivated by questions of convergence: when do large finite objects admit meaningful continuum limits, and what analytic tools are required to understand them?
-
-I am currently studying the theory of **large networks** and **graph limits** as a toy model for this transition. Ultimately, I aim to solve discrete optimization problems via analytic methods applied to the corresponding limiting combinatorial objects.
-
----
-
-## Background
+Hi, I am Jonathan and welcome to my webpage. I am a mathematician interested in **analysis**, **probability**, and **combinatorics**. My research focuses on applying linear algebra and probability theory to solve combinatorial problems. 
 
 I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces. I studied how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
 
-I completed my master’s degree at Cal State LA, where I conducted research in combinatorics, including work on:
+I completed my Master’s degree at Cal State LA, where I conducted research in combinatorics, including work on Cayley graphs, intersecting families, Ramsey Theory on bipartite graphs, and odd cover problems.
+My Master's thesis explored extremal graph results on product graphs.
 
-- The chromatic number of abelian Cayley graphs  
-- The multicolored Erdős box problem  
-- Extremal graph theory  
+I am currently applying for Mathematics PhD programs.
 
-My Master's thesis explored topics in the extremal theory of product graphs. In my study of extremal graph theory, I encountered the ideas of flag algebras and graph limits, and I decided to start exploring more analytical approaches to extremal combinatorics. 
+## How to use this site
+
+The **Math Notes** section provides some of the background on the foundational results and techniques related to my research. In particular, I am currently working on notes for the following topics
+- Measure Theory
+- Extremal Graph Theory
+- Combinatorial Designs
+
+In the future, I plan to add notes for Extremal Set Theory, Graph Limits, Stohastic Processes, Probabilitic Method, Entropy method, and more.
+
+The **Teaching** section will include notes from past classes that I have taught at Cal State LA and a tutoring company. I included some projects to show practical applications of mathematics to biology, chemistry, and economics. I also have some fun problems to give to more advanced students to introduce them to open research problems.
+
+The **Research** section contains some of the open problems I like to think about. Feel free to email me open problems that are well less known. If I find them interesting, I will add them to this section.
+
+The **Demos** section of my webpage is dedicated to interactive visualizations and simulations of some interesting random geometric and/or combinatorial objects. I often use the simulations while giving talks in outreach programs or seminars. Feel free to use or share these simulations with others. (Disclaimer: I am a mathematician not a programmer. I have used AI to assist me in writing the Javascript simulations. I have looked over the code myself, but I cannot guarantee there are no bugs.)
 
 ---
 
@@ -32,3 +38,4 @@ My Master's thesis explored topics in the extremal theory of product graphs. In 
 
 **Email**: jonathan.j.davidson@gmail.com
 
+**Github**: jjdavidson 
