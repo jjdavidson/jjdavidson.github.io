@@ -1,6 +1,6 @@
 ---
 title: The Oddtown Problem
-parent: Extremal Set Theory 
+parent: Research
 nav_order: 1
 layout: default
 has_toc: true
@@ -8,11 +8,12 @@ has_toc: true
 
 # The Oddtown Problem
 
-Many extremal problems in combinatorics become surprisingly tractable when translated into algebra. One of the simplest and most famous examples of this phenomenon is the **Oddtown problem**, which is often the first illustration of the **linear algebra method** in combinatorics.
+Many extremal problems in combinatorics become surprisingly tractable when translated into algebra.
+One of the simplest and most famous examples of this phenomenon is the **Oddtown problem**, which is often the first illustration of the **linear algebra method** in combinatorics.
 
-My current research explores variants of this problem using Fourier analysis on finite abelian groups, particularly when the combinatorial conditions are imposed modulo composite numbers. These variants exhibit behavior that cannot be captured by the classical linear algebra argument alone.
-
-This page outlines the classical problem, the algebraic method used to solve it, and the Fourier-analytic ideas that arise in modular generalizations.
+My current research explores variants of this problem combinatorial conditions are imposed modulo composite numbers.
+These variants exhibit behavior that cannot be captured by the classical linear algebra argument alone.
+This page outlines the classical problem, the algebraic method used to solve it, and how the problem changes in modular generalizations.
 
 ## The Classical Oddtown Problem
 
@@ -131,7 +132,7 @@ The situation changes dramatically when $q$ is composite. Suppose $q = p_1^{k_1}
 $$\mathcal{F}_i = \left\{A \in \mathcal{F}: \lvert A \rvert \not\equiv 0 \pmod{p_i^{k_i}} \right\} $$
 
 If $A \in \mathcal{F}$, then $\lvert A \rvert$ is not divisible by $q$. 
-By the Chinese remainder theorem, this means that $\lvert A\rvert$ fails to be divisible by at least one of the prime powers $p_i^{k_i}$.
+By the Chinese remainder theorem, $\lvert A\rvert$ fails to be divisible by at least one of the prime powers $p_i^{k_i}$.
 Conversely, if $\lvert A \rvert$ is not divisible by $p_i^{k_i}$, then it is not divisible by $q$. 
 Therfore,
 
@@ -143,7 +144,6 @@ $$f_q(n) \le \omega n$$
 
 This leaves a large gap between the conjectured $f_q(n) = n$. 
 Stronger bounds require understanding how the families $\mathcal F_i$ interact.
-This interaction is where additional algebraic and Fourier-analytic techniques begin to play a role.
 
 
 ## Exploiting Orthogonality
@@ -204,7 +204,7 @@ Hence, $\lvert \mathcal{F}_2 \rvert \le n - \log_2 \lvert \mathcal{F}_2' \rvert$
 Repeating the same argument modulo $3$ yields $\lvert \mathcal{F}_3 \rvert \le n - \log_2 \lvert \mathcal{F}_3' \rvert$. We now consider some cases:
 
 **Case 1:** Suppose one complementary family is small, say $\lvert \mathcal{F}_2' \rvert \le \tfrac{n}{2}$. 
-Then, $\mathcal{F} = \mathcal{F}_2 \sqcup \mathcal{F}_2'$. Hence,
+Since $\mathcal{F} = \mathcal{F}_2 \sqcup \mathcal{F}_2'$, we have
 
 $$
 \lvert \mathcal{F} \rvert = \lvert \mathcal{F}_2 \rvert + \lvert \mathcal{F}_2' \rvert \leq n + \tfrac{n}{2} = \frac{3n}{2},
@@ -279,7 +279,7 @@ In such spaces, we can construct a stronger dimension bound.
 Applying this to $V_i = \mathrm{span}(\mathcal{F}_i')$ yields
 
 $$
-\dim(V_i) \le \frac{n - \lvert \mathcal{F}_i \rvert}{2}.
+\dim(V_i) \leq \frac{n - \lvert \mathcal{F}_i \rvert}{2}.
 $$
 
 Using the dimension bound along with the isotropic bound, we obtain
@@ -291,13 +291,24 @@ $$
 Thus the logarithmic saving from Szegedy's argument doubles, leading to
 
 $$
-f_q(n) \le \omega n - 2\omega \log_2 n + O(1).
+f_q(n) \leq \omega n - 2\omega \log_2 n + O(1).
 $$
 
+This improved bound is due to the work of Bukh, Chao, and Zheng.
+There work can be found on arxiv using the reference at the bottom.
+The group also managed to improve the bound further by applying fourier analytic methods.
+The current state of the art bound is 
+
+$$
+n \leq f_q(n) \le \omega n - (2+\epsilon)\omega \log_2 n + O(1).
+$$
+
+where the small constant $\epsilon > 0$ is defined via a complicated sum on reciprocals of certain odd primes.
+As of 2026, improving either the upper bound or the lower bound remains an open problem. 
 
 ## References
 
 - E. Berlekamp. *On subsets with intersections of even cardinality.*
 - J. Graver. *Boolean designs and self-dual matroids.*
-- L. Babai and P. Frankl. *Linear Algebra Methods in Combinatorics.*
-- B. Bukh, T.-W. Chao, Z. Zheng. *The Oddtown problem modulo a composite number.*
+- Babai and Frankl. *Linear Algebra Methods in Combinatorics.*
+- Bukh, Chao, Zheng. *The Oddtown problem modulo a composite number.*
