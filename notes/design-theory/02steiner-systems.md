@@ -203,3 +203,21 @@ $$
 
 and then discuss the surprising fact that this condition is also sufficient.
 This leads to the first major existence theorem in design theory.
+
+## Sources and Further Reading
+
+The exposition above is based on standard references on block designs, Steiner systems, and finite geometries.
+
+- R. A. Fisher, "An Examination of the Different Possible Solutions of a Problem in Incomplete Blocks," *Annals of Eugenics*, 10 (1940), 52--75.
+
+- R. C. Bose, "A Note on Fisher's Inequality for Balanced Incomplete Block Designs," *Annals of Mathematical Statistics*, 20 (1949), 619--620.
+
+- Peter Dembowski, *Finite Geometries*, Springer, 1968.
+
+- J. W. P. Hirschfeld, *Projective Geometries over Finite Fields*, Second Edition, Oxford University Press, 1998.
+
+- Thomas Beth, Dieter Jungnickel, and Hanfried Lenz, *Design Theory*, Second Edition, Cambridge University Press, 1999.
+
+- Charles J. Colbourn and Jeffrey H. Dinitz, editors, *Handbook of Combinatorial Designs*, Second Edition, Chapman and Hall/CRC, 2006.
+
+- Douglas R. Stinson, *Combinatorial Designs: Constructions and Analysis*, Springer, 2004.

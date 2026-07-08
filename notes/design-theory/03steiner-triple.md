@@ -547,7 +547,7 @@ $$
 (\infty\ 20\ 10\ 21\ 02\ 12\ 11\ 32\ 30\ 22\ 01\ 31\ 00).
 $$
 
-## Triangle Decompositions
+## Generalizing the Existence Theorem
 
 The Bose and Skolem constructions give explicit algebraic proofs of the existence theorem for Steiner triple systems.
 This is one of the pleasant features of the triple-system case: every admissible order can be handled by concrete formulas.
@@ -568,7 +568,24 @@ For Steiner triple systems, explicit algebraic constructions are enough to prove
 For general Steiner systems, this becomes much harder.
 The divisibility conditions are easy to state, but it is not at all clear how to write down all of the blocks directly.
 
-The modern approach shifts the problem again.
 Instead of trying to construct the design by hand, one builds an auxiliary hypergraph whose perfect matchings correspond to designs.
 Then the problem becomes a perfect matching problem in a carefully structured hypergraph.
-This auxiliary-hypergraph viewpoint is central in Keevash's proof of the general existence theorem for designs.
+Next, we will explore how to construct auxillary hypergraphs for various designs.
+
+## Sources and Further Reading
+
+The exposition above is based on standard references on Steiner triple systems and their classical constructions.
+
+- Thomas P. Kirkman, "On a Problem in Combinations," *Cambridge and Dublin Mathematical Journal*, 2 (1847), 191--204.
+
+- R. C. Bose, "On the Construction of Balanced Incomplete Block Designs," *Annals of Eugenics*, 9 (1939), 353--399. [DOI](https://doi.org/10.1111/j.1469-1809.1939.tb02219.x)
+
+- Th. Skolem, "Some Remarks on the Triple Systems of Steiner," *Mathematica Scandinavica*, 6 (1958), 273--280. [DOI](https://doi.org/10.7146/math.scand.a-10551)
+
+- Charles J. Colbourn and Alexander Rosa, *Triple Systems*, Oxford University Press, 1999.
+
+- Charles C. Lindner and Christopher A. Rodger, *Design Theory*, Second Edition, Chapman and Hall/CRC, 2008.
+
+- Douglas R. Stinson, *Combinatorial Designs: Constructions and Analysis*, Springer, 2004.
+
+- Charles J. Colbourn and Jeffrey H. Dinitz, editors, *Handbook of Combinatorial Designs*, Second Edition, Chapman and Hall/CRC, 2006.

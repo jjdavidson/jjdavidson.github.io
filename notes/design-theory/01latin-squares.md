@@ -284,3 +284,17 @@ $$
 The Latin hypercube condition says that $T_L$ has exactly one $1$ in every coordinate line.
 
 Thus Latin hypercubes generalize Latin squares as arrays, edge-colorings, clique decompositions, and permutation tensors.
+
+## Sources and Further Reading
+
+The exposition above is based on standard references on Latin squares, quasigroups, and design theory.
+
+- J. Dénes and A. D. Keedwell, *Latin Squares and Their Applications*, Academic Press, 1974.
+
+- J. Dénes and A. D. Keedwell, *Latin Squares and Their Applications*, Second Edition, Elsevier, 2015.
+
+- Charles J. Colbourn and Jeffrey H. Dinitz, editors, *Handbook of Combinatorial Designs*, Second Edition, Chapman and Hall/CRC, 2006.
+
+- Douglas R. Stinson, *Combinatorial Designs: Constructions and Analysis*, Springer, 2004.
+
+- Charles C. Lindner and Christopher A. Rodger, *Design Theory*, Second Edition, Chapman and Hall/CRC, 2008.
