@@ -2,6 +2,8 @@
 title: π-λ Theorem
 parent: Measure Theory
 nav_order: 11
+nav_exclude: true
+search_exclude: true
 ---
 
 # Section 3: The $\pi$-$\lambda$ Theorem

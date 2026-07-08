@@ -69,19 +69,13 @@ In decomposition language, Wilson's theorem says that the complete graph $K_n$ c
 This was a major conceptual breakthrough.
 The theorem does not give a simple formula for every block.
 Instead, it proves that for large enough $n$, the local divisibility conditions force the global design to exist.
-
-This suggested a broad principle:
-
-> For fixed local parameters, the obvious divisibility conditions should be sufficient for all sufficiently large admissible $n$.
-
-For pair designs, Wilson proved this principle.
-For higher-dimensional Steiner systems, the problem remained open.
+However, for higher-dimensional Steiner systems, the problem remained open.
 
 The difficulty is that an $(n,q,r)$-Steiner system with $r \geq 3$ is a hypergraph decomposition problem.
 It asks for a decomposition of the complete $r$-uniform hypergraph $K_n^{(r)}$ into copies of $K_q^{(r)}$.
 Moreover, graphs have many useful tools that do not generalize cleanly to hypergraphs.
-For example, in a graph decomposition, the objects being covered are edges.
-In a hypergraph decomposition, the objects being covered are $r$-sets, and the blocks overlap in more complicated ways.
+For example, in a graph decomposition, the objects being covered are edges which cannot overlap at all.
+In a hypergraph decomposition, the objects being covered are $r$-sets, and the blocks can partially overlap in complicated ways.
 
 A natural intermediate goal is to build an approximate design.
 That is, instead of covering every $r$-set exactly once, we try to cover almost every $r$-set exactly once.

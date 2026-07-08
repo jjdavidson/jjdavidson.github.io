@@ -294,8 +294,186 @@ Pictured below is the full auxiliary hypergraph where the red edges correspond t
 
 <figure style="text-align: center;">
   <img
-    src="{{ '/assets/images/design-theory/mols33-auxiliary.svg' | relative_url }}"
+    src="{{ '/assets/images/design-theory/mols-auxiliary.svg' | relative_url }}"
     alt="The perfect matching on the auxiliary hypergraph representing two orthogonal 3x3 Latin squares."
     style="width: min(100%, 700px); height: auto;"
   >
 </figure>
+
+## Steiner Triple Systems as Auxiliary Hypergraphs
+
+Recall that a **Steiner triple system** of order $n$ is a collection of triples on an $n$-element set such that every pair of points appears in exactly one triple.
+Equivalently, an $\operatorname{STS}(n)$ is a triangle decomposition of the complete graph $K_n$.
+
+To build the auxiliary hypergraph, we identify the constraints.
+For a Steiner triple system, the constraints are the pairs of points.
+Each pair must be covered exactly once.
+
+Therefore, the vertex set of the auxiliary hypergraph is
+
+$$
+V = \binom{[n]}{2}.
+$$
+
+Each possible triple $\{x,y,z\}$ covers the three pairs $xy$, $xz$, and $yz$.
+Thus each possible triple gives one $3$-edge
+
+$$
+\{xy,xz,yz\}.
+$$
+
+So the edge set of the auxiliary hypergraph is
+
+$$
+E = \left\{\{xy,xz,yz\} : \{x,y,z\} \in \binom{[n]}{3}\right\}.
+$$
+
+The auxiliary hypergraph has $\binom{n}{2}$ vertices and $\binom{n}{3}$ 3-edges.
+
+A perfect matching in this auxiliary hypergraph chooses disjoint edges that cover every vertex exactly once.
+Translated back into Steiner triple system language, this means that we choose triples so that every pair of points appears in exactly one triple.
+Therefore, a perfect matching in this auxiliary hypergraph is exactly a Steiner triple system.
+Since each 3-edge covers three pairs, a perfect matching has
+
+$$
+\frac{\binom{n}{2}}{3}=\frac{n(n-1)}{6}
+$$
+
+3-edges.
+This matches the number of triples in an $\operatorname{STS}(n)$.
+
+### Example: The Auxiliary Hypergraph of the Fano Plane
+
+The smallest nontrivial Steiner triple system is the Fano plane, which is an $\operatorname{STS}(7)$.
+Its triples are
+
+$$
+\{123,145,167,246,257,347,356\},
+$$
+
+where we write $123$ in place of $\{1,2,3\}$ for brevity.
+
+The auxiliary hypergraph has vertex set $V=\binom{[7]}{2}$.
+Each possible triple of points gives one $3$-edge for a total of $35$ 3-edges.
+The Fano plane corresponds to the matching
+
+$$
+\begin{array}{lll}
+e_{123}=\{12,13,23\},
+&
+e_{145}=\{14,15,45\},
+&
+e_{167}=\{16,17,67\},
+\\[0.4em]
+e_{246}=\{24,26,46\},
+&
+e_{257}=\{25,27,57\},
+&
+e_{347}=\{34,37,47\},
+\\[0.4em]
+e_{356}=\{35,36,56\}.
+\end{array}
+$$
+
+Pictured below is the full auxiliary hypergraph where the red edges correspond to the matching representing the Fano plane.
+
+<figure style="text-align: center;">
+  <img
+    src="{{ '/assets/images/design-theory/sts-auxiliary.svg' | relative_url }}"
+    alt="The perfect matching on the auxiliary hypergraph representing the Fano plane as a Steiner triple system."
+    style="width: min(100%, 650px); height: auto;"
+  >
+</figure>
+
+## Why Matchings Are the Right Language
+
+The examples above all follow the same pattern.
+
+- First, we identify the local constraints of the design.
+These constraints become the vertices of the auxiliary hypergraph.
+- Second, we identify the local choices that are allowed.
+These choices become the edges of the auxiliary hypergraph.
+- Finally, a perfect matching chooses compatible local choices so that every constraint is satisfied exactly once.
+
+This is useful because it turns many different design problems into the same kind of problem:
+
+> Find a perfect matching in a structured hypergraph.
+
+This rephrasing is powerful because matchings are one of the central objects in combinatorics.
+There are many tools for proving that matchings exist.
+In graph theory, classical results such as Hall's theorem and Tutte's theorem give exact conditions for perfect matchings in special settings.
+For hypergraphs, perfect matchings are much harder, but there are still many useful methods.
+
+For example, one modern strategy is to first find an almost-perfect matching.
+This corresponds to building an approximate design.
+Then one uses absorption to cover the small leftover and complete the perfect matching.
+Translated back into design language, this means that we first satisfy almost all of the constraints, and then carefully repair the remaining constraints.
+
+There is also another benefit.
+The auxiliary hypergraph viewpoint can be used to count designs.
+Since designs correspond to perfect matchings in the auxiliary hypergraph, counting designs becomes a problem about counting perfect matchings.
+
+This gives access to another large collection of tools.
+In graph settings, counting perfect matchings is closely related to permanents and inequalities such as Bregman's theorem.
+In hypergraph settings, entropy methods and probabilistic counting methods play a similar role.
+Thus the auxiliary hypergraph viewpoint is useful not only for proving that designs exist, but also for estimating how many designs there are.
+
+## Practice Problems
+
+1. **General Steiner Systems.**
+Construct the auxiliary hypergraph for an $(n,q,r)$-Steiner system.
+Show that its vertices are the $r$-subsets of $[n]$, and that each $q$-set gives one edge containing all of its $r$-subsets.
+Conclude that perfect matchings in this auxiliary hypergraph are exactly $(n,q,r)$-Steiner systems.
+
+2. **Pair Designs.**
+Specialize the previous construction to $(n,q,2)$-Steiner systems.
+Explain why this is the same as decomposing the edges of $K_n$ into copies of $K_q$.
+
+3. **Designs with $\lambda > 1$.**
+An $(n,q,2,\lambda)$-design requires every pair of points to appear in exactly $\lambda$ blocks.
+Modify the auxiliary hypergraph construction by replacing each pair with $\lambda$ formal copies.
+What should the edges be?
+
+4. **General MOLS.**
+Suppose we want to construct $m$ mutually orthogonal Latin squares of order $n$.
+How many kinds of constraints are there?
+Find the number of parts in the auxiliary hypergraph and find the size of each edge.
+
+5. **Resolvable Designs.**
+A resolvable design is a design whose blocks can be partitioned into parallel classes.
+For a resolvable Steiner triple system, each parallel class partitions the vertex set into triples.
+Try to build an auxiliary hypergraph whose edges represent entire parallel classes instead of individual triples.
+
+## Sources and Further Reading
+
+The exposition above is based on standard references on Latin squares, Steiner systems, and hypergraph matchings.
+
+### Latin Squares and Designs
+
+- J. Dénes and A. D. Keedwell, *Latin Squares and Their Applications*, Academic Press, 1974.
+
+- Charles J. Colbourn and Jeffrey H. Dinitz, editors, *Handbook of Combinatorial Designs*, Second Edition, Chapman and Hall/CRC, 2006.
+
+- Douglas R. Stinson, *Combinatorial Designs: Constructions and Analysis*, Springer, 2004.
+
+- Charles C. Lindner and Christopher A. Rodger, *Design Theory*, Second Edition, Chapman and Hall/CRC, 2008.
+
+- Charles J. Colbourn and Alexander Rosa, *Triple Systems*, Oxford University Press, 1999.
+
+### Matching Theory
+
+- Philip Hall, "On Representatives of Subsets," *Journal of the London Mathematical Society*, 10 (1935), 26--30.
+
+- W. T. Tutte, "The Factorization of Linear Graphs," *Journal of the London Mathematical Society*, 22 (1947), 107--111.
+
+- László Lovász and Michael D. Plummer, *Matching Theory*, North-Holland, 1986.
+
+### Counting Designs and Matchings
+
+- L. M. Brégman, "Some Properties of Nonnegative Matrices and Their Permanents," *Soviet Mathematics Doklady*, 14 (1973), 945--949.
+
+- Jaikumar Radhakrishnan, "An Entropy Proof of Bregman's Theorem," *Journal of Combinatorial Theory, Series A*, 77 (1997), 161--164.
+
+- Nathan Linial and Zur Luria, "An Upper Bound on the Number of Steiner Triple Systems," *Random Structures & Algorithms*, 43 (2013), 399--406. [DOI](https://doi.org/10.1002/rsa.20487)
+
+- Peter Keevash, "Counting Designs," arXiv:1504.02909. [arXiv](https://arxiv.org/abs/1504.02909)

@@ -2,6 +2,8 @@
 title: Monotone Class Theorem
 parent: Measure Theory
 nav_order: 10
+nav_exclude: true
+search_exclude: true
 ---
 
 # The Monotone Class Theorem
