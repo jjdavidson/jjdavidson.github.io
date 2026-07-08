@@ -55,7 +55,7 @@ Translated back into Latin square language, this means:
 - every row-symbol pair $(r,s)$ appears exactly once;
 - every column-symbol pair $(c,s)$ appears exactly once.
 
-Therefore, a perfect matching in the auxiliary hypergrph is exactly a Latin square.
+Therefore, a perfect matching in the auxiliary hypergraph is exactly a Latin square.
 Since each 3-edge has size $3$, a perfect matching has $n^2$ edges which matches the number of entries on of a Latin square of order $n$.
 
 ### Example: The Auxiliary Hypergraph of a $2 \times 2$ Latin Square
@@ -88,12 +88,12 @@ The Latin square corresponds to the matching
 
 $$\{e_{(0,0,0)},e_{(0,1,1)},e_{(1,0,1)},e_{(1,1,0)}\}$$
 
-Pictured below is the full auxilary hypergraph where the red edges correspond to the matching representing the Latin square.
+Pictured below is the full auxiliary hypergraph where the red edges correspond to the matching representing the Latin square.
 
 <figure style="text-align: center;">
   <img
     src="{{ '/assets/images/design-theory/ls22-auxiliary.svg' | relative_url }}"
-    alt="The perfect matchiing on the auxiliary hypergraph representing the 2x2 Latin square."
+    alt="The perfect matching on the auxiliary hypergraph representing the 2x2 Latin square."
     style="width: min(100%, 500px); height: auto;"
   >
 </figure>
@@ -112,12 +112,12 @@ $$
 
 Each part has $9$ vertices, labeled $\{00,01,02,10,11,12,20,21,22\}$, where we write $ab$ in place of $(a,b)$ for brevity.
 Thus the auxiliary hypergraph has 27 vertices and $3^3 = 27$ hyperedges.
-Pictured below is the full auxilary hypergraph where the red edges correspond to the matching representing the Latin square.
+Pictured below is the full auxiliary hypergraph where the red edges correspond to the matching representing the Latin square.
 
 <figure style="text-align: center;">
   <img
     src="{{ '/assets/images/design-theory/ls33-auxiliary.svg' | relative_url }}"
-    alt="The perfect matchiing on the auxiliary hypergraph representing the 2x2 Latin square."
+    alt="The perfect matching on the auxiliary hypergraph representing the 2x2 Latin square."
     style="width: min(100%, 600px); height: auto;"
   >
 </figure>
@@ -206,7 +206,7 @@ Translated back into Latin square language, this means:
 - every ordered pair of symbols $(s_1,s_2)$ appears exactly once.
 
 Therefore, a perfect matching in this auxiliary hypergraph is exactly a pair of orthogonal Latin squares.
-Since each edge has size $6$, a perfect matching has $n^2$ 6-edges
+Since each edge has size $6$, a perfect matching has $n^2$ 6-edges.
 This matches the number of cells in an $n \times n$ Latin square.
 
 ### Example: The Auxiliary Hypergraph of Two Orthogonal $3 \times 3$ Latin Squares
