@@ -26,9 +26,9 @@ The **Math Notes** section provides some of the background on the foundational r
 
 In the future, I plan to add notes for Extremal Set Theory, Graph Limits, Stohastic Processes, Probabilitic Method, Entropy method, and more.
 
-The **Teaching** section will include notes from past classes that I have taught at Cal State LA and a tutoring company. I included some projects to show practical applications of mathematics to biology, chemistry, and economics. I also have some fun problems to give to more advanced students to introduce them to open research problems.
+The **Teaching** section is under construction and will include notes from past classes that I have taught at Cal State LA. I plan to include some class projects created for students to explore applications of mathematics to biology, chemistry, and economics. I also plan to include some interactive content to allow K-12 students to explore open math problems.
 
-The **Research** section contains some of the open problems I like to think about. Feel free to email me open problems that are well less known. If I find them interesting, I will add them to this section.
+The **Research** section contains some background on research problems that I have studied in the past and that I plan to pursue in the future. Currently, I have some content on Modtown problems. I plan to add content related to odd representations of hypergraphs, algebraic Unit Distance graphs, Sunflower Conjecture variants, EKR Theory of Triangulations, flag algebras on Hamming graphs, and refined absorption.
 
 The **Demos** section of my webpage is dedicated to interactive visualizations and simulations of some interesting random geometric and/or combinatorial objects. I often use the simulations while giving talks in outreach programs or seminars. Feel free to use or share these simulations with others. (Disclaimer: I am a mathematician not a programmer. I have used AI to assist me in writing the Javascript simulations. I have looked over the code myself, but I cannot guarantee there are no bugs.)
 
