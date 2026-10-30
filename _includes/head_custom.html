@@ -18,13 +18,20 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 <style>
-/* Make visited links look the same as normal links */
-a:visited {
+/* Use regular text colors for links, including every sidebar level. */
+a:link,
+a:visited,
+#site-nav .nav-list-link,
+#site-nav .nav-list-link:visited,
+#site-nav .nav-list-link.active {
   color: inherit;
 }
 
-/* Ensure sidebar links also stay consistent */
-.nav-list-link:visited {
-  color: inherit;
+/* Show the theme's purple on hover and keyboard focus. */
+a:hover,
+a:focus-visible,
+#site-nav .nav-list-link:hover,
+#site-nav .nav-list-link:focus-visible {
+  color: #7253ed;
 }
 </style>

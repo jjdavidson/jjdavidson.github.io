@@ -8,29 +8,17 @@ nav_order: 1
 
 <img src="/assets/images/headshot.jpg" width="200" style="float: left; margin-right: 20px; margin-top: 15px;">
 
-Hi, I am Jonathan and welcome to my webpage. I am a mathematician interested in **analysis**, **probability**, and **combinatorics**. My research focuses on applying linear algebra and probability theory to solve combinatorial problems. 
+Hi, my name is Jonathan. I study **combinatorial optimization** problems, drawing on ideas from algebra, analysis, number theory, geometry, and topology. I am especially interested in problems that connect different areas of mathematics and in how these connections help us understand discrete structures.
 
-I completed my undergraduate studies at Stanford University, where I worked on problems related to minimal and capillary surfaces. I studied how geometric boundary conditions can produce singular behavior in the resulting variational surfaces.
+My current research focuses on **monomial Cayley graphs** and **extremal theory on Hamming graphs**. Monomial Cayley graphs provide an algebraic approach to the Hadwiger–Nelson problem in geometric graph theory. Hamming graphs offer a setting for interpolating between classical extremal graph theory and extremal problems on the hypercube.
 
-I completed my Master’s degree at Cal State LA, where I conducted research in combinatorics, including work on Cayley graphs, intersecting families, Ramsey Theory on bipartite graphs, and odd cover problems.
-My Master's thesis explored extremal graph results on product graphs.
+My approach is rooted in **experimental mathematics**. I use computational exploration to identify patterns and formulate conjectures, then seek theorems that explain what I observe. My methods include SAT-based searches for finite configurations and flag algebra techniques for establishing extremal bounds. I also develop visualizations and simulations to explore examples, build intuition, and communicate mathematical ideas in research, teaching, and outreach.
+
+I completed my undergraduate studies at **Stanford University**, where I worked on minimal and capillary surfaces and studied how geometric boundary conditions can produce singular behavior in variational surfaces. I later earned my master's degree at **Cal State LA**, where I studied Cayley graphs, intersecting families, Ramsey theory on bipartite graphs, and odd cover problems. My master's thesis explored extremal graph results on product graphs.
 
 I am currently applying for Mathematics PhD programs.
 
-## How to use this site
-
-The **Math Notes** section provides some of the background on the foundational results and techniques related to my research. In particular, I am currently working on notes for the following topics
-- Measure Theory
-- Extremal Graph Theory
-- Combinatorial Designs
-
-In the future, I plan to add notes for Extremal Set Theory, Graph Limits, Stohastic Processes, Probabilitic Method, Entropy method, and more.
-
-The **Teaching** section is under construction and will include notes from past classes that I have taught at Cal State LA. I plan to include some class projects created for students to explore applications of mathematics to biology, chemistry, and economics. I also plan to include some interactive content to allow K-12 students to explore open math problems.
-
-The **Research** section contains some background on research problems that I have studied in the past and that I plan to pursue in the future. Currently, I have some content on Modtown problems. I plan to add content related to odd representations of hypergraphs, algebraic Unit Distance graphs, Sunflower Conjecture variants, EKR Theory of Triangulations, flag algebras on Hamming graphs, and refined absorption.
-
-The **Demos** section of my webpage is dedicated to interactive visualizations and simulations of some interesting random geometric and/or combinatorial objects. I often use the simulations while giving talks in outreach programs or seminars. Feel free to use or share these simulations with others. (Disclaimer: I am a mathematician not a programmer. I have used AI to assist me in writing the Javascript simulations. I have looked over the code myself, but I cannot guarantee there are no bugs.)
+Feel free to explore my [math notes]({{ '/notes/' | relative_url }}) and experiment with my [interactive demos]({{ '/demos/' | relative_url }}). They offer background and examples connected to my research, teaching, and outreach.
 
 ---
 
