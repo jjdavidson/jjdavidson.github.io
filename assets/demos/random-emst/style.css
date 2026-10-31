@@ -1,0 +1,63 @@
+div.demo[data-demo="random-emst"] {
+    margin: 1rem 0 0;
+}
+
+.demo[data-demo="random-emst"] .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.demo[data-demo="random-emst"] label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    min-width: 220px;
+}
+
+.demo[data-demo="random-emst"] .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.demo[data-demo="random-emst"] input {
+    padding: 9px 10px;
+    font: inherit;
+}
+
+.demo[data-demo="random-emst"] button {
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.demo[data-demo="random-emst"] select {
+    padding: 9px 10px;
+}
+
+.demo[data-demo="random-emst"] .panels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.demo[data-demo="random-emst"] .panel {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo[data-demo="random-emst"] .panelTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.demo[data-demo="random-emst"] canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}

@@ -1,0 +1,59 @@
+div.demo[data-demo="buffon-demo"] {
+    margin: 1rem 0 0;
+}
+
+.demo[data-demo="buffon-demo"] .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.demo[data-demo="buffon-demo"] label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    min-width: 220px;
+}
+
+.demo[data-demo="buffon-demo"] label.wide {
+    min-width: 320px;
+    flex: 1 1 320px;
+}
+
+.demo[data-demo="buffon-demo"] .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.demo[data-demo="buffon-demo"] button {
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.demo[data-demo="buffon-demo"] .panels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.demo[data-demo="buffon-demo"] .panel {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo[data-demo="buffon-demo"] .panelTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.demo[data-demo="buffon-demo"] canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}

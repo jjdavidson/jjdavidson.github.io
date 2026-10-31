@@ -1,18 +1,18 @@
-(() => {
+export function mount(root, { autoplay = false } = {}) {
 
-    const pointCountInput = document.getElementById("pointCountInput");
+    const pointCountInput = root.querySelector('[data-role="pointCountInput"]');
 
-    const trialCountInput = document.getElementById("trialCountInput");
-    const speedSelect = document.getElementById("speedSelect");
-    const regionSelect = document.getElementById("regionSelect");
+    const trialCountInput = root.querySelector('[data-role="trialCountInput"]');
+    const speedSelect = root.querySelector('[data-role="speedSelect"]');
+    const regionSelect = root.querySelector('[data-role="regionSelect"]');
 
-    const resetButton = document.getElementById("resetButton");
-    const startPauseButton = document.getElementById("startPauseButton");
+    const resetButton = root.querySelector('[data-role="resetButton"]');
+    const startPauseButton = root.querySelector('[data-role="startPauseButton"]');
 
-    const emstCanvas = document.getElementById("emstCanvas");
-    const totalLengthCanvas = document.getElementById("totalLengthCanvas");
-    const weightedDiameterCanvas = document.getElementById("weightedDiameterCanvas");
-    const degreeDistributionCanvas = document.getElementById("degreeDistributionCanvas");
+    const emstCanvas = root.querySelector('[data-role="emstCanvas"]');
+    const totalLengthCanvas = root.querySelector('[data-role="totalLengthCanvas"]');
+    const weightedDiameterCanvas = root.querySelector('[data-role="weightedDiameterCanvas"]');
+    const degreeDistributionCanvas = root.querySelector('[data-role="degreeDistributionCanvas"]');
 
     if (!emstCanvas || !totalLengthCanvas || !weightedDiameterCanvas || !degreeDistributionCanvas || !regionSelect) return;
 
@@ -2026,4 +2026,5 @@
 
     resetSimulation();
 
-})();
+    if (autoplay) startSimulation();
+}

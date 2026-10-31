@@ -1,15 +1,15 @@
-(() => {
+export function mount(root, { autoplay = false } = {}) {
 
-    const agentCountInput = document.getElementById("agentCountInput");
-    const moveSpeedInput = document.getElementById("moveSpeedInput");
-    const transmissionProbInput = document.getElementById("transmissionProbInput");
+    const agentCountInput = root.querySelector('[data-role="agentCountInput"]');
+    const moveSpeedInput = root.querySelector('[data-role="moveSpeedInput"]');
+    const transmissionProbInput = root.querySelector('[data-role="transmissionProbInput"]');
     const INFECTION_RADIUS = 8;
-    const displayModeInput = document.getElementById("displayModeInput");
+    const displayModeInput = root.querySelector('[data-role="displayModeInput"]');
 
-    const restartButton = document.getElementById("restartButton");
-    const playPauseButton = document.getElementById("playPauseButton");
+    const restartButton = root.querySelector('[data-role="restartButton"]');
+    const playPauseButton = root.querySelector('[data-role="playPauseButton"]');
 
-    const simCanvas = document.getElementById("simCanvas");
+    const simCanvas = root.querySelector('[data-role="simCanvas"]');
     if (!simCanvas) return;
 
     const simCtx = simCanvas.getContext("2d");
@@ -300,4 +300,5 @@
     regenerateAgents();
     renderAll();
 
-})();
+    if (autoplay) startPlaying();
+}

@@ -1,0 +1,1021 @@
+{
+  "proof": {
+    "description": "Six-branch forced-color proof of non-three-colorability, with the paper vertex numbering.",
+    "base_cycle": [
+      5,
+      6,
+      9,
+      14,
+      20
+    ],
+    "normalization": [
+      [
+        5,
+        0
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "split_justification": {
+      "pattern": [
+        0,
+        1,
+        2,
+        0,
+        1
+      ],
+      "vertex": 1,
+      "adjacent_fixed_vertex": 5,
+      "available_colors": [
+        1,
+        2
+      ]
+    },
+    "cases": [
+      {
+        "pattern": [
+          0,
+          1,
+          0,
+          1,
+          2
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 12,
+            "color": 1,
+            "neighbors": [
+              9,
+              20
+            ]
+          },
+          {
+            "vertex": 1,
+            "color": 2,
+            "neighbors": [
+              5,
+              12
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 0,
+            "neighbors": [
+              1,
+              14
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 2,
+            "neighbors": [
+              5,
+              14
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              22
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 1,
+            "neighbors": [
+              3,
+              22
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 2,
+            "neighbors": [
+              5,
+              10
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 0,
+            "neighbors": [
+              13,
+              14
+            ]
+          },
+          {
+            "vertex": 7,
+            "color": 2,
+            "neighbors": [
+              10,
+              11
+            ]
+          },
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              7
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 1,
+            "neighbors": [
+              11,
+              23
+            ]
+          },
+          {
+            "vertex": 16,
+            "color": 0,
+            "neighbors": [
+              8,
+              13
+            ]
+          },
+          {
+            "vertex": 17,
+            "color": 0,
+            "neighbors": [
+              1,
+              19
+            ]
+          }
+        ],
+        "conflict_edge": [
+          16,
+          17
+        ]
+      },
+      {
+        "pattern": [
+          0,
+          1,
+          0,
+          2,
+          1
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 3,
+            "color": 1,
+            "neighbors": [
+              5,
+              14
+            ]
+          },
+          {
+            "vertex": 12,
+            "color": 2,
+            "neighbors": [
+              9,
+              20
+            ]
+          },
+          {
+            "vertex": 1,
+            "color": 1,
+            "neighbors": [
+              5,
+              12
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 0,
+            "neighbors": [
+              1,
+              14
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              22
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 2,
+            "neighbors": [
+              3,
+              22
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 0,
+            "neighbors": [
+              20,
+              23
+            ]
+          },
+          {
+            "vertex": 15,
+            "color": 1,
+            "neighbors": [
+              12,
+              21
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 0,
+            "neighbors": [
+              15,
+              23
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 1,
+            "neighbors": [
+              5,
+              10
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 0,
+            "neighbors": [
+              13,
+              14
+            ]
+          }
+        ],
+        "conflict_edge": [
+          11,
+          19
+        ]
+      },
+      {
+        "pattern": [
+          0,
+          1,
+          2,
+          0,
+          1
+        ],
+        "extra_assumption": [
+          1,
+          1
+        ],
+        "forces": [
+          {
+            "vertex": 12,
+            "color": 0,
+            "neighbors": [
+              1,
+              9
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 2,
+            "neighbors": [
+              1,
+              14
+            ]
+          },
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 0,
+            "neighbors": [
+              6,
+              22
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 2,
+            "neighbors": [
+              20,
+              23
+            ]
+          },
+          {
+            "vertex": 15,
+            "color": 1,
+            "neighbors": [
+              12,
+              21
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 2,
+            "neighbors": [
+              15,
+              23
+            ]
+          },
+          {
+            "vertex": 17,
+            "color": 0,
+            "neighbors": [
+              1,
+              19
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 1,
+            "neighbors": [
+              14,
+              19
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 2,
+            "neighbors": [
+              5,
+              11
+            ]
+          },
+          {
+            "vertex": 16,
+            "color": 0,
+            "neighbors": [
+              8,
+              13
+            ]
+          }
+        ],
+        "conflict_edge": [
+          16,
+          17
+        ]
+      },
+      {
+        "pattern": [
+          0,
+          1,
+          2,
+          0,
+          1
+        ],
+        "extra_assumption": [
+          1,
+          2
+        ],
+        "forces": [
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 4,
+            "color": 0,
+            "neighbors": [
+              1,
+              8
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 1,
+            "neighbors": [
+              1,
+              14
+            ]
+          },
+          {
+            "vertex": 18,
+            "color": 0,
+            "neighbors": [
+              9,
+              22
+            ]
+          },
+          {
+            "vertex": 0,
+            "color": 2,
+            "neighbors": [
+              4,
+              6
+            ]
+          },
+          {
+            "vertex": 16,
+            "color": 2,
+            "neighbors": [
+              8,
+              18
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 1,
+            "neighbors": [
+              5,
+              16
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 2,
+            "neighbors": [
+              13,
+              14
+            ]
+          },
+          {
+            "vertex": 7,
+            "color": 0,
+            "neighbors": [
+              8,
+              11
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 2,
+            "neighbors": [
+              7,
+              22
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 1,
+            "neighbors": [
+              10,
+              14
+            ]
+          },
+          {
+            "vertex": 2,
+            "color": 2,
+            "neighbors": [
+              3,
+              7
+            ]
+          }
+        ],
+        "conflict_edge": [
+          0,
+          2
+        ]
+      },
+      {
+        "pattern": [
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 0,
+            "neighbors": [
+              8,
+              20
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              21
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 1,
+            "neighbors": [
+              14,
+              23
+            ]
+          },
+          {
+            "vertex": 18,
+            "color": 0,
+            "neighbors": [
+              9,
+              22
+            ]
+          },
+          {
+            "vertex": 1,
+            "color": 2,
+            "neighbors": [
+              5,
+              22
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 1,
+            "neighbors": [
+              18,
+              23
+            ]
+          },
+          {
+            "vertex": 4,
+            "color": 0,
+            "neighbors": [
+              1,
+              8
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 2,
+            "neighbors": [
+              14,
+              19
+            ]
+          },
+          {
+            "vertex": 0,
+            "color": 2,
+            "neighbors": [
+              4,
+              6
+            ]
+          },
+          {
+            "vertex": 7,
+            "color": 0,
+            "neighbors": [
+              8,
+              11
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 2,
+            "neighbors": [
+              7,
+              22
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 1,
+            "neighbors": [
+              10,
+              14
+            ]
+          },
+          {
+            "vertex": 2,
+            "color": 2,
+            "neighbors": [
+              3,
+              7
+            ]
+          }
+        ],
+        "conflict_edge": [
+          0,
+          2
+        ]
+      },
+      {
+        "pattern": [
+          0,
+          1,
+          2,
+          1,
+          2
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 2,
+            "neighbors": [
+              5,
+              14
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 0,
+            "neighbors": [
+              8,
+              20
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              21
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 0,
+            "neighbors": [
+              14,
+              23
+            ]
+          },
+          {
+            "vertex": 18,
+            "color": 1,
+            "neighbors": [
+              9,
+              22
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 0,
+            "neighbors": [
+              18,
+              23
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 2,
+            "neighbors": [
+              14,
+              19
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 1,
+            "neighbors": [
+              3,
+              22
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 2,
+            "neighbors": [
+              5,
+              10
+            ]
+          }
+        ],
+        "conflict_edge": [
+          11,
+          13
+        ]
+      }
+    ]
+  },
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      1,
+      17
+    ],
+    [
+      1,
+      22
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      3,
+      14
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      15
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      5,
+      13
+    ],
+    [
+      5,
+      20
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      6,
+      23
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      8,
+      21
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      10,
+      13
+    ],
+    [
+      10,
+      22
+    ],
+    [
+      11,
+      13
+    ],
+    [
+      11,
+      14
+    ],
+    [
+      11,
+      19
+    ],
+    [
+      12,
+      15
+    ],
+    [
+      12,
+      20
+    ],
+    [
+      13,
+      16
+    ],
+    [
+      14,
+      20
+    ],
+    [
+      14,
+      22
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      16,
+      18
+    ],
+    [
+      17,
+      19
+    ],
+    [
+      18,
+      19
+    ],
+    [
+      18,
+      22
+    ],
+    [
+      19,
+      23
+    ],
+    [
+      20,
+      21
+    ],
+    [
+      21,
+      23
+    ],
+    [
+      22,
+      23
+    ]
+  ],
+  "positions": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.6511313014674064,
+      0.36385755392629504
+    ],
+    [
+      -0.9677161659850148,
+      -0.25204250056540684
+    ],
+    [
+      -0.594767010167541,
+      -1.1798942813876636
+    ],
+    [
+      -0.1270508441825262,
+      0.9918962057556765
+    ],
+    [
+      0.12705084418252643,
+      -0.4878112046248628
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      -0.0563642912998652,
+      -0.6636706829191705
+    ],
+    [
+      -0.6511313014674062,
+      0.14022744720451852
+    ],
+    [
+      0.2218178543500674,
+      0.6280386518293813
+    ],
+    [
+      0.3165848645176086,
+      -1.5915224637414274
+    ],
+    [
+      0.6654535630502025,
+      0.02841239384363048
+    ],
+    [
+      0.9436357087001349,
+      1.3201217285921825
+    ],
+    [
+      1.0384027188676763,
+      -0.8994393869786261
+    ],
+    [
+      -0.30226260293481233,
+      -0.2236301067217763
+    ],
+    [
+      0.16545356305020253,
+      1.948160380421564
+    ],
+    [
+      0.2602205732177434,
+      -0.2714007351492449
+    ],
+    [
+      -0.33454643694979747,
+      0.5324973949744443
+    ],
+    [
+      1.1331697290352172,
+      0.2164104694756177
+    ],
+    [
+      0.5384027188676763,
+      1.0203085995993069
+    ],
+    [
+      0.41955525141525496,
+      0.46845297004102426
+    ],
+    [
+      -0.358626894234678,
+      1.0964916218704066
+    ],
+    [
+      0.6090892717503369,
+      -0.6352582890755394
+    ],
+    [
+      0.014322261582795814,
+      0.16863984104814955
+    ]
+  ],
+  "embedding": {
+    "type": "unit-distance",
+    "minimal_polynomial": "x^6-x^4-x^3-x^2+1",
+    "alpha": [
+      -0.1270508441825262,
+      0.9918962057556765
+    ]
+  }
+}

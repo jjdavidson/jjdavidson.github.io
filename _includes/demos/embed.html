@@ -1,0 +1,18 @@
+{%- assign demo_name = include.name -%}
+{%- assign demo = site.data.demos[demo_name] -%}
+{%- assign demo_id = include.id | default: demo_name -%}
+{%- assign demo_asset_version = site.time | date: '%s' -%}
+{%- assign demo_autoplay = demo.autoplay -%}
+{%- if include.autoplay != nil -%}
+  {%- assign demo_autoplay = include.autoplay -%}
+{%- endif -%}
+{%- if demo -%}
+<link rel="stylesheet" href="{{ '/assets/demos/shared/base.css' | relative_url }}?v={{ demo_asset_version }}">
+<link rel="stylesheet" href="{{ demo.stylesheet | relative_url }}?v={{ demo_asset_version }}">
+
+{% include {{ demo.markup }} name=demo_name id=demo_id demo=demo autoplay=demo_autoplay show_caption=include.show_caption %}
+
+<script type="module" src="{{ '/assets/demos/shared/loader.js' | relative_url }}"></script>
+{%- else -%}
+<p>This demonstration is unavailable.</p>
+{%- endif -%}

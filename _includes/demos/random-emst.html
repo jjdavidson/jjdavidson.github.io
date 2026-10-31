@@ -1,0 +1,72 @@
+<div id="{{ include.id | escape }}" class="demo"
+     data-demo="{{ include.name | escape }}"
+     data-module-src="{{ include.demo.module | relative_url }}"
+     data-autoplay="{{ include.autoplay }}">
+    <div class="controls">
+        <label>
+            <div class="row">
+                <span>Number of Points</span>
+            </div>
+            <input id="{{ include.id | escape }}--pointCountInput" data-role="pointCountInput" type="number" min="5" max="500" step="5" value="50">
+        </label>
+        <label>
+            <div class="row">
+                <span>Number of Trials</span>
+            </div>
+            <select id="{{ include.id | escape }}--trialCountInput" data-role="trialCountInput">
+                <option value="10">10</option>
+                <option value="100" selected>100</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+                <option value="10000">10000</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Simulation Speed</span>
+            </div>
+            <select id="{{ include.id | escape }}--speedSelect" data-role="speedSelect">
+                <option value="2">Slow</option>
+                <option value="10" selected>Medium</option>
+                <option value="30">Fast</option>
+                <option value="100">Very Fast</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Sampling Region</span>
+            </div>
+            <select id="{{ include.id | escape }}--regionSelect" data-role="regionSelect">
+                <option value="square" selected>Unit Square</option>
+                <option value="circle">Unit Circle</option>
+                <option value="rectangle">2 × 1 Rectangle</option>
+                <option value="hshape">H-Shape</option>
+                <option value="eshape">E-Shape</option>
+                <option value="xshape">X-Shape</option>
+                <option value="cshape">C-Shape</option>
+                <option value="ishape">I-Shape</option>
+                <option value="lshape">L-Shape</option>
+            </select>
+        </label>
+        <button id="{{ include.id | escape }}--resetButton" data-role="resetButton" type="button">Reset</button>
+        <button id="{{ include.id | escape }}--startPauseButton" data-role="startPauseButton" type="button">Start</button>
+    </div>
+    <div class="panels">
+        <div class="panel">
+            <div class="panelTitle">Euclidean Minimum Spanning Tree</div>
+            <canvas id="{{ include.id | escape }}--emstCanvas" data-role="emstCanvas" width="900" height="520"></canvas>
+        </div>
+        <div class="panel">
+            <div class="panelTitle">Distribution of Total Tree Lengths</div>
+            <canvas id="{{ include.id | escape }}--totalLengthCanvas" data-role="totalLengthCanvas" width="900" height="300"></canvas>
+        </div>
+        <div class="panel">
+            <div class="panelTitle">Distribution of Tree Diameters</div>
+            <canvas id="{{ include.id | escape }}--weightedDiameterCanvas" data-role="weightedDiameterCanvas" width="900" height="300"></canvas>
+        </div>
+        <div class="panel">
+            <div class="panelTitle">Empirical Degree Distribution</div>
+            <canvas id="{{ include.id | escape }}--degreeDistributionCanvas" data-role="degreeDistributionCanvas" width="900" height="300"></canvas>
+        </div>
+    </div>
+</div>

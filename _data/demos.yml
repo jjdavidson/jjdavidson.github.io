@@ -1,0 +1,84 @@
+monomial-witness:
+  title: Monomial Witness
+  description: An animated six-case proof that a finite unit-distance graph needs at least four colors.
+  markup: demos/monomial-witness.html
+  stylesheet: /assets/demos/monomial-witness/style.css
+  module: /assets/demos/monomial-witness/main.js
+  data: /assets/demos/monomial-witness/data/witness.json
+  url: /simulations/graphs/monomial-witness/
+  category: Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - research
+  autoplay: true
+
+random-walk-1d:
+  title: Random Walk 1D
+  description: One-dimensional random walks and their position distributions.
+  markup: demos/random-walk-1d.html
+  stylesheet: /assets/demos/random-walk-1d/style.css
+  module: /assets/demos/random-walk-1d/main.js
+  url: /simulations/probability/random-walk-1d/
+  category: Probability
+  teaching_url: /teaching/stem-outreach/random-walk-1d/
+  tags:
+    - probability
+    - random-walks
+  autoplay: false
+
+random-walk-2d:
+  title: Random Walk 2D
+  description: Planar random walks displayed as paths or a heat map.
+  markup: demos/random-walk-2d.html
+  stylesheet: /assets/demos/random-walk-2d/style.css
+  module: /assets/demos/random-walk-2d/main.js
+  url: /simulations/probability/random-walk-2d/
+  category: Probability
+  teaching_url: /teaching/stem-outreach/random-walk-2d/
+  tags:
+    - probability
+    - random-walks
+  autoplay: false
+
+buffon-demo:
+  title: Buffon’s Needle
+  description: Random throws of geometric shapes and estimates of pi.
+  markup: demos/buffon-demo.html
+  stylesheet: /assets/demos/buffon-demo/style.css
+  module: /assets/demos/buffon-demo/main.js
+  url: /simulations/probability/buffons-needle/
+  category: Probability
+  teaching_url: /teaching/pi-day/buffons-needle/
+  tags:
+    - probability
+    - geometry
+  autoplay: false
+
+disease-spread:
+  title: Disease Spread
+  description: An agent-based simulation of infection through local interactions.
+  markup: demos/disease-spread.html
+  stylesheet: /assets/demos/disease-spread/style.css
+  module: /assets/demos/disease-spread/main.js
+  url: /simulations/probability/disease-spread/
+  category: Probability
+  teaching_url: /teaching/stem-outreach/disease-spread/
+  tags:
+    - probability
+    - simulation
+  autoplay: false
+
+random-emst:
+  title: Random EMST
+  description: Euclidean minimum spanning trees on random point sets.
+  markup: demos/random-emst.html
+  stylesheet: /assets/demos/random-emst/style.css
+  module: /assets/demos/random-emst/main.js
+  url: /simulations/graphs/random-emst/
+  category: Graphs
+  tags:
+    - graph-theory
+    - geometry
+    - probability
+  autoplay: false

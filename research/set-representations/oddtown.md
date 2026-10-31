@@ -1,9 +1,11 @@
 ---
-title: The Oddtown Problem
-parent: Research
+title: Oddtown / Modtown
+parent: Set Representations
+grand_parent: Research
 nav_order: 1
 layout: default
 has_toc: true
+permalink: /research/oddtown.html
 ---
 
 # The Oddtown Problem

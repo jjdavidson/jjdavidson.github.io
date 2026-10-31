@@ -1,16 +1,16 @@
-(() => {
+export function mount(root, { autoplay = false } = {}) {
 
-    const throwsInput = document.getElementById("throwsInput");
-    const shapeType = document.getElementById("shapeType");
-    const speedSelect = document.getElementById("speedSelect");
+    const throwsInput = root.querySelector('[data-role="throwsInput"]');
+    const shapeType = root.querySelector('[data-role="shapeType"]');
+    const speedSelect = root.querySelector('[data-role="speedSelect"]');
 
-    const currentThrow = document.getElementById("currentThrow");
-    const currentThrowLabel = document.getElementById("currentThrowLabel");
+    const currentThrow = root.querySelector('[data-role="currentThrow"]');
+    const currentThrowLabel = root.querySelector('[data-role="currentThrowLabel"]');
 
-    const restartButton = document.getElementById("restartButton");
-    const playPauseButton = document.getElementById("playPauseButton");
+    const restartButton = root.querySelector('[data-role="restartButton"]');
+    const playPauseButton = root.querySelector('[data-role="playPauseButton"]');
 
-    const tossCanvas = document.getElementById("tossCanvas");
+    const tossCanvas = root.querySelector('[data-role="tossCanvas"]');
 
     if (!tossCanvas) return;
 
@@ -553,4 +553,5 @@
 
     regenerateAllThrows();
 
-})();
+    if (autoplay) startPlaying();
+}

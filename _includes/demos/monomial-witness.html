@@ -1,0 +1,33 @@
+<figure id="{{ include.id | escape }}" class="demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-proof-src="{{ include.demo.data | relative_url }}"
+  data-autoplay="{{ include.autoplay }}" aria-label="Animated coloring proof">
+  <div class="panel">
+    <div class="witness-panel-header">
+      <div class="panelTitle">Spindle-free unit distance graph is not 3-colorable.</div>
+      <div class="witness-case">
+        <span class="witness-case-title" data-role="case">Case 1 of 6</span>
+        <div class="witness-pattern" data-role="pattern" role="img" aria-label="Pentagon colors"></div>
+      </div>
+    </div>
+
+    <p class="witness-cycle">Pentagon: 5 → 6 → 9 → 14 → 20 → 5</p>
+
+    <svg data-role="graph" viewBox="0 0 700 420" role="img" aria-labelledby="{{ include.id | escape }}Title {{ include.id | escape }}Description">
+      <title id="{{ include.id | escape }}Title">Spindle-free unit distance graph is not 3-colorable.</title>
+      <desc id="{{ include.id | escape }}Description">Vertices show their number and their assigned color. Gray vertices have not yet been colored. Each deduction highlights a vertex and the two neighbors forcing its color. Every case ends with a highlighted edge whose endpoints have the same color.</desc>
+    </svg>
+
+    <p class="witness-error" data-role="detail" role="alert"></p>
+  </div>
+
+  {% if include.show_caption %}
+  <figcaption>
+    Propagating 3-colorings of a pentagon to show that the finite witness of
+    \(\Gamma_\alpha\) from <a href="https://arxiv.org/abs/2610.09474">my paper, Coloring Monomial Cayley Graphs: The One-Parameter Case</a>,
+    is not 3-colorable.
+  </figcaption>
+  {% endif %}
+  <noscript><p>Enable JavaScript to watch the six cases of the coloring proof.</p></noscript>
+</figure>
+

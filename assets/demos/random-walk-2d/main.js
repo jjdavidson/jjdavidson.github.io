@@ -1,21 +1,18 @@
-(() => {
+export function mount(root, { autoplay = false } = {}) {
 
-    const root = document.getElementById("randomWalk2D");
-    if (!root) return;
+    const stepsInput = root.querySelector('[data-role="stepsInput"]');
+    const walkCount = root.querySelector('[data-role="walkCount"]');
+    const speedSelect = root.querySelector('[data-role="speedSelect"]');
+    const viewSelect = root.querySelector('[data-role="viewSelect"]');
 
-    const stepsInput = root.querySelector("#stepsInput");
-    const walkCount = root.querySelector("#walkCount");
-    const speedSelect = root.querySelector("#speedSelect");
-    const viewSelect = root.querySelector("#viewSelect");
+    const currentStep = root.querySelector('[data-role="currentStep"]');
+    const currentStepLabel = root.querySelector('[data-role="currentStepLabel"]');
 
-    const currentStep = root.querySelector("#currentStep");
-    const currentStepLabel = root.querySelector("#currentStepLabel");
+    const restartButton = root.querySelector('[data-role="restartButton"]');
+    const playPauseButton = root.querySelector('[data-role="playPauseButton"]');
 
-    const restartButton = root.querySelector("#restartButton");
-    const playPauseButton = root.querySelector("#playPauseButton");
-
-    const canvasTitle = root.querySelector("#canvasTitle");
-    const walkCanvas = root.querySelector("#walkCanvas");
+    const canvasTitle = root.querySelector('[data-role="canvasTitle"]');
+    const walkCanvas = root.querySelector('[data-role="walkCanvas"]');
 
     if (
         !stepsInput || !walkCount || !speedSelect || !viewSelect ||
@@ -402,4 +399,5 @@
 
     regenerateAllWalks();
 
-})();
+    if (autoplay) startPlaying();
+}

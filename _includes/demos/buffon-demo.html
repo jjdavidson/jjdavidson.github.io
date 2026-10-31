@@ -1,0 +1,53 @@
+<div id="{{ include.id | escape }}" class="demo"
+     data-demo="{{ include.name | escape }}"
+     data-module-src="{{ include.demo.module | relative_url }}"
+     data-autoplay="{{ include.autoplay }}">
+    <div class="controls">
+        <label>
+            <div class="row">
+                <span>Shape</span>
+            </div>
+            <select id="{{ include.id | escape }}--shapeType" data-role="shapeType">
+                <option value="segment" selected>Line Segment</option>
+                <option value="triangle">Triangle</option>
+                <option value="square">Square</option>
+                <option value="piShape">$\pi$</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Number of Trials</span>
+            </div>
+            <select id="{{ include.id | escape }}--throwsInput" data-role="throwsInput">
+                <option value="10">10</option>
+                <option value="100" selected>100</option>
+                <option value="1000">1000</option>
+                <option value="10000">10,000</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Simulation Speed</span>
+            </div>
+            <select id="{{ include.id | escape }}--speedSelect" data-role="speedSelect">
+                <option value="25">Slow</option>
+                <option value="50" selected>Medium</option>
+                <option value="100">Fast</option>
+                <option value="400">Very Fast</option>
+            </select>
+        </label>
+        <label class="wide">
+            <div class="row">
+                <span>Current Throw</span>
+                <span id="{{ include.id | escape }}--currentThrowLabel" data-role="currentThrowLabel">0</span>
+            </div>
+            <input id="{{ include.id | escape }}--currentThrow" data-role="currentThrow" type="range" min="0" max="100" step="1" value="0">
+        </label>
+        <button id="{{ include.id | escape }}--restartButton" data-role="restartButton">Restart</button>
+        <button id="{{ include.id | escape }}--playPauseButton" data-role="playPauseButton">Play</button>
+    </div>
+    <div class="panel">
+        <div class="panelTitle">Random Tosses</div>
+        <canvas id="{{ include.id | escape }}--tossCanvas" data-role="tossCanvas" width="900" height="420"></canvas>
+    </div>
+</div>

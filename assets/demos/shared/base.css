@@ -1,0 +1,14 @@
+/* Keep the shared defaults below each demo's own styles in the cascade. */
+.demo[data-demo] {
+  margin: 1.5rem 0;
+}
+
+:where(.demo[data-demo]) .panel {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+:where(.demo[data-demo]) .panelTitle {
+  font-weight: 700;
+}

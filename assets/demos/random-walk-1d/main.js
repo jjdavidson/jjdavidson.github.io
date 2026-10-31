@@ -1,18 +1,18 @@
-(() => {
+export function mount(root, { autoplay = false } = {}) {
 
-    const stepsInput = document.getElementById("stepsInput");
-    const walkCount = document.getElementById("walkCount");
-    const speedSelect = document.getElementById("speedSelect");
+    const stepsInput = root.querySelector('[data-role="stepsInput"]');
+    const walkCount = root.querySelector('[data-role="walkCount"]');
+    const speedSelect = root.querySelector('[data-role="speedSelect"]');
 
-    const currentStep = document.getElementById("currentStep");
-    const currentStepLabel = document.getElementById("currentStepLabel");
+    const currentStep = root.querySelector('[data-role="currentStep"]');
+    const currentStepLabel = root.querySelector('[data-role="currentStepLabel"]');
 
-    const restartButton = document.getElementById("restartButton");
-    const playPauseButton = document.getElementById("playPauseButton");
+    const restartButton = root.querySelector('[data-role="restartButton"]');
+    const playPauseButton = root.querySelector('[data-role="playPauseButton"]');
 
-    const walkCanvas = document.getElementById("walkCanvas");
-    const histCanvas = document.getElementById("histCanvas");
-    const histTitle = document.getElementById("histTitle");
+    const walkCanvas = root.querySelector('[data-role="walkCanvas"]');
+    const histCanvas = root.querySelector('[data-role="histCanvas"]');
+    const histTitle = root.querySelector('[data-role="histTitle"]');
 
     if (!walkCanvas || !histCanvas) return;
 
@@ -437,4 +437,5 @@
     regenerateAllWalks();
     renderAll();
 
-})();
+    if (autoplay) startPlaying();
+}

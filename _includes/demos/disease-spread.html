@@ -1,0 +1,60 @@
+<div id="{{ include.id | escape }}" class="demo"
+     data-demo="{{ include.name | escape }}"
+     data-module-src="{{ include.demo.module | relative_url }}"
+     data-autoplay="{{ include.autoplay }}">
+    <div class="controls">
+        <label>
+            <div class="row">
+                <span>Number of Agents</span>
+            </div>
+            <select id="{{ include.id | escape }}--agentCountInput" data-role="agentCountInput">
+                <option value="500" selected>500</option>
+                <option value="1000">1000</option>
+                <option value="2000">2000</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Movement Speed</span>
+            </div>
+            <select id="{{ include.id | escape }}--moveSpeedInput" data-role="moveSpeedInput">
+                <option value="0.6">Slow</option>
+                <option value="1.2" selected>Medium</option>
+                <option value="2.0">Fast</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Transmission Probability</span>
+            </div>
+            <select id="{{ include.id | escape }}--transmissionProbInput" data-role="transmissionProbInput">
+                <option value="0.2">0.2</option>
+                <option value="0.4" selected>0.4</option>
+                <option value="0.6">0.6</option>
+                <option value="0.8">0.8</option>
+                <option value="1">1.0</option>
+            </select>
+        </label>
+        <label>
+            <div class="row">
+                <span>Display Mode</span>
+            </div>
+            <select id="{{ include.id | escape }}--displayModeInput" data-role="displayModeInput">
+                <option value="agents" selected>Agents</option>
+                <option value="heatmap">Heatmap</option>
+            </select>
+        </label>
+        <button id="{{ include.id | escape }}--restartButton" data-role="restartButton">Restart</button>
+        <button id="{{ include.id | escape }}--playPauseButton" data-role="playPauseButton">Play</button>
+    </div>
+    <div class="panels">
+        <div class="panel">
+            <div class="panelTitle">Agent Model for Disease Spread</div>
+            <div class="legend">
+                <div class="legendItem"><span class="dot susceptible"></span>Susceptible</div>
+                <div class="legendItem"><span class="dot infected"></span>Infected</div>
+            </div>
+            <canvas id="{{ include.id | escape }}--simCanvas" data-role="simCanvas" width="900" height="520"></canvas>
+        </div>
+    </div>
+</div>

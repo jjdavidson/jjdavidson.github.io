@@ -1,0 +1,87 @@
+div.demo[data-demo="disease-spread"] {
+    margin: 1rem 0 0;
+}
+
+.demo[data-demo="disease-spread"] .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.demo[data-demo="disease-spread"] label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    min-width: 160px;
+}
+
+.demo[data-demo="disease-spread"] .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.demo[data-demo="disease-spread"] button {
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.demo[data-demo="disease-spread"] .legend {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.demo[data-demo="disease-spread"] .legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.demo[data-demo="disease-spread"] .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.demo[data-demo="disease-spread"] .dot.susceptible {
+    background: #2563eb;
+}
+
+.demo[data-demo="disease-spread"] .dot.infected {
+    background: #dc2626;
+}
+
+.demo[data-demo="disease-spread"] .dot.recovered {
+    background: #bfdbfe;
+}
+
+.demo[data-demo="disease-spread"] .panels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.demo[data-demo="disease-spread"] .panel {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo[data-demo="disease-spread"] .panelTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.demo[data-demo="disease-spread"] canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}

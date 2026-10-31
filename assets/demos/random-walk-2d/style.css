@@ -1,0 +1,59 @@
+div.demo[data-demo="random-walk-2d"] {
+    margin: 1rem 0 0;
+}
+
+.demo[data-demo="random-walk-2d"] .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.demo[data-demo="random-walk-2d"] label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    flex: 1 1 100px;
+}
+
+.demo[data-demo="random-walk-2d"] label.wide {
+    min-width: 320px;
+    flex: 1 1 320px;
+}
+
+.demo[data-demo="random-walk-2d"] .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.demo[data-demo="random-walk-2d"] button {
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.demo[data-demo="random-walk-2d"] .panels {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.demo[data-demo="random-walk-2d"] .panel {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.demo[data-demo="random-walk-2d"] .panelTitle {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.demo[data-demo="random-walk-2d"] canvas {
+    width: 100%;
+    height: auto;
+    display: block;
+}

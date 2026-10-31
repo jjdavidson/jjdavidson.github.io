@@ -1,0 +1,91 @@
+.demo[data-demo="monomial-witness"] .witness-case {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 13px;
+}
+
+.demo[data-demo="monomial-witness"] .witness-case-title {
+  font-weight: 700;
+}
+
+.demo[data-demo="monomial-witness"] .witness-pattern {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.demo[data-demo="monomial-witness"] .witness-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+}
+
+.demo[data-demo="monomial-witness"] .witness-swatch {
+  display: inline-block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+}
+
+.demo[data-demo="monomial-witness"] .color-a { background: #34a853; }
+.demo[data-demo="monomial-witness"] .color-b { background: #4285f4; }
+.demo[data-demo="monomial-witness"] .color-c { background: #fbbc05; }
+
+.demo[data-demo="monomial-witness"] .witness-cycle {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.demo[data-demo="monomial-witness"] svg {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.demo[data-demo="monomial-witness"] .witness-node {
+  transition: fill 160ms ease, stroke 160ms ease;
+}
+
+.demo[data-demo="monomial-witness"] .witness-vertex-label {
+  fill: #111111;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.demo[data-demo="monomial-witness"] .witness-error {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.demo[data-demo="monomial-witness"] .witness-error:empty {
+  display: none;
+}
+
+.demo[data-demo="monomial-witness"] figcaption {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.demo[data-demo="monomial-witness"][data-phase="error"] svg,
+.demo[data-demo="monomial-witness"][data-phase="error"] .witness-case {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo[data-demo="monomial-witness"] .witness-node {
+    transition: none;
+  }
+}
