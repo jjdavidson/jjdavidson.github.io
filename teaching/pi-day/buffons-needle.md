@@ -11,7 +11,7 @@ permalink: /teaching/pi-day/buffons-needle/
 
 [Open simulation only]({{ '/simulations/probability/buffons-needle/' | relative_url }})
 
-{% include demos/embed.html name="buffon-demo" id="buffonDemo" autoplay=false %}
+{% include demos/embed.html name="buffons-needle" id="buffonDemo" autoplay=false %}
 
 ## Buffon’s Needle (1777)
 

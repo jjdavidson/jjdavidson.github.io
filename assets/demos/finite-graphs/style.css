@@ -1,0 +1,91 @@
+.demo[data-demo="finite-graphs"] .cayley-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-graph-panel {
+  grid-column: 1 / -1;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-field {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  font-size: 14px;
+}
+
+.demo[data-demo="finite-graphs"] [hidden] {
+  display: none;
+}
+
+.demo[data-demo="finite-graphs"] input,
+.demo[data-demo="finite-graphs"] select {
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-note {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-circle {
+  display: block;
+  width: min(100%, 220px);
+  margin: 0 auto 8px;
+}
+
+.demo[data-demo="finite-graphs"] [data-role="picker"] {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-graph {
+  display: block;
+  width: 100%;
+  height: 360px;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-axis {
+  stroke: #d2d5dc;
+  fill: none;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-svg-label {
+  fill: #42434b;
+  font: 13px sans-serif;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-tip-label {
+  font: 13px sans-serif;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-arrow {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.demo[data-demo="finite-graphs"] .cayley-arrow-positive { stroke: #2556a3; }
+.demo[data-demo="finite-graphs"] .cayley-arrow-negative { stroke: #b4232f; }
+.demo[data-demo="finite-graphs"] .cayley-tip-positive { fill: #2556a3; }
+.demo[data-demo="finite-graphs"] .cayley-tip-negative { fill: #b4232f; }
+
+.demo[data-demo="finite-graphs"] .cayley-label-leader {
+  stroke: #8795aa;
+}
+
+.demo[data-demo="finite-graphs"] [data-role="detail"]:empty { display: none; }
+
+@media (max-width: 520px) {
+  .demo[data-demo="finite-graphs"] .cayley-panels { grid-template-columns: minmax(0, 1fr); }
+  .demo[data-demo="finite-graphs"] .cayley-graph { height: 300px; }
+}

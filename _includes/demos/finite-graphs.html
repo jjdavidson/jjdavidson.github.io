@@ -1,0 +1,51 @@
+<div id="{{ include.id | escape }}" class="demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-autoplay="{{ include.autoplay }}">
+  <div class="cayley-panels">
+    <section class="panel" aria-label="Unit circle">
+      <svg class="cayley-circle" data-role="picker" viewBox="0 0 220 220" role="img"
+        aria-label="Unit circle with the selected point alpha. Use the angle input to select a point with the keyboard."></svg>
+      <label class="cayley-field">
+        <span>Angle (degrees)</span>
+        <input data-role="angle" type="number" min="0" max="359" step="1" value="72">
+      </label>
+    </section>
+    <section class="panel" aria-label="Connection vectors">
+      <svg class="cayley-circle" data-role="vectors" viewBox="0 0 220 220" role="img"
+        aria-label="Allowed step vectors on the unit circle"></svg>
+      <label class="cayley-field">
+        <span>Highest degree</span>
+        <select data-role="degree">
+          <option>0</option><option>1</option><option>2</option><option>3</option><option selected>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+        </select>
+      </label>
+    </section>
+    <section class="panel cayley-graph-panel" aria-label="Finite Cayley graph">
+      <div class="cayley-controls">
+        <label class="cayley-field">
+          <span>Vertex set</span>
+          <select data-role="construction">
+            <option value="ball" selected>Cayley ball</option>
+            <option value="sumset">Sum Set</option>
+          </select>
+        </label>
+        <label class="cayley-field" data-role="radius-control">
+          <span>Radius (steps)</span>
+          <select data-role="radius">
+            <option>0</option><option>1</option><option selected>2</option><option>3</option>
+          </select>
+        </label>
+      </div>
+      <p class="cayley-note" data-role="summary" aria-live="polite"></p>
+      <svg data-role="graph" class="cayley-graph" viewBox="0 0 720 360" role="img"
+        aria-label="Finite graph drawn in the complex plane"></svg>
+      <div aria-live="polite">
+        <p class="cayley-note"><strong>Minimal polynomial</strong> <span data-role="minimal-polynomial"></span></p>
+        <p class="cayley-note"><strong>Eisenstein-quotient coloring</strong> <span data-role="coloring"></span></p>
+      </div>
+    </section>
+  </div>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to build and explore the graph.</p></noscript>
+</div>

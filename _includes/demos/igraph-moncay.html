@@ -1,0 +1,74 @@
+<figure id="{{ include.id | escape }}" class="demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-data-src="{{ include.demo.data | relative_url }}?v={{ site.time | date: '%s' }}"
+  aria-label="I-graph unit-distance and MonCay explorer">
+  <div class="panel">
+    <form class="igraph-controls" data-role="form" novalidate>
+      <label class="igraph-preset">
+        <span>Example</span>
+        <select data-role="preset" disabled>
+          <option value="petersen">Petersen · I(5, 1, 2)</option>
+          <option value="cube">Cube · I(4, 1, 1)</option>
+          <option value="dodecahedron">Dodecahedron · I(10, 1, 2)</option>
+          <option value="mobius">Möbius–Kantor · I(8, 1, 3)</option>
+          <option value="desargues">Desargues · I(10, 1, 3)</option>
+          <option value="nauru">Nauru · I(12, 1, 5)</option>
+          <option value="two-rim-steps">I(12, 2, 3)</option>
+          <option value="custom" disabled>Custom graph</option>
+        </select>
+      </label>
+      <label>
+        <span>n</span>
+        <input type="number" min="3" max="60" step="1" value="5" data-role="n"
+          aria-describedby="{{ include.id | escape }}-error" disabled>
+      </label>
+      <label>
+        <span>Outer step j</span>
+        <input type="number" min="1" max="2" step="1" value="1" data-role="j"
+          aria-describedby="{{ include.id | escape }}-error" disabled>
+      </label>
+      <label>
+        <span>Inner step k</span>
+        <input type="number" min="1" max="2" step="1" value="2" data-role="k"
+          aria-describedby="{{ include.id | escape }}-error" disabled>
+      </label>
+      <label>
+        <span>Step a</span>
+        <select data-role="multiplier" disabled>
+          <option value="auto">Auto</option>
+        </select>
+      </label>
+      <button class="btn btn-primary" type="submit" data-role="apply" disabled>Set graph</button>
+    </form>
+    <p id="{{ include.id | escape }}-error" class="igraph-error" data-role="error" role="alert" hidden></p>
+    <div class="igraph-views">
+      <section class="igraph-view" aria-labelledby="{{ include.id | escape }}-graph-title">
+        <h2 class="igraph-view-title" id="{{ include.id | escape }}-graph-title">I-graph</h2>
+        <canvas class="igraph-canvas" data-role="canvas" role="img"
+          aria-label="Unit-distance representation of the selected I-graph"></canvas>
+      </section>
+      <section class="igraph-view" aria-labelledby="{{ include.id | escape }}-directions-title">
+        <h2 class="igraph-view-title" id="{{ include.id | escape }}-directions-title">Generator directions</h2>
+        <canvas class="igraph-direction-canvas" data-role="directions" role="img"
+          aria-label="MonCay generators on the unit circle"></canvas>
+        <div class="igraph-direction-controls" data-role="direction-controls" role="group"
+          aria-label="Highlight a direction"></div>
+        <p class="igraph-direction-detail" data-role="direction-detail" role="status"></p>
+      </section>
+    </div>
+    <dl class="igraph-stats" data-role="summary" aria-label="Selected graph properties"
+      role="status" aria-live="polite" aria-atomic="true">
+      <div><dt>Vertices</dt><dd data-role="vertices" data-field="vertices">—</dd></div>
+      <div><dt>Edges</dt><dd data-role="edges" data-field="edges">—</dd></div>
+      <div><dt>θ</dt><dd data-role="angle" data-field="angle">—</dd></div>
+      <div><dt>3-colorable</dt><dd data-role="three-colorable" data-field="three-colorable">—</dd></div>
+    </dl>
+    <p class="igraph-status" data-role="result" role="status">Choose a graph to explore its unit-distance representation.</p>
+    <div class="igraph-moncay" data-role="moncay-result" aria-label="MonCay and minimal polynomials"></div>
+  </div>
+  <figcaption>
+    Every displayed edge has length one. The colors give a proper coloring of the finite graph.
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to explore unit-distance representations and graph colorings.</p></noscript>
+</figure>

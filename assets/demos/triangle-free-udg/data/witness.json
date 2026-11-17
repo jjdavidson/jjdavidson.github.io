@@ -1,6 +1,6 @@
 {
   "proof": {
-    "description": "Six-branch forced-color proof of non-three-colorability, with the paper vertex numbering.",
+    "description": "Five-case forced-color proof of non-three-colorability, with two subcases in Case 5 and the paper vertex numbering.",
     "base_cycle": [
       5,
       6,
@@ -35,6 +35,7 @@
     },
     "cases": [
       {
+        "label": "Case 1",
         "pattern": [
           0,
           1,
@@ -155,6 +156,7 @@
         ]
       },
       {
+        "label": "Case 2",
         "pattern": [
           0,
           1,
@@ -259,6 +261,233 @@
         ]
       },
       {
+        "label": "Case 3",
+        "pattern": [
+          0,
+          1,
+          2,
+          0,
+          2
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 0,
+            "neighbors": [
+              8,
+              20
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              21
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 1,
+            "neighbors": [
+              14,
+              23
+            ]
+          },
+          {
+            "vertex": 18,
+            "color": 0,
+            "neighbors": [
+              9,
+              22
+            ]
+          },
+          {
+            "vertex": 1,
+            "color": 2,
+            "neighbors": [
+              5,
+              22
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 1,
+            "neighbors": [
+              18,
+              23
+            ]
+          },
+          {
+            "vertex": 4,
+            "color": 0,
+            "neighbors": [
+              1,
+              8
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 2,
+            "neighbors": [
+              14,
+              19
+            ]
+          },
+          {
+            "vertex": 0,
+            "color": 2,
+            "neighbors": [
+              4,
+              6
+            ]
+          },
+          {
+            "vertex": 7,
+            "color": 0,
+            "neighbors": [
+              8,
+              11
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 2,
+            "neighbors": [
+              7,
+              22
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 1,
+            "neighbors": [
+              10,
+              14
+            ]
+          },
+          {
+            "vertex": 2,
+            "color": 2,
+            "neighbors": [
+              3,
+              7
+            ]
+          }
+        ],
+        "conflict_edge": [
+          0,
+          2
+        ]
+      },
+      {
+        "label": "Case 4",
+        "pattern": [
+          0,
+          1,
+          2,
+          1,
+          2
+        ],
+        "extra_assumption": null,
+        "forces": [
+          {
+            "vertex": 8,
+            "color": 1,
+            "neighbors": [
+              5,
+              9
+            ]
+          },
+          {
+            "vertex": 3,
+            "color": 2,
+            "neighbors": [
+              5,
+              14
+            ]
+          },
+          {
+            "vertex": 21,
+            "color": 0,
+            "neighbors": [
+              8,
+              20
+            ]
+          },
+          {
+            "vertex": 23,
+            "color": 2,
+            "neighbors": [
+              6,
+              21
+            ]
+          },
+          {
+            "vertex": 22,
+            "color": 0,
+            "neighbors": [
+              14,
+              23
+            ]
+          },
+          {
+            "vertex": 18,
+            "color": 1,
+            "neighbors": [
+              9,
+              22
+            ]
+          },
+          {
+            "vertex": 19,
+            "color": 0,
+            "neighbors": [
+              18,
+              23
+            ]
+          },
+          {
+            "vertex": 11,
+            "color": 2,
+            "neighbors": [
+              14,
+              19
+            ]
+          },
+          {
+            "vertex": 10,
+            "color": 1,
+            "neighbors": [
+              3,
+              22
+            ]
+          },
+          {
+            "vertex": 13,
+            "color": 2,
+            "neighbors": [
+              5,
+              10
+            ]
+          }
+        ],
+        "conflict_edge": [
+          11,
+          13
+        ]
+      },
+      {
+        "label": "Case 5a",
         "pattern": [
           0,
           1,
@@ -366,6 +595,7 @@
         ]
       },
       {
+        "label": "Case 5b",
         "pattern": [
           0,
           1,
@@ -478,230 +708,6 @@
         "conflict_edge": [
           0,
           2
-        ]
-      },
-      {
-        "pattern": [
-          0,
-          1,
-          2,
-          0,
-          2
-        ],
-        "extra_assumption": null,
-        "forces": [
-          {
-            "vertex": 8,
-            "color": 1,
-            "neighbors": [
-              5,
-              9
-            ]
-          },
-          {
-            "vertex": 21,
-            "color": 0,
-            "neighbors": [
-              8,
-              20
-            ]
-          },
-          {
-            "vertex": 23,
-            "color": 2,
-            "neighbors": [
-              6,
-              21
-            ]
-          },
-          {
-            "vertex": 22,
-            "color": 1,
-            "neighbors": [
-              14,
-              23
-            ]
-          },
-          {
-            "vertex": 18,
-            "color": 0,
-            "neighbors": [
-              9,
-              22
-            ]
-          },
-          {
-            "vertex": 1,
-            "color": 2,
-            "neighbors": [
-              5,
-              22
-            ]
-          },
-          {
-            "vertex": 19,
-            "color": 1,
-            "neighbors": [
-              18,
-              23
-            ]
-          },
-          {
-            "vertex": 4,
-            "color": 0,
-            "neighbors": [
-              1,
-              8
-            ]
-          },
-          {
-            "vertex": 11,
-            "color": 2,
-            "neighbors": [
-              14,
-              19
-            ]
-          },
-          {
-            "vertex": 0,
-            "color": 2,
-            "neighbors": [
-              4,
-              6
-            ]
-          },
-          {
-            "vertex": 7,
-            "color": 0,
-            "neighbors": [
-              8,
-              11
-            ]
-          },
-          {
-            "vertex": 10,
-            "color": 2,
-            "neighbors": [
-              7,
-              22
-            ]
-          },
-          {
-            "vertex": 3,
-            "color": 1,
-            "neighbors": [
-              10,
-              14
-            ]
-          },
-          {
-            "vertex": 2,
-            "color": 2,
-            "neighbors": [
-              3,
-              7
-            ]
-          }
-        ],
-        "conflict_edge": [
-          0,
-          2
-        ]
-      },
-      {
-        "pattern": [
-          0,
-          1,
-          2,
-          1,
-          2
-        ],
-        "extra_assumption": null,
-        "forces": [
-          {
-            "vertex": 8,
-            "color": 1,
-            "neighbors": [
-              5,
-              9
-            ]
-          },
-          {
-            "vertex": 3,
-            "color": 2,
-            "neighbors": [
-              5,
-              14
-            ]
-          },
-          {
-            "vertex": 21,
-            "color": 0,
-            "neighbors": [
-              8,
-              20
-            ]
-          },
-          {
-            "vertex": 23,
-            "color": 2,
-            "neighbors": [
-              6,
-              21
-            ]
-          },
-          {
-            "vertex": 22,
-            "color": 0,
-            "neighbors": [
-              14,
-              23
-            ]
-          },
-          {
-            "vertex": 18,
-            "color": 1,
-            "neighbors": [
-              9,
-              22
-            ]
-          },
-          {
-            "vertex": 19,
-            "color": 0,
-            "neighbors": [
-              18,
-              23
-            ]
-          },
-          {
-            "vertex": 11,
-            "color": 2,
-            "neighbors": [
-              14,
-              19
-            ]
-          },
-          {
-            "vertex": 10,
-            "color": 1,
-            "neighbors": [
-              3,
-              22
-            ]
-          },
-          {
-            "vertex": 13,
-            "color": 2,
-            "neighbors": [
-              5,
-              10
-            ]
-          }
-        ],
-        "conflict_edge": [
-          11,
-          13
         ]
       }
     ]

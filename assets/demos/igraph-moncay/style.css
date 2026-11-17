@@ -1,0 +1,218 @@
+.demo[data-demo="igraph-moncay"] {
+  container: igraph-moncay / inline-size;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 12px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  min-width: 0;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-controls input,
+.demo[data-demo="igraph-moncay"] select {
+  max-width: 100%;
+  padding: 6px 8px;
+  font: inherit;
+  color: inherit;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-controls input {
+  width: 5em;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-preset {
+  flex: 1 1 230px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-views {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-view {
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #dce1ea;
+  border-radius: 8px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-view-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-canvas,
+.demo[data-demo="igraph-moncay"] .igraph-direction-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-canvas {
+  max-width: 470px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-canvas {
+  max-width: 290px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-controls button {
+  min-width: 2.4em;
+  min-height: 2em;
+  padding: 2px 8px;
+  border: 1px solid #9aa8be;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-controls button[aria-pressed="true"] {
+  border-color: #c32635;
+  color: #c32635;
+  box-shadow: inset 0 0 0 1px #c32635;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-controls button:focus-visible {
+  outline: 2px solid #3159a5;
+  outline-offset: 2px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-direction-detail {
+  min-height: 1.4em;
+  margin: 6px 0 0;
+  font-size: 13px;
+  text-align: center;
+}
+
+@container igraph-moncay (min-width: 34rem) {
+  .demo[data-demo="igraph-moncay"] .igraph-views {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-stats {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 6px 16px;
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-stats dt {
+  font-weight: 600;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-stats dd {
+  margin: 0;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-status,
+.demo[data-demo="igraph-moncay"] .igraph-error {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-moncay {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-moncay p {
+  margin: 0 0 4px;
+  font-weight: 600;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-moncay table {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  margin: 0;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-moncay th,
+.demo[data-demo="igraph-moncay"] .igraph-moncay td {
+  min-width: 0;
+  padding: 4px 8px;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-moncay th:first-child {
+  width: 35%;
+}
+
+.demo[data-demo="igraph-moncay"] .igraph-error {
+  color: #b4232f;
+}
+
+.demo[data-demo="igraph-moncay"] figcaption {
+  margin-top: 12px;
+}
+
+.demo[data-demo="igraph-moncay"] [hidden],
+.demo[data-demo="igraph-moncay"] [data-role="detail"]:empty {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  .demo[data-demo="igraph-moncay"] .igraph-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 8px;
+  }
+
+  .demo[data-demo="igraph-moncay"] .igraph-stats > div {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .demo[data-demo="igraph-moncay"] .igraph-stats dt {
+    font-size: 12px;
+    min-height: 2.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .demo[data-demo="igraph-moncay"] .igraph-controls label {
+    flex: 1 1 90px;
+  }
+
+  .demo[data-demo="igraph-moncay"] .igraph-controls .igraph-preset {
+    flex-basis: 100%;
+  }
+
+  .demo[data-demo="igraph-moncay"] .igraph-controls input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

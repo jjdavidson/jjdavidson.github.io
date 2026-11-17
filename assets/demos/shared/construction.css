@@ -1,0 +1,31 @@
+.demo.construction-demo .construction-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(270px, 65vw, 440px);
+}
+
+.demo.construction-demo .construction-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo.construction-demo [data-role="step"] {
+  margin-left: auto;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo.construction-demo figcaption {
+  margin-top: 12px;
+}
+
+.demo.construction-demo figcaption p {
+  margin: 0;
+}
+
+.demo.construction-demo [hidden],
+.demo.construction-demo [data-role="detail"]:empty {
+  display: none;
+}

@@ -1,0 +1,52 @@
+<figure id="{{ include.id | escape }}" class="demo construction-demo haugstrup3d" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-geometry-src="{{ include.demo.data | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-autoplay="{{ include.autoplay }}" aria-label="Assembly of the de Grey–Haugstrup graph">
+  <div class="panel">
+    <p class="orbit-help" id="{{ include.id | escape }}-controls">Drag to rotate, or focus the graph and use the arrow keys.</p>
+    <canvas class="construction-canvas" data-role="canvas" role="img" tabindex="0"
+      aria-describedby="{{ include.id | escape }}-controls" aria-label="The regular tetrahedron D, E, F, K"></canvas>
+    <div class="orbit-counts" data-role="counts">4 vertices · 6 edges</div>
+    <div class="construction-controls" role="group" aria-label="Construction steps">
+      <button class="btn" type="button" data-role="previous" disabled>Previous</button>
+      <button class="btn" type="button" data-role="play" disabled>Play</button>
+      <button class="btn" type="button" data-role="next" disabled>Next</button>
+      <button class="btn" type="button" data-role="reset-view" disabled>Reset view</button>
+      <span data-role="step">Step 1 of 8</span>
+    </div>
+  </div>
+  <figcaption aria-live="polite">
+    <p data-stage data-visual="The regular tetrahedron D, E, F, K">
+      <strong>Tetrahedron.</strong> Start with the regular tetrahedron \(D,E,F,K\) with unit edges.
+    </p>
+    <p data-stage hidden data-visual="Three new tetrahedra share the faces D E K, D F K, and E F K">
+      <strong>Add three tetrahedra.</strong> Attach one regular tetrahedron to each face that contains \(K\). The new vertices \(A,B,C\) sit opposite the shared faces \(DEK\), \(DFK\), and \(EFK\), respectively.
+    </p>
+    <p data-stage hidden data-visual="Reflection through A, B, and C adds G, H, I, and J">
+      <strong>Reflect the assembly.</strong> The shaded plane through \(A,B,C\) fixes those three vertices. The dashed guides join \(D,E,F,K\) to their reflections \(G,H,I,J\), respectively.
+    </p>
+    <div data-stage hidden data-visual="The 11-vertex scaffold with its four independent triples highlighted in turn">
+      <p><strong>Scaffold.</strong> In any proper five-coloring of these 11 vertices, at least one of the four independent triples shown must have all three vertices the same color. Select a triple to hold its highlight.</p>
+      <div class="orbit-triples" role="group" aria-label="Highlight an independent triple">
+        <button class="btn" type="button" data-role="triple-option" aria-pressed="true">A, B, C</button>
+        <button class="btn" type="button" data-role="triple-option" aria-pressed="false">C, D, G</button>
+        <button class="btn" type="button" data-role="triple-option" aria-pressed="false">B, E, H</button>
+        <button class="btn" type="button" data-role="triple-option" aria-pressed="false">A, F, I</button>
+      </div>
+    </div>
+    <p data-stage hidden data-visual="The first piece attaches to A, B, and C">
+      <strong>Piece 1.</strong> Attach nine vertices at \(A,B,C\). These vertices rule out a five-coloring in which \(A,B,C\) all have the same color.
+    </p>
+    <p data-stage hidden data-visual="The second piece attaches to C, D, and G">
+      <strong>Piece 2.</strong> The next nine vertices attach at \(C,D,G\) and rule out a common color on that triple.
+    </p>
+    <p data-stage hidden data-visual="The third piece attaches to B, E, and H">
+      <strong>Piece 3.</strong> This copy attaches at \(B,E,H\), ruling out the third possible monochromatic triple.
+    </p>
+    <p data-stage hidden data-visual="The last piece attaches to A, F, and I, completing the 47-vertex graph">
+      <strong>Piece 4.</strong> Attach the last nine vertices at \(A,F,I\). The completed graph rules out all four possibilities, so it requires a sixth color.
+    </p>
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to rotate the embedding and step through the construction.</p></noscript>
+</figure>

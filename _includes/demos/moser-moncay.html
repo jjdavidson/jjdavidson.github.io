@@ -1,0 +1,41 @@
+<figure id="{{ include.id | escape }}" class="demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  aria-label="Moser MonCay rotation and coloring explorer">
+  <div class="panel">
+    <form class="moser-controls" data-role="form" novalidate>
+      <label>
+        <span>Squared radius</span>
+        <input type="number" min="1" max="4096" step="1" value="3" data-role="squared-radius"
+          aria-describedby="{{ include.id | escape }}-radius-error" disabled>
+      </label>
+      <button class="btn btn-primary" type="submit" data-role="apply" disabled>Set radius</button>
+      <button class="btn" type="button" data-role="rotation" aria-pressed="false" disabled>Rotate</button>
+    </form>
+    <p id="{{ include.id | escape }}-radius-error" class="moser-error" data-role="radius-error" role="alert" hidden></p>
+    <canvas class="moser-canvas" data-role="canvas" role="img"
+      aria-label="A triangular lattice with a highlighted truss"></canvas>
+    <dl class="moser-stats" data-role="result" aria-label="Highlighted graph properties"
+      role="status" aria-live="polite" aria-atomic="true">
+      <div><dt>Vertices</dt><dd data-role="vertices">—</dd></div>
+      <div><dt>Edges</dt><dd data-role="edges">—</dd></div>
+      <div><dt>θ</dt><dd data-role="angle">—</dd></div>
+      <div><dt>3-colorable</dt><dd data-role="three-colorable">—</dd></div>
+      <div class="moser-polynomial">
+        <dt>Minimal polynomial of β</dt>
+        <dd data-role="polynomial">—</dd>
+      </div>
+    </dl>
+    <p class="moser-status" data-role="phase" role="status" hidden></p>
+  </div>
+  <figcaption>
+    A triangular lattice point \(m+n\alpha\), with \(\alpha=e^{i\pi/3}\), has squared radius \(r^2=m^2+mn+n^2\).
+    The turn satisfies \(\cos\theta=1-\frac{1}{2r^2}\), so the two tips are one unit apart.
+    The arc measures the angle between the edge from \(0\) to \(1\) and its rotated copy.
+    Each truss follows the horizontal direction first and uses \(\alpha\) steps as needed to reach the tip.
+    The triangles in each highlighted truss force its three-color pattern once the first triangle is colored.
+    The simulation tries both three-color patterns compatible with the shared origin and shows a proper coloring if one works.
+    The edge between the tips turns red when they share a color.
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to rotate the lattice and compare its colorings.</p></noscript>
+</figure>

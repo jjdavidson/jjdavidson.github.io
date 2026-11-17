@@ -23,4 +23,4 @@ Cayley graphs describe adjacency through a group and a choice of generators. My 
 - **Unit-Distance Graph Coloring** — The Hadwiger–Nelson problem, finite witnesses, and the role of geometric configurations in proving coloring bounds.
 - **Monomial Cayley Graphs** — The algebraic construction behind my paper and how finite configurations and computational searches help reveal its coloring properties.
 
-For a visual example from the monomial Cayley graphs paper, explore the **[finite witness simulation]({{ '/simulations/graphs/monomial-witness/' | relative_url }})**.
+For a visual example from the monomial Cayley graphs paper, explore the **[interactive triangle-free unit-distance graphs]({{ '/simulations/moncay/triangle-free-udg/' | relative_url }})**.

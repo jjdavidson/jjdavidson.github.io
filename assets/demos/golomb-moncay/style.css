@@ -1,0 +1,99 @@
+.demo[data-demo="golomb-moncay"] .golomb-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 12px;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-controls select {
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  font: inherit;
+  color: inherit;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(295px, 74vw, 540px);
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-stats {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 6px 16px;
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-stats dt {
+  font-weight: 600;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-stats dd {
+  margin: 0;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-polynomial {
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.demo[data-demo="golomb-moncay"] [data-role="polynomial"] {
+  overflow-wrap: anywhere;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-witness-proof,
+.demo[data-demo="golomb-moncay"] .golomb-error {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.demo[data-demo="golomb-moncay"] .golomb-error {
+  color: #b4232f;
+}
+
+.demo[data-demo="golomb-moncay"] figcaption {
+  margin-top: 12px;
+}
+
+.demo[data-demo="golomb-moncay"] [hidden],
+.demo[data-demo="golomb-moncay"] [data-role="detail"]:empty {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  .demo[data-demo="golomb-moncay"] .golomb-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 8px;
+  }
+
+  .demo[data-demo="golomb-moncay"] .golomb-stats > div:not(.golomb-polynomial) {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .demo[data-demo="golomb-moncay"] .golomb-stats > div:not(.golomb-polynomial) dt {
+    font-size: 12px;
+    min-height: 2.8em;
+  }
+}
+

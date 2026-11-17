@@ -1,17 +1,168 @@
-monomial-witness:
-  title: Monomial Witness
-  description: An animated six-case proof that a finite unit-distance graph needs at least four colors.
-  markup: demos/monomial-witness.html
-  stylesheet: /assets/demos/monomial-witness/style.css
-  module: /assets/demos/monomial-witness/main.js
-  data: /assets/demos/monomial-witness/data/witness.json
-  url: /simulations/graphs/monomial-witness/
-  category: Graphs
+finite-graphs:
+  title: Generate Finite Subgraph
+  description: Build finite graphs from powers of a point on the unit circle.
+  markup: demos/finite-graphs.html
+  stylesheet: /assets/demos/finite-graphs/style.css
+  module: /assets/demos/finite-graphs/main.js
+  url: /simulations/moncay/finite-graphs/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - research
+  autoplay: false
+
+triangle-free-udg:
+  title: Triangle Free UDG
+  description: Step through coloring proofs for triangle-free unit-distance graphs.
+  markup: demos/triangle-free-udg.html
+  stylesheet: /assets/demos/triangle-free-udg/style.css
+  module: /assets/demos/triangle-free-udg/main.js
+  presets:
+    - id: "24"
+      title: Davidson 24
+      vertices: 24
+      data: /assets/demos/triangle-free-udg/data/witness.json
+    - id: "21"
+      title: Davidson 21
+      vertices: 21
+      data: /assets/demos/triangle-free-udg/data/witness-21.json
+      guide:
+        - In a proper 3-coloring of a four-cycle, at least one pair of opposite vertices must share a color.
+        - Start with 10–11–14–13. Case 1 takes the diagonal 10–14. If those colors differ, 11 and 13 must match, giving Case 2. Apply the same rule to 0–1–5–4. Case 2a takes the diagonal 0–5, and Case 2b takes 1–4.
+    - id: "20"
+      title: Davidson 20
+      vertices: 20
+      data: /assets/demos/triangle-free-udg/data/witness-20.json
+      guide:
+        - In the four-cycle 2–0–4–11, at least one pair of opposite vertices must share a color. Case 1 makes 2 and 4 match. Otherwise 0 and 11 match, giving Case 2.
+        - In Case 2, the class {0, 11} and vertices 4, 5, and 12 form a four-cycle of color classes. The edge 11–12 closes it. Case 2a makes 5 match {0, 11}, and Case 2b makes 4 and 12 match.
+    - id: ei21
+      title: Exoo–Ismailescu 21
+      vertices: 21
+      data: /assets/demos/triangle-free-udg/data/exoo-ismailescu-21.json
+      guide:
+        - Every three-coloring of the base makes at least one of the triples {0, 1, 2} and {3, 4, 5} monochromatic. Of the sixteen colorings up to renaming, six make only the first triple match, six make only the second match, and four make both match.
+        - Case 1 uses the pentagon attached to {0, 1, 2}. Case 2 uses the pentagon attached to {3, 4, 5}. Either pentagon needs a third color that its attached triple forbids.
+      source: https://www.cs.rit.edu/~spr/COURSES/CCOMP/soifer.pdf#page=182
+    - id: ei19
+      title: Exoo–Ismailescu 19
+      vertices: 19
+      data: /assets/demos/triangle-free-udg/data/exoo-ismailescu-19.json
+      guide:
+        - In all ten three-colorings of the base graph, up to renaming colors, vertices 0, 1, and 2 have the same color.
+        - Each vertex of the attached pentagon touches one of these three vertices. The pentagon must alternate between the two remaining colors, which fails on the closing edge.
+      source: https://www.cs.rit.edu/~spr/COURSES/CCOMP/soifer.pdf#page=186
+    - id: ei17
+      title: Exoo–Ismailescu 17
+      vertices: 17
+      data: /assets/demos/triangle-free-udg/data/exoo-ismailescu-17.json
+      guide:
+        - In the four-cycle 2–14–9–16, at least one pair of opposite vertices must share a color. Case 1 makes 2 and 9 match. If they differ, 14 and 16 must match, giving Case 2.
+      source: https://www.cs.rit.edu/~spr/COURSES/CCOMP/soifer.pdf#page=190
+  url: /simulations/moncay/triangle-free-udg/
+  category: Monomial Cayley Graphs
   tags:
     - cayley-graphs
     - graph-coloring
     - research
   autoplay: true
+
+triangle-free-udg-opener:
+  title: 24-Vertex Coloring Proof
+  markup: demos/triangle-free-udg-opener.html
+  stylesheet: /assets/demos/triangle-free-udg/style.css
+  module: /assets/demos/triangle-free-udg/opener.js
+  data: /assets/demos/triangle-free-udg/data/witness.json
+  url: /simulations/moncay/triangle-free-udg/
+  autoplay: true
+
+harder-construction:
+  title: The De Grey-Harder 5-Chromatic UDG
+  description: Animate Harder's two-copy construction using de Grey's directions.
+  markup: demos/harder-construction.html
+  stylesheet: /assets/demos/shared/construction.css
+  module: /assets/demos/harder-construction/main.js
+  data: /assets/demos/harder-construction/data/construction.json
+  url: /simulations/moncay/harder-construction/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - research
+  autoplay: false
+
+haugland-construction:
+  title: Haugland's Spindle-Free 5-Chromatic UDG
+  description: Build Haugland’s 2,131-vertex graph from the unit directions of a heptagon construction.
+  markup: demos/haugland-construction.html
+  stylesheet: /assets/demos/shared/construction.css
+  module: /assets/demos/haugland-construction/main.js
+  data: /assets/demos/haugland-construction/data/construction.json
+  url: /simulations/moncay/haugland-construction/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - research
+  autoplay: false
+
+de-grey-haugstrup:
+  title: De Grey-Haugstrup
+  description: Rotate the 47-vertex unit-distance embedding in three dimensions and add its four pieces one at a time.
+  markup: demos/de-grey-haugstrup.html
+  stylesheet: /assets/demos/de-grey-haugstrup/style.css
+  module: /assets/demos/de-grey-haugstrup/main.js
+  data: /assets/demos/de-grey-haugstrup/data/graph.json
+  url: /simulations/moncay/haugstrup3d/
+  category: Monomial Cayley Graphs
+  tags:
+    - graph-coloring
+    - geometry
+  autoplay: false
+
+moser-moncay:
+  title: Moser MonCay
+  description: Choose a squared radius, rotate a triangular truss, and test the three-color patterns.
+  markup: demos/moser-moncay.html
+  stylesheet: /assets/demos/moser-moncay/style.css
+  module: /assets/demos/moser-moncay/main.js
+  url: /simulations/moncay/moser-moncay/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - geometry
+  autoplay: false
+
+golomb-moncay:
+  title: Golomb MonCay
+  description: Compare complete unit-contact sets and four-chromatic witnesses at exact rotations of an offset lattice.
+  markup: demos/golomb-moncay.html
+  stylesheet: /assets/demos/golomb-moncay/style.css
+  module: /assets/demos/golomb-moncay/main.js
+  data: /assets/demos/golomb-moncay/data/rotations.json
+  url: /simulations/moncay/golomb-moncay/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - geometry
+  autoplay: false
+
+igraph-moncay:
+  title: I-Graph moncay
+  description: Explore unit-distance representations, colorings, and MonCay generators for I-graphs.
+  markup: demos/igraph-moncay.html
+  stylesheet: /assets/demos/igraph-moncay/style.css
+  module: /assets/demos/igraph-moncay/main.js
+  data: /assets/demos/igraph-moncay/data/minimal-polynomials.json
+  url: /simulations/moncay/igraph-moncay/
+  category: Monomial Cayley Graphs
+  tags:
+    - cayley-graphs
+    - graph-coloring
+    - geometry
+  autoplay: false
 
 random-walk-1d:
   title: Random Walk 1D
@@ -41,12 +192,12 @@ random-walk-2d:
     - random-walks
   autoplay: false
 
-buffon-demo:
+buffons-needle:
   title: Buffon’s Needle
   description: Random throws of geometric shapes and estimates of pi.
-  markup: demos/buffon-demo.html
-  stylesheet: /assets/demos/buffon-demo/style.css
-  module: /assets/demos/buffon-demo/main.js
+  markup: demos/buffons-needle.html
+  stylesheet: /assets/demos/buffons-needle/style.css
+  module: /assets/demos/buffons-needle/main.js
   url: /simulations/probability/buffons-needle/
   category: Probability
   teaching_url: /teaching/pi-day/buffons-needle/

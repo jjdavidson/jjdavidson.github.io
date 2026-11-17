@@ -1,0 +1,54 @@
+<figure id="{{ include.id | escape }}" class="demo witness-demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-autoplay="{{ include.autoplay }}" aria-label="Step-through coloring proofs">
+  <div class="panel">
+    <div class="witness-panel-header">
+      <label class="witness-field">Witness
+        <select data-role="preset">
+          {% for preset in include.demo.presets %}
+          <option value="{{ preset.id | escape }}" data-vertex-count="{{ preset.vertices }}"
+            data-proof-src="{{ preset.data | relative_url }}?v={{ site.time | date: '%s' }}">{{ preset.title | escape }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="witness-field">Proof case
+        <select data-role="proof-case" disabled></select>
+      </label>
+    </div>
+
+    <div class="witness-toolbar">
+      <button type="button" data-role="previous-step" aria-label="Previous step" disabled>Prev</button>
+      <button type="button" data-role="play" disabled>Play</button>
+      <button type="button" data-role="next-step" aria-label="Next step" disabled>Next</button>
+      <span class="witness-step" data-role="step-count"></span>
+    </div>
+    <svg data-role="graph" viewBox="0 0 700 420" role="img" aria-labelledby="{{ include.id | escape }}Title {{ include.id | escape }}Description">
+      <title id="{{ include.id | escape }}Title" data-role="graph-title">A four-chromatic triangle-free unit-distance graph</title>
+      <desc id="{{ include.id | escape }}Description">Vertices are numbered. Each step highlights the vertices and edges used in the deduction. Every case ends with a red edge whose endpoints must share a color.</desc>
+    </svg>
+
+    <p class="witness-equality-key" data-role="equality-key" hidden>Matching gray tags mark a shared color that is still unknown.</p>
+    <p class="witness-proof-text" data-role="explanation" aria-live="polite" tabindex="0"></p>
+    <p class="witness-error" data-role="detail" role="alert"></p>
+  </div>
+
+  <details class="witness-case-guide" data-role="case-guide" hidden>
+    <summary>Why these cases?</summary>
+    {% for preset in include.demo.presets %}
+    {% if preset.guide %}
+    <div data-preset-guide="{{ preset.id | escape }}" hidden>
+      {% for paragraph in preset.guide %}<p>{{ paragraph | escape }}</p>{% endfor %}
+      {% if preset.source %}<p><a href="{{ preset.source | escape }}">Exoo and Ismailescu’s construction</a></p>{% endif %}
+    </div>
+    {% endif %}
+    {% endfor %}
+  </details>
+  {% if include.show_caption %}
+  <figcaption>
+    Triangle-free unit-distance graphs that require four colors.
+    The 24-vertex witness appears in <a href="https://arxiv.org/abs/2610.09474">Coloring Monomial Cayley Graphs: The One-Parameter Case</a>.
+  </figcaption>
+  {% endif %}
+  <noscript><p>Enable JavaScript to step through the coloring proofs.</p></noscript>
+</figure>
+

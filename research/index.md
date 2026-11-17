@@ -11,7 +11,13 @@ permalink: /research/
 
 My research focuses on graph coloring, extremal problems, and set representations of graphs and hypergraphs. These pages bring together my papers, ongoing projects, and background articles that introduce the questions and methods behind them.
 
-The articles are organized into four areas:
+## Current questions
+
+I’m looking for a small, explicit triangle-free unit-distance graph that requires five colors, and an explicit unit-distance graph that requires six. I use SAT to test finite configurations and semidefinite programming to derive bounds, with an emphasis on exact coordinates and certificates that others can check. [István Tomon’s randomized construction](https://arxiv.org/html/2610.03517v1#S5) establishes the existence of five-chromatic unit-distance graphs of arbitrary girth in the plane.
+
+I’m also interested in extremal set theory, especially Erdős–Ko–Rado-type problems and variants of the sunflower conjecture.
+
+## Research areas
 
 - **[Cayley Graphs]({{ '/research/cayley-graphs/' | relative_url }})** — Coloring monomial Cayley graphs and circulants, with connections to the Hadwiger–Nelson problem.
 - **[Extremal Theory]({{ '/research/extremal-theory/' | relative_url }})** — Turán densities in Hamming graphs and extremal problems in hypercubes.

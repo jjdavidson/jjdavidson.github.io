@@ -2,7 +2,7 @@
 layout: home
 title: Home
 nav_order: 1
-featured_simulation: monomial-witness
+featured_simulation: triangle-free-udg-opener
 ---
 
 {% include demos/embed.html name=page.featured_simulation id="featuredSimulation" autoplay=true show_caption=true %}
@@ -23,10 +23,10 @@ Feel free to explore my [math notes]({{ '/notes/' | relative_url }}) and experim
 
 ---
 
-## Contact
+## Contact Information
 
 <div class="about-contact">
-  <img src="{{ '/assets/images/headshot.jpg' | relative_url }}" width="140" height="140" alt="Jonathan Davidson" loading="lazy">
+  <img src="{{ '/assets/images/headshot-280.jpg' | relative_url }}" width="140" height="140" alt="Jonathan Davidson" loading="lazy">
   <div>
     <p><strong>Email</strong>: <a href="mailto:jonathan.j.davidson@gmail.com">jonathan.j.davidson@gmail.com</a></p>
     <p><strong>GitHub</strong>: <a href="https://github.com/jjdavidson">jjdavidson</a></p>

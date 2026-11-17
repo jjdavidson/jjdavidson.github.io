@@ -1,0 +1,153 @@
+{
+  "convention": "L=Z[alpha], moving lattice exp(i theta)*(1/(2-alpha)+L), alpha=exp(i pi/3).",
+  "scope": "Every preset gives an exact rotation and the complete set of contacts of the two infinite lattices. The decimal angle is a display label.",
+  "presets": [
+    {
+      "id": "classical",
+      "label": "Classical Golomb · 3 contacts",
+      "w": [
+        -1,
+        1
+      ],
+      "y": [
+        1,
+        0
+      ],
+      "branch": -1,
+      "N": 1,
+      "M": 1,
+      "D": 11,
+      "angleDegrees": 16.778654880960364,
+      "expectedContacts": 3,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    },
+    {
+      "id": "side-two",
+      "label": "Second offset shell · 3 contacts",
+      "w": [
+        -1,
+        0
+      ],
+      "y": [
+        -2,
+        0
+      ],
+      "branch": 1,
+      "N": 1,
+      "M": 4,
+      "D": 32,
+      "angleDegrees": 24.735610317245342,
+      "expectedContacts": 3,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    },
+    {
+      "id": "N3-M7",
+      "label": "Small rotation · 3 contacts",
+      "w": [
+        -1,
+        2
+      ],
+      "y": [
+        2,
+        1
+      ],
+      "branch": -1,
+      "N": 3,
+      "M": 7,
+      "D": 83,
+      "angleDegrees": 5.870523925252989,
+      "expectedContacts": 3,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    },
+    {
+      "id": "one-shell-six",
+      "label": "Six contacts · one shell pair",
+      "w": [
+        -1,
+        -2
+      ],
+      "y": [
+        -6,
+        2
+      ],
+      "branch": -1,
+      "N": 7,
+      "M": 28,
+      "D": 236,
+      "angleDegrees": 11.532595083186585,
+      "expectedContacts": 6,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Four-color reduction at 2 with squarefree discriminant 59."
+    },
+    {
+      "id": "six",
+      "label": "Six contacts · two shell pairs",
+      "w": [
+        0,
+        -2
+      ],
+      "y": [
+        -5,
+        0
+      ],
+      "branch": -1,
+      "N": 4,
+      "M": 25,
+      "D": 44,
+      "angleDegrees": 18.960515596306433,
+      "expectedContacts": 6,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    },
+    {
+      "id": "nine",
+      "label": "Nine contacts · two shell pairs",
+      "w": [
+        -7,
+        0
+      ],
+      "y": [
+        -12,
+        8
+      ],
+      "branch": -1,
+      "N": 49,
+      "M": 112,
+      "D": 320,
+      "angleDegrees": 6.896227698489851,
+      "expectedContacts": 9,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    },
+    {
+      "id": "twelve",
+      "label": "Twelve contacts · three shell pairs",
+      "w": [
+        -10,
+        1
+      ],
+      "y": [
+        -20,
+        15
+      ],
+      "branch": -1,
+      "N": 91,
+      "M": 325,
+      "D": 875,
+      "angleDegrees": 8.047280735464327,
+      "expectedContacts": 12,
+      "moncayMin": 4,
+      "moncayMax": 4,
+      "proof": "Full coordinate-field four-coloring; a Golomb contact orbit excludes three colors."
+    }
+  ]
+}

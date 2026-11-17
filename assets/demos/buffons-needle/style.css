@@ -1,8 +1,8 @@
-div.demo[data-demo="buffon-demo"] {
+div.demo[data-demo="buffons-needle"] {
     margin: 1rem 0 0;
 }
 
-.demo[data-demo="buffon-demo"] .controls {
+.demo[data-demo="buffons-needle"] .controls {
     display: flex;
     flex-wrap: wrap;
     gap: 14px;
@@ -10,7 +10,7 @@ div.demo[data-demo="buffon-demo"] {
     margin-bottom: 12px;
 }
 
-.demo[data-demo="buffon-demo"] label {
+.demo[data-demo="buffons-needle"] label {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -18,41 +18,41 @@ div.demo[data-demo="buffon-demo"] {
     min-width: 220px;
 }
 
-.demo[data-demo="buffon-demo"] label.wide {
+.demo[data-demo="buffons-needle"] label.wide {
     min-width: 320px;
     flex: 1 1 320px;
 }
 
-.demo[data-demo="buffon-demo"] .row {
+.demo[data-demo="buffons-needle"] .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.demo[data-demo="buffon-demo"] button {
+.demo[data-demo="buffons-needle"] button {
     padding: 10px 14px;
     font-weight: 700;
     cursor: pointer;
 }
 
-.demo[data-demo="buffon-demo"] .panels {
+.demo[data-demo="buffons-needle"] .panels {
     display: flex;
     flex-direction: column;
     gap: 14px;
 }
 
-.demo[data-demo="buffon-demo"] .panel {
+.demo[data-demo="buffons-needle"] .panel {
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 10px;
     padding: 10px;
 }
 
-.demo[data-demo="buffon-demo"] .panelTitle {
+.demo[data-demo="buffons-needle"] .panelTitle {
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.demo[data-demo="buffon-demo"] canvas {
+.demo[data-demo="buffons-needle"] canvas {
     width: 100%;
     height: auto;
     display: block;

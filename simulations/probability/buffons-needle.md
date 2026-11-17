@@ -9,4 +9,4 @@ permalink: /simulations/probability/buffons-needle/
 
 # Estimating $\pi$ by Tossing Polygons
 
-{% include demos/embed.html name="buffon-demo" id="buffonDemo" autoplay=false %}
+{% include demos/embed.html name="buffons-needle" id="buffonDemo" autoplay=false %}

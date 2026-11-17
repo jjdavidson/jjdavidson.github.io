@@ -1,0 +1,89 @@
+.demo[data-demo="moser-moncay"] .moser-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px 12px;
+}
+
+.demo[data-demo="moser-moncay"] .moser-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.demo[data-demo="moser-moncay"] [data-role="squared-radius"] {
+  width: 7em;
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.demo[data-demo="moser-moncay"] .moser-canvas {
+  display: block;
+  width: 100%;
+  height: clamp(275px, 72vw, 510px);
+}
+
+.demo[data-demo="moser-moncay"] .moser-stats {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 6px 16px;
+  margin: 8px 0 0;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.demo[data-demo="moser-moncay"] .moser-stats > div {
+  display: flex;
+  align-items: baseline;
+  gap: 2px 8px;
+}
+
+.demo[data-demo="moser-moncay"] .moser-stats dt {
+  font-weight: 600;
+}
+
+.demo[data-demo="moser-moncay"] .moser-stats dd {
+  margin: 0;
+}
+
+.demo[data-demo="moser-moncay"] .moser-polynomial {
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+}
+
+.demo[data-demo="moser-moncay"] .moser-status,
+.demo[data-demo="moser-moncay"] .moser-error {
+  margin: 8px 0 0;
+  font-size: 14px;
+}
+
+.demo[data-demo="moser-moncay"] .moser-error {
+  color: #b4232f;
+}
+
+.demo[data-demo="moser-moncay"] figcaption {
+  margin-top: 12px;
+}
+
+.demo[data-demo="moser-moncay"] [hidden],
+.demo[data-demo="moser-moncay"] [data-role="detail"]:empty {
+  display: none;
+}
+
+@media (max-width: 540px) {
+  .demo[data-demo="moser-moncay"] .moser-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 8px;
+  }
+
+  .demo[data-demo="moser-moncay"] .moser-stats > div:not(.moser-polynomial) {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .demo[data-demo="moser-moncay"] .moser-stats > div:not(.moser-polynomial) dt {
+    font-size: 12px;
+    min-height: 2.8em;
+  }
+}

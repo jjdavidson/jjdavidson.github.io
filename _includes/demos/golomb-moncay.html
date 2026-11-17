@@ -1,0 +1,43 @@
+<figure id="{{ include.id | escape }}" class="demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-data-src="{{ include.demo.data | relative_url }}?v={{ site.time | date: '%s' }}"
+  aria-label="Golomb MonCay contact presets">
+  <div class="panel">
+    <div class="golomb-controls">
+      <label>
+        <span>Preset</span>
+        <select data-role="preset" aria-describedby="{{ include.id | escape }}-error" disabled>
+          <option>Loading presets…</option>
+        </select>
+      </label>
+      <button class="btn" type="button" data-role="witness-toggle"
+        aria-controls="{{ include.id | escape }}-canvas" aria-pressed="false" disabled>Show witness</button>
+      <button class="btn" type="button" data-role="circles-toggle"
+        aria-controls="{{ include.id | escape }}-canvas" aria-pressed="false" disabled>Show contact circles</button>
+    </div>
+    <p id="{{ include.id | escape }}-error" class="golomb-error" data-role="error" role="alert" hidden></p>
+    <canvas id="{{ include.id | escape }}-canvas" class="golomb-canvas" data-role="canvas" role="img"
+      aria-label="Unit contacts between the fixed and offset triangular lattices"></canvas>
+    <dl class="golomb-stats" data-role="summary" aria-label="Contact counts and two-lattice colorability"
+      role="status" aria-live="polite" aria-atomic="true">
+      <div><dt>Vertices</dt><dd data-role="vertices">—</dd></div>
+      <div><dt>Edges</dt><dd data-role="edges">—</dd></div>
+      <div><dt>θ</dt><dd data-role="angle">—</dd></div>
+      <div><dt>3-colorable</dt><dd data-role="three-colorable">—</dd></div>
+      <div class="golomb-polynomial">
+        <dt>Minimal polynomial of σ</dt>
+        <dd data-role="polynomial">—</dd>
+      </div>
+    </dl>
+    <p class="golomb-witness-proof" data-role="witness-proof" hidden>
+      The triangles force the fixed tips to share a color and the offset tips to use all three
+      colors. In any three-coloring, one contact edge would join equal colors.
+    </p>
+  </div>
+  <figcaption>
+    The contact view shows all unit contacts at the selected rotation. The witness view shows
+    a finite subgraph that requires four colors, at the same scale. Contact circles mark the endpoint radii.
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to explore the contacts at each rotation.</p></noscript>
+</figure>

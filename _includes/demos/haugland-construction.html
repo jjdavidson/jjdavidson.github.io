@@ -1,0 +1,55 @@
+<figure id="{{ include.id | escape }}" class="demo construction-demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-geometry-src="{{ include.demo.data | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-autoplay="{{ include.autoplay }}" aria-label="{{ include.demo.title | escape }}">
+  <div class="panel">
+    <canvas class="construction-canvas" data-role="canvas" role="img"
+      aria-label="A heptagon, two heptagrams, and seven equilateral triangles"></canvas>
+    <div class="construction-controls" role="group" aria-label="Construction steps">
+      <button class="btn" type="button" data-role="previous" disabled>Previous</button>
+      <button class="btn" type="button" data-role="play" disabled>Play</button>
+      <button class="btn" type="button" data-role="next" disabled>Next</button>
+      <span data-role="step">Step 1 of 10</span>
+    </div>
+  </div>
+  <figcaption aria-live="polite">
+    <p data-stage data-visual="A heptagon, two heptagrams, and seven equilateral triangles">
+      Start with Haugland’s 21-vertex graph \(H\).
+    </p>
+    <p data-stage hidden data-visual="The 42 edges slide to the origin, then their negatives extend in the opposite directions">
+      Orient each of the 42 edges of \(H\) and slide it to the origin. Then add its negative in blue. The 84 arrows give the allowed unit steps.
+    </p>
+    <p data-stage hidden data-visual="Unit-step paths run from A at the origin to B at height square root of three">
+      Trace Haugland’s 231 paths from \(A=0\) to \(B=i\sqrt{3}\) using the 84 steps. Keep every point visited by at least one path.
+    </p>
+    <p data-stage hidden data-visual="Unit-distance edges fill the set of points visited by the paths">
+      Join every pair of retained points at unit distance. The resulting graph \(G_1\) has 740 vertices and 3,985 edges.
+    </p>
+    <p data-stage hidden data-visual="The two marked endpoints A and B must have different colors">
+      Haugland used a SAT solver to rule out every proper four-coloring of \(G_1\) in which \(A\) and \(B\) have the same color.
+      <a href="https://arxiv.org/html/2608.04542v5#S3">Haugland’s construction and coloring check</a>
+    </p>
+    <p data-stage hidden data-visual="Two copies of G1 rotate into G2 while dashed links track their forced-different pairs">
+      Rotate \(G_1\) clockwise by \(60^\circ\) about \((-1/2,\sqrt{3}/2)\) and counterclockwise by \(60^\circ\) about \((1/2,\sqrt{3}/2)\).
+      The dashed links follow \(A\) and \(B\) in each copy. These points must have different colors in a four-coloring.
+      Merge coincident points and join all unit pairs to form \(G_2\), with 1,066 vertices and 6,264 edges.
+    </p>
+    <p data-stage hidden data-visual="The full graph G2 with the five vertices L, O, R, U, and V highlighted">
+      The triangle \(O,U,V\) uses three different colors. The solid unit edges and dashed links require each tip, \(L\) and \(R\), to differ from all three.
+      Both tips must therefore take the fourth color.
+    </p>
+    <p data-stage hidden data-visual="A copy of G2 turns counterclockwise around the left tip">
+      Rotate a second copy of \(G_2\) about its left tip \((-1,0)\) by \(\arccos(7/8)\approx28.96^\circ\).
+      The copies share the left tip, and their right tips are one unit apart.
+    </p>
+    <p data-stage hidden data-visual="The red unit edge joins the right tips R and R prime">
+      Draw the red unit edge from \(R\) to \(R'\). Both tips must match the shared left tip in a four-coloring, yet their unit edge requires different colors.
+    </p>
+    <p data-stage hidden data-visual="All 2,131 vertices are shown in a proper five-coloring">
+      This proper five-coloring attains the lower bound. Haugland’s graph \(G_3\) has 2,131 vertices and 12,530 edges and contains no Moser spindle.
+      <a href="https://arxiv.org/html/2608.04542v5#S3">Haugland’s five-chromatic graph</a>
+    </p>
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to step through the construction.</p></noscript>
+</figure>

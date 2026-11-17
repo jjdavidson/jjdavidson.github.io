@@ -1,0 +1,85 @@
+<figure id="{{ include.id | escape }}" class="demo construction-demo" data-demo="{{ include.name | escape }}"
+  data-module-src="{{ include.demo.module | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-geometry-src="{{ include.demo.data | relative_url }}?v={{ site.time | date: '%s' }}"
+  data-autoplay="{{ include.autoplay }}" aria-label="{{ include.demo.title | escape }}">
+  <div class="panel">
+    <canvas class="construction-canvas" data-role="canvas" role="img"
+      aria-label="The origin and the six vertices of a unit hexagon"></canvas>
+    <div class="construction-controls" role="group" aria-label="Construction steps">
+      <button class="btn" type="button" data-role="previous" disabled>Previous</button>
+      <button class="btn" type="button" data-role="play" disabled>Play</button>
+      <button class="btn" type="button" data-role="next" disabled>Next</button>
+      <span data-role="step">Step 1 of 9</span>
+    </div>
+  </div>
+  <figcaption aria-live="polite">
+    <p data-stage data-visual="The origin and six points spaced sixty degrees apart">
+      <strong>Start with a hexagon.</strong>
+      Let \(\alpha=(1+i\sqrt3)/2\). Take the origin and the six powers \(1,\alpha,\ldots,\alpha^5\).
+    </p>
+    <p data-stage hidden data-visual="Five rotated hexagons share an origin, giving thirty unit directions">
+      <strong>Build the radius-one ball \(V\).</strong>
+      Rotate the hexagon by \(1,\beta,\beta^2,\beta^3,\beta^4\), where \(\beta=(\sqrt{33}+i\sqrt3)/6\).
+      The 30 tips \(\alpha^i\beta^j\) and the origin give 31 points. These are
+      <a href="https://arxiv.org/pdf/1804.02385#page=7">de Grey’s directions</a> rotated by \(\beta^2\) to make all exponents nonnegative.
+    </p>
+    <p data-stage hidden data-visual="Copies of the radius-one ball accumulate at its points to form a radius-two ball">
+      <strong>Build the radius-two ball \(V+V\).</strong>
+      Place a copy of \(V\) at each of its 31 points. Merge coincident points to get 451 distinct points reachable in at most two steps.
+    </p>
+    <p data-stage hidden data-visual="Six translations of the radius-two ball are added to the original">
+      <strong>Build the radius-three ball \(V+V+V\).</strong>
+      Allowing a third move in any of the 30 directions gives 3,451 distinct points.
+      For the coloring computation, the smaller subgraph on \(V+V+H\) suffices.
+      Here \(H\) contains the origin and the six tips of the middle hexagon, \(\beta^2,\alpha\beta^2,\ldots,\alpha^5\beta^2\).
+      The animation places a copy of \(V+V\) at each point of \(H\), giving 2,035 distinct points.
+    </p>
+    <p data-stage hidden data-visual="Unit edges fill the 2,035-point set in five direction families">
+      <strong>Add the unit edges.</strong>
+      Join two points whenever their difference is one of the 30 allowed directions from \(V\).
+      The resulting forcing graph has 13,722 edges.
+    </p>
+    <p data-stage hidden data-visual="The origin and the point L are marked in orange">
+      <strong>Mark the pair that must match.</strong>
+      In every proper four-coloring, the origin and \(L=(8/3)\beta^2\) have the same color.
+      <a href="https://dustingmixon.wordpress.com/2018/04/22/polymath16-second-thread-what-does-it-take-to-be-5-chromatic/#comment-4074">Jannis Harder</a>
+      found this by ruling out four-colorings with different colors at the marked points.
+    </p>
+    <p data-stage hidden data-visual="A blue copy turns about the origin, moving its marked point one unit from L">
+      <strong>Rotate a second copy about \(0\).</strong>
+      Turn it by \(\theta=\arccos(119/128)\approx21.61^\circ\).
+      The new marked point \(L'\) is one unit from \(L\), and both copies share the origin.
+    </p>
+    <p data-stage hidden data-visual="A red unit edge joins the two orange tips, completing the five-chromatic graph">
+      <strong>Draw the closing edge.</strong>
+      Both marked tips must match the shared origin in any four-coloring, but their new unit edge requires different colors.
+      Four colors are impossible.
+    </p>
+    <div data-stage hidden data-visual="The graph has a proper five-coloring. The origin has color zero, L has color one, and the rotated tip has color three.">
+      <p>
+        <strong>Color by adding the weights of the steps.</strong>
+        Write a vertex in the first copy as an integer combination of the 30 directions \(\alpha^i\beta^j\).
+        Look up the weight of \(\alpha^i\beta^j\) in row \(\alpha^i\) and column \(\beta^j\).
+        Multiply each coefficient by its direction's weight, add, and take the remainder modulo 5.
+      </p>
+      \[
+      \begin{array}{c|ccccc}
+         & 1 & \beta & \beta^2 & \beta^3 & \beta^4\\ \hline
+      1        & 1 & 2 & 1 & 2 & 4\\
+      \alpha   & 4 & 1 & 3 & 3 & 1\\
+      \alpha^2 & 3 & 4 & 2 & 1 & 2\\
+      \alpha^3 & 4 & 3 & 4 & 3 & 1\\
+      \alpha^4 & 1 & 4 & 2 & 2 & 4\\
+      \alpha^5 & 2 & 1 & 3 & 4 & 3
+      \end{array}
+      \]
+      <p>
+        For \(L=1+\beta^2+\beta^4\), the weights give \(1+1+4\equiv 1\pmod5\).
+        For a point in the rotated copy, use the same sum for its corresponding point in the first copy, then multiply by 3 modulo 5.
+        So \(L'\) gets color \(3\cdot 1=3\).
+      </p>
+    </div>
+  </figcaption>
+  <p data-role="detail" role="alert"></p>
+  <noscript><p>Enable JavaScript to step through the construction.</p></noscript>
+</figure>
